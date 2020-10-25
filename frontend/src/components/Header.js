@@ -4,7 +4,7 @@ import { LinkContainer } from 'react-router-bootstrap';
 const Header = () => {
   return (
     <header>
-      <Navbar bg='light' variant='light' expand='lg' collapseOnSelect>
+      <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>Marinduque GIS</Navbar.Brand>
@@ -17,12 +17,12 @@ const Header = () => {
                   <i class='fas fa-home'></i> Home
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/student-registration'>
+              <LinkContainer to='/student/register'>
                 <Nav.Link>
                   <i class='fas fa-graduation-cap'></i>Student Registration
                 </Nav.Link>
               </LinkContainer>
-              <LinkContainer to='/employee-registration'>
+              <LinkContainer to='/employee/register'>
                 <Nav.Link>
                   <i class='fas fa-briefcase'></i>Employee Registration
                 </Nav.Link>

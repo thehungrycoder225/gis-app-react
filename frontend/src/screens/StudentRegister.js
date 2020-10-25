@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Card } from 'react-bootstrap';
-
+import axios from 'axios';
 const StudentRegister = () => {
+  const [areas, setAreas] = useState([]);
+  useEffect(() => {
+    const fetchAreas = async () => {
+      const { data } = await axios.get(
+        'https://immense-eyrie-57635.herokuapp.com/api/area/'
+      );
+      setAreas(data);
+    };
+    fetchAreas();
+  }, []);
   return (
     <Container className='my-3'>
       <Card>
@@ -46,7 +56,9 @@ const StudentRegister = () => {
             <Form.Group controlId='student-municipality'>
               <Form.Label>Municipality</Form.Label>
               <Form.Control as='select'>
-                <option>Select a Municipality</option>
+                <option selected disabled>
+                  Select a Municipality
+                </option>
                 <option>Mogpog</option>
                 <option>Boac</option>
                 <option>Gasan</option>
@@ -58,7 +70,9 @@ const StudentRegister = () => {
             <Form.Group controlId='student-barangay'>
               <Form.Label>Barangay</Form.Label>
               <Form.Control as='select'>
-                <option>Select a Barangay</option>
+                <option selected disabled>
+                  Select a Barangay
+                </option>
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='student-address'>

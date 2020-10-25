@@ -8,6 +8,7 @@ import Home from './screens/Home';
 import StudentRegister from './screens/StudentRegister';
 import EmployeeRegister from './screens/EmployeeRegister';
 import CovidMap from './screens/CovidMap';
+import UserLogin from './screens/UserLogin';
 
 class App extends React.Component {
   render() {
@@ -17,16 +18,13 @@ class App extends React.Component {
         <main className='py-3'>
           <Container>
             <Route path='/' component={Home} exact />
+            <Route path='/student/register' component={StudentRegister} exact />
             <Route
-              path='/student-registration'
-              component={StudentRegister}
-              exact
-            />
-            <Route
-              path='/employee-registration'
+              path='/employee/register'
               component={EmployeeRegister}
               exact
             />
+            <Route path='/user/login' component={UserLogin} exact />
             <Route path='/map' component={CovidMap} exact />
           </Container>
         </main>
