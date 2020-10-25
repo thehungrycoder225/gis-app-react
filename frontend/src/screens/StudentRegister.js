@@ -1,92 +1,139 @@
 import React, { useState, useEffect } from 'react';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 import axios from 'axios';
-const StudentRegister = () => {
-  const [areas, setAreas] = useState([]);
-  useEffect(() => {
-    const fetchAreas = async () => {
-      const { data } = await axios.get(
-        'https://immense-eyrie-57635.herokuapp.com/api/area/'
-      );
-      setAreas(data);
+class StudentRegister extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      areas: [],
+      municipality: '',
+      barangay: '',
+      address: '',
     };
-    fetchAreas();
-  }, []);
-  return (
-    <Container className='my-3'>
-      <Card>
-        <Card.Header>Student Registration</Card.Header>
-        <Card.Body>
-          <Form>
-            <Form.Group controlId='studentId'>
-              <Form.Label>Student Id:</Form.Label>
-              <Form.Control type='text' placeholder='10B07A1' />
-            </Form.Group>
-            <Form.Group controlId='student-name'>
-              <Form.Label>Student Name:</Form.Label>
-              <Form.Control type='text' placeholder='John V. Doe' />
-            </Form.Group>
-            <Form.Group controlId='student-age'>
-              <Form.Label>Student Age:</Form.Label>
-              <Form.Control type='number' placeholder='19' />
-            </Form.Group>
-            <Form.Group controlId='student-school'>
-              <Form.Label>School</Form.Label>
-              <Form.Control as='select'>
-                <option>School of Information and Computing Sciences</option>
-                <option>School of Arts and Sciences</option>
-                <option>School of Engineering</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='student-course'>
-              <Form.Label>Course</Form.Label>
-              <Form.Control as='select'>
-                <option>BSI/T</option>
-                <option>BSIS</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='student-phone'>
-              <Form.Label>Phone:</Form.Label>
-              <Form.Control type='number' placeholder='09999999' />
-            </Form.Group>
-            <Form.Group controlId='student-year'>
-              <Form.Label>Year Level:</Form.Label>
-              <Form.Control type='number' placeholder='1' />
-            </Form.Group>
-            <Form.Group controlId='student-municipality'>
-              <Form.Label>Municipality</Form.Label>
-              <Form.Control as='select'>
-                <option selected disabled>
-                  Select a Municipality
-                </option>
-                <option>Mogpog</option>
-                <option>Boac</option>
-                <option>Gasan</option>
-                <option>Buenavista</option>
-                <option>Torrijos</option>
-                <option>Sta. Cruz</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='student-barangay'>
-              <Form.Label>Barangay</Form.Label>
-              <Form.Control as='select'>
-                <option selected disabled>
-                  Select a Barangay
-                </option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlId='student-address'>
-              <Form.Control type='text' hidden />
-            </Form.Group>
-            <Button variant='success' type='submit'>
-              Submit
-            </Button>{' '}
-            <Button variant='danger'>Clear</Button>
-          </Form>
-        </Card.Body>
-      </Card>
-    </Container>
-  );
-};
+  }
+  componentDidMount() {
+    axios
+      .get('http://immense-eyrie-57635.herokuapp.com/api/area/')
+      .then((res) => {
+        this.setState({
+          areas: res.data.data,
+        });
+      });
+  }
+  ChangeMunicipality = async (e) => {
+    e.preventDefault();
+    this.setState({ municipality: e.target.value });
+    await axios
+      .get('http://immense-eyrie-57635.herokuapp.com/api/area/', {
+        params: {
+          municipality: e.target.value,
+        },
+      })
+      .then((res) => this.setState({ areas: res.data.data }));
+  };
+
+  ChangeBarangay = (e) => {
+    this.setState({ barangay: e.target.value });
+  };
+
+  ChangeAddress = (e) => {
+    e.target.value = this.state.address;
+    this.setState = {
+      address: `${this.state.barangay},${this.state.municipality}`,
+    };
+  };
+  render() {
+    const { barangay, municipality } = this.state;
+    console.log(barangay, municipality);
+    return (
+      <Container className='my-3'>
+        <Card>
+          <Card.Header>Student Registration</Card.Header>
+          <Card.Body>
+            <Form>
+              <Form.Group controlId='studentId'>
+                <Form.Label>Student Id:</Form.Label>
+                <Form.Control type='text' placeholder='10B07A1' />
+              </Form.Group>
+              <Form.Group controlId='student-name'>
+                <Form.Label>Student Name:</Form.Label>
+                <Form.Control type='text' placeholder='John V. Doe' />
+              </Form.Group>
+              <Form.Group controlId='student-age'>
+                <Form.Label>Student Age:</Form.Label>
+                <Form.Control type='number' placeholder='19' />
+              </Form.Group>
+              <Form.Group controlId='student-school'>
+                <Form.Label>School</Form.Label>
+                <Form.Control as='select'>
+                  <option>School of Information and Computing Sciences</option>
+                  <option>School of Arts and Sciences</option>
+                  <option>School of Engineering</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId='student-course'>
+                <Form.Label>Course</Form.Label>
+                <Form.Control as='select'>
+                  <option>BSI/T</option>
+                  <option>BSIS</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId='student-phone'>
+                <Form.Label>Phone:</Form.Label>
+                <Form.Control type='number' placeholder='09999999' />
+              </Form.Group>
+              <Form.Group controlId='student-year'>
+                <Form.Label>Year Level:</Form.Label>
+                <Form.Control type='number' placeholder='1' />
+              </Form.Group>
+              <Form.Group controlId='student-municipality'>
+                <Form.Label>Municipality</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={this.state.municipality}
+                  onChange={this.ChangeMunicipality}
+                >
+                  <option defaultValue>Select a Municipality</option>
+                  <option>Mogpog</option>
+                  <option>Boac</option>
+                  <option>Gasan</option>
+                  <option>Buenavista</option>
+                  <option>Torrijos</option>
+                  <option>Santa Cruz</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId='student-barangay'>
+                <Form.Label>Barangay</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={this.state.barangay}
+                  onChange={this.ChangeBarangay}
+                >
+                  <option defaultValue>Select a Barangay</option>
+                  {this.state.areas.map((area, index) => (
+                    <option key={index} value={area.barangay}>
+                      {area.barangay}
+                    </option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlId='student-address'>
+                <Form.Control
+                  type='text'
+                  value={this.state.address}
+                  onChange={this.ChangeAddress}
+                />
+              </Form.Group>
+              <Button variant='success' type='submit'>
+                Submit
+              </Button>{' '}
+              <Button variant='danger'>Clear</Button>
+            </Form>
+          </Card.Body>
+        </Card>
+      </Container>
+    );
+  }
+}
 
 export default StudentRegister;

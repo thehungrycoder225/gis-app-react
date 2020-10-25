@@ -1,20 +1,13 @@
 import React from 'react';
 import { Container, Button, Form, Card } from 'react-bootstrap';
 const UserLogin = () => {
-  const onFinish = (values) => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
-  };
   return (
     <>
       <Container>
         <Card>
           <Card.Header>User Login</Card.Header>
           <Card.Body>
-            <Form onFinish={onFinish} onFinishFailed={onFinishFailed}>
+            <Form>
               <Form.Group controlId='formBasicEmail'>
                 <Form.Label>Username</Form.Label>
                 <Form.Control type='text' placeholder='Enter username' />
