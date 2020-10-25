@@ -32,19 +32,22 @@ class StudentRegister extends React.Component {
       .then((res) => this.setState({ areas: res.data.data }));
   };
 
-  ChangeBarangay = (e) => {
-    this.setState({ barangay: e.target.value });
+  ChangeBarangay = async (e) => {
+    await this.setState(
+      {
+        barangay: e.target.value,
+      },
+      () => {
+        this.setState({
+          address: `${this.state.barangay},${this.state.municipality}`,
+        });
+      }
+    );
+    console.log(this.state.address);
   };
 
-  ChangeAddress = (e) => {
-    e.target.value = this.state.address;
-    this.setState = {
-      address: `${this.state.barangay},${this.state.municipality}`,
-    };
-  };
   render() {
-    const { barangay, municipality } = this.state;
-    console.log(barangay, municipality);
+    const { barangay, municipality, address } = this.state;
     return (
       <Container className='my-3'>
         <Card>
@@ -90,7 +93,7 @@ class StudentRegister extends React.Component {
                 <Form.Label>Municipality</Form.Label>
                 <Form.Control
                   as='select'
-                  value={this.state.municipality}
+                  value={municipality}
                   onChange={this.ChangeMunicipality}
                 >
                   <option defaultValue>Select a Municipality</option>
@@ -106,7 +109,7 @@ class StudentRegister extends React.Component {
                 <Form.Label>Barangay</Form.Label>
                 <Form.Control
                   as='select'
-                  value={this.state.barangay}
+                  value={barangay}
                   onChange={this.ChangeBarangay}
                 >
                   <option defaultValue>Select a Barangay</option>
@@ -120,8 +123,8 @@ class StudentRegister extends React.Component {
               <Form.Group controlId='student-address'>
                 <Form.Control
                   type='text'
-                  value={this.state.address}
-                  onChange={this.ChangeAddress}
+                  value={address}
+                  onChange={this.ChangeBarangay}
                 />
               </Form.Group>
               <Button variant='success' type='submit'>
