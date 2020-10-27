@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Form, Button, Container, Card } from 'react-bootstrap';
 import axios from 'axios';
 class StudentRegister extends React.Component {
@@ -43,7 +43,6 @@ class StudentRegister extends React.Component {
         });
       }
     );
-    console.log(this.state.address);
   };
 
   render() {
@@ -125,6 +124,7 @@ class StudentRegister extends React.Component {
                   type='text'
                   value={address}
                   onChange={this.ChangeBarangay}
+                  hidden
                 />
               </Form.Group>
               <Button variant='success' type='submit'>
