@@ -8,6 +8,6 @@ const options = {
   formatter: null, // 'gpx', 'string', ...
 };
 
-const geocoder = NodeGeocoder(options);
+const mapcoder = NodeGeocoder(options);
 
-export default geocoder;
+export default mapcoder;

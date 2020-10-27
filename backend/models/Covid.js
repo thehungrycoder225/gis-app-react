@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import geocoder from '../utils/geocoder';
+import geocoder from '../utils/geocoder.js';
 const Schema = mongoose.Schema;
 
 const covidCaseSchema = new Schema(

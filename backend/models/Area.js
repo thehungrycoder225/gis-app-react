@@ -10,8 +10,9 @@ const areaSchema = new Schema(
       type: String,
     },
   },
-  { timestamps: true },
-  { collection: 'marinduque_area' }
+  { collection: 'marinduque_area' },
+  { timestamps: true }
 );
+const Area = mongoose.model('Area', areaSchema);
 
-module.exports = mongoose.model('Area', areaSchema);
+export default Area;

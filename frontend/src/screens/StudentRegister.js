@@ -12,19 +12,17 @@ class StudentRegister extends React.Component {
     };
   }
   componentDidMount() {
-    axios
-      .get('http://immense-eyrie-57635.herokuapp.com/api/area/')
-      .then((res) => {
-        this.setState({
-          areas: res.data.data,
-        });
+    axios.get('http://127.0.0.1:5000/api/areas/').then((res) => {
+      this.setState({
+        areas: res.data.data,
       });
+    });
   }
   ChangeMunicipality = async (e) => {
     e.preventDefault();
     this.setState({ municipality: e.target.value });
     await axios
-      .get('http://immense-eyrie-57635.herokuapp.com/api/area/', {
+      .get('http://127.0.0.1:5000/api/areas/', {
         params: {
           municipality: e.target.value,
         },
@@ -39,7 +37,7 @@ class StudentRegister extends React.Component {
       },
       () => {
         this.setState({
-          address: `${this.state.barangay},${this.state.municipality}`,
+          address: `${this.state.barangay},${this.state.municipality}, Marinduque`,
         });
       }
     );
@@ -95,7 +93,9 @@ class StudentRegister extends React.Component {
                   value={municipality}
                   onChange={this.ChangeMunicipality}
                 >
-                  <option defaultValue>Select a Municipality</option>
+                  <option disabled defaultValue>
+                    Select a Municipality
+                  </option>
                   <option>Mogpog</option>
                   <option>Boac</option>
                   <option>Gasan</option>
@@ -111,7 +111,9 @@ class StudentRegister extends React.Component {
                   value={barangay}
                   onChange={this.ChangeBarangay}
                 >
-                  <option defaultValue>Select a Barangay</option>
+                  <option disabled defaultValue>
+                    Select a Barangay
+                  </option>
                   {this.state.areas.map((area, index) => (
                     <option key={index} value={area.barangay}>
                       {area.barangay}
