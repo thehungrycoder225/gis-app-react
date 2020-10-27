@@ -11,7 +11,9 @@ const getArea = asyncHandler(async (req, res, next) => {
     .paginate();
   const area = await features.query;
   if (!area) {
-    throw new AppError('A Municipality with this Query Does not Exists', 404);
+    return next(
+      new AppError('A Municipality with this Query Does not Exists', 404)
+    );
   }
   return res.status(200).json({
     success: true,
@@ -20,4 +22,4 @@ const getArea = asyncHandler(async (req, res, next) => {
   });
 });
 
-export default getArea;
+export { getArea };

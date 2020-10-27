@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import validator from 'validator';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 const Schema = mongoose.Schema;
 
@@ -66,8 +66,8 @@ const userSchema = new Schema(
       type: String,
     },
   },
-  { timestamps: true },
-  { collection: 'users' }
+  { collection: 'users' },
+  { timestamps: true }
 );
 
 userSchema.pre('save', async function (next) {
