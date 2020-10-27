@@ -76,7 +76,7 @@ const registerUser = asyncHandler(async (req, res, next) => {
   }
 });
 
-// @desc Auth user & get toke
+// @desc Auth user & get profile
 // @route GET /api/users/profile
 // @access Private
 
@@ -96,4 +96,31 @@ const getUserProfile = asyncHandler(async (req, res) => {
   }
 });
 
-export { authUser, getUserProfile, registerUser };
+// @desc Auth user & get profile
+// @route PUT /api/users/profile
+// @access Private
+
+const updateUserProfile = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    user.email = req.body.email || user.email;
+    user.name = req.body.name || user.name;
+    user.username = req.body.username || user.username;
+    if (req.body.password) {
+      user.password = req.body.password;
+    }
+    const updateUser = await user.save();
+    res.json({
+      _id: updateUser._id,
+      name: updateUser.name,
+      email: updateUser.email,
+      username: updateUser.username,
+      role: updateUser.role,
+      token: generateToken(updateUser._id),
+    });
+  } else {
+    res.status(404);
+    throw new AppError('User not found', 404);
+  }
+});
+export { authUser, getUserProfile, registerUser, updateUserProfile };

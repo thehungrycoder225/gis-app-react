@@ -9,6 +9,7 @@ import StudentRegister from './screens/StudentRegister';
 import EmployeeRegister from './screens/EmployeeRegister';
 import CovidMap from './screens/CovidMap';
 import UserLogin from './screens/UserLogin';
+import UserRegister from './screens/UserRegister';
 
 class App extends React.Component {
   render() {
@@ -25,6 +26,7 @@ class App extends React.Component {
               exact
             />
             <Route path='/user/login' component={UserLogin} exact />
+            <Route path='/user/register' component={UserRegister} exact />
             <Route path='/map' component={CovidMap} exact />
           </Container>
         </main>

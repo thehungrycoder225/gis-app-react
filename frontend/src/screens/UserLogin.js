@@ -62,7 +62,11 @@ const UserLogin = ({ location, history }) => {
             <Col>
               New User?{' '}
               <Link
-                to={redirect ? `/register?redirect=${redirect}` : '/register'}
+                to={
+                  redirect
+                    ? `/user/register?redirect=${redirect}`
+                    : '/user/register'
+                }
               >
                 {' '}
                 Register{' '}
