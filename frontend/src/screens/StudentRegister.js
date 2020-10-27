@@ -12,7 +12,7 @@ class StudentRegister extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get('http://127.0.0.1:5000/api/areas/').then((res) => {
+    axios.get('/api/areas').then((res) => {
       this.setState({
         areas: res.data.data,
       });
@@ -22,7 +22,7 @@ class StudentRegister extends React.Component {
     e.preventDefault();
     this.setState({ municipality: e.target.value });
     await axios
-      .get('http://127.0.0.1:5000/api/areas/', {
+      .get('/api/areas', {
         params: {
           municipality: e.target.value,
         },

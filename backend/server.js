@@ -13,7 +13,9 @@ connectDB();
 
 app.use(cors());
 app.use('/api/areas', areaRoutes);
-
+app.get('/', (req, res) => {
+  res.send('API is Running');
+});
 
 let port = process.env.PORT;
 app.listen(port || 5000, () => {

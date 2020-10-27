@@ -14,22 +14,22 @@ const Header = () => {
             <Nav className='ml-auto'>
               <LinkContainer to='/'>
                 <Nav.Link>
-                  <i class='fas fa-home'></i> Home
+                  <i className='fas fa-home'></i> Home
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to='/student/register'>
                 <Nav.Link>
-                  <i class='fas fa-graduation-cap'></i>Student Registration
+                  <i className='fas fa-graduation-cap'></i>Student Registration
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to='/employee/register'>
                 <Nav.Link>
-                  <i class='fas fa-briefcase'></i>Employee Registration
+                  <i className='fas fa-briefcase'></i>Employee Registration
                 </Nav.Link>
               </LinkContainer>
               <LinkContainer to='/map'>
                 <Nav.Link>
-                  <i class='fas fa-map-marker-alt'></i>COVID-19 Map
+                  <i className='fas fa-map-marker-alt'></i>COVID-19 Map
                 </Nav.Link>
               </LinkContainer>
             </Nav>

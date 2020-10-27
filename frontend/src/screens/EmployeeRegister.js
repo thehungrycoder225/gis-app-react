@@ -13,7 +13,7 @@ class EmployeeRegister extends React.Component {
     };
   }
   componentDidMount() {
-    axios.get('http://127.0.0.1:5000/api/areas/').then((res) => {
+    axios.get('/api/areas').then((res) => {
       this.setState({ areas: res.data.data });
     });
   }
@@ -21,7 +21,7 @@ class EmployeeRegister extends React.Component {
     e.preventDefault();
     this.setState({ municipality: e.target.value });
     await axios
-      .get('http://127.0.0.1:5000/api/areas/', {
+      .get('/api/areas', {
         params: {
           municipality: e.target.value,
         },
@@ -36,7 +36,7 @@ class EmployeeRegister extends React.Component {
       },
       () => {
         this.setState({
-          address: `${this.state.barangay},${this.state.municipality}, Marinduque`,
+          address: `${this.state.barangay},${this.state.municipality}`,
         });
       }
     );
@@ -87,9 +87,7 @@ class EmployeeRegister extends React.Component {
                   value={municipality}
                   onChange={this.ChangeMunicipality}
                 >
-                  <option disabled defaultValue>
-                    Select a Municipality
-                  </option>
+                  <option disabled>Select a Municipality</option>
                   <option>Mogpog</option>
                   <option>Boac</option>
                   <option>Gasan</option>
@@ -105,9 +103,7 @@ class EmployeeRegister extends React.Component {
                   value={barangay}
                   onChange={this.ChangeBarangay}
                 >
-                  <option disabled defaultValue>
-                    Select a Barangay
-                  </option>
+                  <option disabled>Select a Barangay</option>
                   {this.state.areas.map((area, index) => (
                     <option key={index} value={area.barangay}>
                       {area.barangay}
