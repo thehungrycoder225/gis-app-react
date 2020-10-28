@@ -6,6 +6,7 @@ import dotenv from 'dotenv';
 import asyncHandler from 'express-async-handler';
 import AppError from '../utils/apperror.js';
 import generateToken from '../utils/generateToken.js';
+import ApiFeatures from '../utils/apifeatures.js';
 
 // @desc Auth user & get token
 // @route POST /api/users/login
@@ -123,4 +124,26 @@ const updateUserProfile = asyncHandler(async (req, res) => {
     throw new AppError('User not found', 404);
   }
 });
-export { authUser, getUserProfile, registerUser, updateUserProfile };
+
+// @desc Auth user & get profile
+// @route GET /api/users/profile
+// @access Private
+
+const getUsers = asyncHandler(async (req, res) => {
+  const features = new ApiFeatures(User.find(), req.query)
+    .filter()
+    .sort()
+    .limitFields()
+    .paginate();
+  const users = await features.query;
+  if (!users) {
+    return next(new AppError('User Does Not Exist', 404));
+  }
+  return res.status(200).json({
+    success: true,
+    count: users.length,
+    data: users,
+  });
+});
+
+export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers };

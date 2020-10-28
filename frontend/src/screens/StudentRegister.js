@@ -93,11 +93,9 @@ class StudentRegister extends React.Component {
                   value={municipality}
                   onChange={this.ChangeMunicipality}
                 >
-                  <option disabled defaultValue>
-                    Select a Municipality
-                  </option>
-                  <option>Mogpog</option>
+                  <option disabled>Select a Municipality</option>
                   <option>Boac</option>
+                  <option>Mogpog</option>
                   <option>Gasan</option>
                   <option>Buenavista</option>
                   <option>Torrijos</option>

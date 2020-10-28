@@ -88,8 +88,8 @@ class EmployeeRegister extends React.Component {
                   onChange={this.ChangeMunicipality}
                 >
                   <option disabled>Select a Municipality</option>
-                  <option>Mogpog</option>
                   <option>Boac</option>
+                  <option>Mogpog</option>
                   <option>Gasan</option>
                   <option>Buenavista</option>
                   <option>Torrijos</option>
