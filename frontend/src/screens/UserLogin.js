@@ -31,11 +31,7 @@ const UserLogin = ({ location, history }) => {
         <Card.Header>
           {' '}
           <h1>User Login</h1>{' '}
-          {error && (
-            <Message variant='filled' severity='error'>
-              {error}
-            </Message>
-          )}
+          {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
         </Card.Header>
         <Card.Body>

@@ -1,11 +1,7 @@
 import React from 'react';
-import { Alert } from '@material-ui/lab';
-const Message = ({ variant, children, severity }) => {
-  return (
-    <Alert variant={variant} severity={severity}>
-      {children}
-    </Alert>
-  );
+import { Alert } from 'react-bootstrap';
+const Message = ({ variant, children }) => {
+  return <Alert variant={variant}>{children}</Alert>;
 };
 
 Message.defaultProps = {
