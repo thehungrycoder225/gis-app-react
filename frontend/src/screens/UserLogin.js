@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form, Card, Row, Col } from 'react-bootstrap';
+import { Form, Card, Row, Col } from 'react-bootstrap';
+import { Button } from '@material-ui/core';
 import FormContainer from '../components/FormContainer';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -30,7 +31,11 @@ const UserLogin = ({ location, history }) => {
         <Card.Header>
           {' '}
           <h1>User Login</h1>{' '}
-          {error && <Message variant='danger'>{error}</Message>}
+          {error && (
+            <Message variant='filled' severity='error'>
+              {error}
+            </Message>
+          )}
           {loading && <Loader />}
         </Card.Header>
         <Card.Body>
