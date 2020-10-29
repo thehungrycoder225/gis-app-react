@@ -11,6 +11,7 @@ import CovidMap from './screens/CovidMap';
 import UserLogin from './screens/UserLogin';
 import UserRegister from './screens/UserRegister';
 import UserProfile from './screens/UserProfile';
+import UserList from './screens/UserList';
 
 class App extends React.Component {
   render() {
@@ -20,16 +21,13 @@ class App extends React.Component {
         <main className='py-3'>
           <Container>
             <Route path='/' component={Home} exact />
-            <Route path='/student/register' component={StudentRegister} exact />
-            <Route
-              path='/employee/register'
-              component={EmployeeRegister}
-              exact
-            />
-            <Route path='/user/login' component={UserLogin} exact />
-            <Route path='/user/register' component={UserRegister} exact />
-            <Route path='/user/profile' component={UserProfile} exact />
-            <Route path='/map' component={CovidMap} exact />
+            <Route path='/student/register' component={StudentRegister} />
+            <Route path='/employee/register' component={EmployeeRegister} />
+            <Route path='/user/login' component={UserLogin} />
+            <Route path='/user/register' component={UserRegister} />
+            <Route path='/user/profile' component={UserProfile} />
+            <Route path='/admin/user-list' component={UserList} />
+            <Route path='/map' component={CovidMap} />
           </Container>
         </main>
         <Footer />

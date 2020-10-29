@@ -139,11 +139,29 @@ const getUsers = asyncHandler(async (req, res) => {
   if (!users) {
     return next(new AppError('User Does Not Exist', 404));
   }
-  return res.status(200).json({
-    success: true,
-    count: users.length,
-    data: users,
-  });
+  return res.status(200).json(users);
 });
 
-export { authUser, getUserProfile, registerUser, updateUserProfile, getUsers };
+// @desc Delete User
+// @route DELETE /api/users/:id
+// @access Private
+
+const deleteUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    await user.remove();
+    res.json({ message: 'User Removed' });
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+export {
+  authUser,
+  getUserProfile,
+  registerUser,
+  updateUserProfile,
+  getUsers,
+  deleteUser,
+};
