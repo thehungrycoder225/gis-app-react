@@ -114,7 +114,7 @@ const getEmployeeProfile = asyncHandler(async (req, res) => {
 });
 
 // @desc Auth user & get profile
-// @route PUT /api/employee/profile
+// @route PUT /api/employees/profile
 // @access Private
 
 const updateEmployeeProfile = asyncHandler(async (req, res) => {
