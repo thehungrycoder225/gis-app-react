@@ -1,8 +1,4 @@
 import User from '../models/User.js';
-import { promisify } from 'util';
-import dotenv from 'dotenv';
-// import jwt from 'jsonwebtoken';
-// import crypto from 'crypto';
 import asyncHandler from 'express-async-handler';
 import AppError from '../utils/apperror.js';
 import generateToken from '../utils/generateToken.js';
@@ -157,6 +153,39 @@ const deleteUser = asyncHandler(async (req, res) => {
   }
 });
 
+const getUserById = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id).select('-password');
+  if (user) {
+    res.json(user);
+  } else {
+    res.status(404);
+    throw new Error('User not found');
+  }
+});
+
+// @desc Update User
+// @route PUT /api/users/:id
+// @access Private
+const updateUser = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.params.id);
+  if (user) {
+    user.email = req.body.email || user.email;
+    user.name = req.body.name || user.name;
+    user.username = req.body.username || user.username;
+    user.role = req.body.role || user.role;
+
+    const updatedUser = await user.save();
+
+    res.json({
+      message_id: updatedUser.id,
+      email: updatedUser.email,
+      name: updatedUser.name,
+      username: updatedUser.username,
+      role: updatedUser.role,
+    });
+  }
+});
+
 export {
   authUser,
   getUserProfile,
@@ -164,4 +193,6 @@ export {
   updateUserProfile,
   getUsers,
   deleteUser,
+  getUserById,
+  updateUser,
 };

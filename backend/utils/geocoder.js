@@ -1,13 +1,12 @@
 import geocoder from 'node-geocoder';
-const NodeGeocoder = geocoder();
-
 const options = {
   provider: process.env.GEOCODER_PROVIDER,
   httpAdapter: 'https',
-  apiKey: process.env.GEOCODER_API_KEY,
+  apiKey:
+    'AIzaSyArfqV-Iq4X4IUP2gkPqKUYEzcGAxUv5SI' || process.env.GEOCODER_API_KEY,
   formatter: null, // 'gpx', 'string', ...
 };
 
-const mapcoder = NodeGeocoder(options);
+const mapgeocoder = geocoder(options);
 
-export default mapcoder;
+export default mapgeocoder;

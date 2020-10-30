@@ -12,6 +12,7 @@ import UserLogin from './screens/UserLogin';
 import UserRegister from './screens/UserRegister';
 import UserProfile from './screens/UserProfile';
 import UserList from './screens/UserList';
+import UserEdit from './screens/UserEdit';
 
 class App extends React.Component {
   render() {
@@ -27,6 +28,7 @@ class App extends React.Component {
             <Route path='/user/register' component={UserRegister} />
             <Route path='/user/profile' component={UserProfile} />
             <Route path='/admin/user-list' component={UserList} />
+            <Route path='/admin/user/:id/edit' component={UserEdit} />
             <Route path='/map' component={CovidMap} />
           </Container>
         </main>

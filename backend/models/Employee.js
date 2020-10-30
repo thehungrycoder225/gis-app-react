@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-import geocoder from '../utils/geocoder';
+import geocoder from '../utils/geocoder.js';
+
 const Schema = mongoose.Schema;
 
 const employeeSchema = new Schema(
@@ -17,6 +18,10 @@ const employeeSchema = new Schema(
       type: Number,
       required: true,
     },
+    phone: {
+      type: Number,
+      required: true,
+    },
     municipality: {
       type: String,
       required: true,
@@ -26,6 +31,10 @@ const employeeSchema = new Schema(
       required: true,
     },
     department: {
+      type: String,
+      required: true,
+    },
+    office: {
       type: String,
       required: true,
     },
@@ -54,8 +63,7 @@ const employeeSchema = new Schema(
       },
     ],
   },
-  { timestamps: true },
-  { collection: 'employee_location' }
+  { collection: 'employee_location', timestamps: true }
 );
 
 employeeSchema.pre('save', async function (next) {

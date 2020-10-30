@@ -5,10 +5,18 @@ import {
   AREA_LIST_FAIL,
 } from '../constants/areaConstants';
 
-export const listAreas = () => async (dispatch) => {
+export const listAreas = (municipality = '') => async (dispatch) => {
   try {
     dispatch({ type: AREA_LIST_REQUEST });
-    const { data } = await axios.get('/api/areas');
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    const { data } = await axios.get(
+      `/api/areas/?municipality=${municipality}`,
+      config
+    );
     dispatch({
       type: AREA_LIST_SUCCESS,
       payload: data,

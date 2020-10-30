@@ -1,5 +1,6 @@
 import jwt from 'jsonwebtoken';
 import User from '../models/User.js';
+import Employee from '../models/Employee.js';
 import asyncHandler from 'express-async-handler';
 import AppError from '../utils/apperror.js';
 
@@ -34,4 +35,28 @@ const admin = (req, res, next) => {
     throw new Error('Insufficient privileges to access this page');
   }
 };
-export { protect, admin };
+
+const protectEmployee = asyncHandler(async (req, res, next) => {
+  let token;
+  if (
+    req.headers.authorization &&
+    req.headers.authorization.startsWith('Bearer')
+  ) {
+    try {
+      token = req.headers.authorization.split(' ')[1];
+      const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      req.employee = await Employee.findById(decoded.id).select('-password');
+      next();
+    } catch (error) {
+      console.error(error);
+      res.status(401);
+      throw new AppError('Not Authorized, Token Failed ', 401);
+    }
+  }
+  if (!token) {
+    res.status(401);
+    throw new AppError('Not Authorized');
+  }
+});
+
+export { protect, admin, protectEmployee };
