@@ -58,21 +58,6 @@ const UserLogin = ({ location, history }) => {
               Log In
             </Button>
           </Form>
-          <Row className='py-3'>
-            <Col>
-              New User?{' '}
-              <Link
-                to={
-                  redirect
-                    ? `/user/register?redirect=${redirect}`
-                    : '/user/register'
-                }
-              >
-                {' '}
-                Register{' '}
-              </Link>
-            </Col>
-          </Row>
         </Card.Body>
       </Card>
     </FormContainer>

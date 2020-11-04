@@ -66,8 +66,7 @@ const userSchema = new Schema(
       type: String,
     },
   },
-  { collection: 'users' },
-  { timestamps: true }
+  { collection: 'users', timestamps: true }
 );
 
 userSchema.pre('save', async function (next) {

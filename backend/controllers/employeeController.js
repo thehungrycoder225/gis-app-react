@@ -33,8 +33,9 @@ const authEmployee = asyncHandler(async (req, res, next) => {
     });
   }
 });
+
 // @desc Register New Employee
-// @route POST /api/employee
+// @route POST /api/employees
 // @access Public
 
 const registerEmployee = asyncHandler(async (req, res, next) => {
@@ -66,7 +67,6 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     municipality,
     barangay,
     address,
-    token: generateToken(employee._id),
   });
 
   if (employee) {
@@ -82,6 +82,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
       address: employee.address,
       location: employee.location,
       formattedAddress: employee.formattedAddress,
+      token: generateToken(employee._id),
     });
   } else {
     res.status(400);
