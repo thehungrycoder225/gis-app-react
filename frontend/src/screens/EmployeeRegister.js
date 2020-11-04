@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import FormContainer from '../components/FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
-import { listAreas } from '../actions/areaActions';
+import FormContainer from '../components/FormContainer';
 import { Form, Button, Card } from 'react-bootstrap';
-const EmployeeRegister = ({ history }) => {
+import Message from '../components/Message';
+import Loader from '../components/Loader';
+import { listAreas } from '../actions/areaActions';
+import { register } from '../actions/employeeActions';
+
+const EmployeeRegister = ({ location, history }) => {
   const dispatch = useDispatch();
   const [empId, setEmployeeId] = useState('');
   const [name, setEmployeeName] = useState('');
@@ -13,11 +17,13 @@ const EmployeeRegister = ({ history }) => {
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
+  const [message, setMessage] = useState(null);
+
+  const employeeRegister = useSelector((state) => state.employeeRegister);
+  const { loading, error, employeeInfo } = employeeRegister;
+  const redirect = location.search ? location.search.split('=')[1] : '/';
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
-  const submitHandler = (e) => {
-    e.preventDefault();
-  };
 
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
@@ -32,12 +38,34 @@ const EmployeeRegister = ({ history }) => {
   useEffect(() => {
     dispatch(listAreas(municipality));
     setEmployeeAddress(`${barangay},${municipality},Marinduque`);
-  }, [dispatch, history, municipality, barangay]);
+  }, [dispatch, history, municipality, barangay, redirect]);
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(
+      register(
+        empId,
+        name,
+        age,
+        phone,
+        department,
+        municipality,
+        barangay,
+        address
+      )
+    );
+    setMessage('Registration Successful');
+  };
 
   return (
     <FormContainer>
       <Card>
-        <Card.Header>Employee Registration</Card.Header>
+        <Card.Header>
+          Employee Registration
+          {message && <Message variant='success'>{message}</Message>}
+          {error && <Message variant='danger'>{error}</Message>}
+          {loading && <Loader />}
+        </Card.Header>
         <Card.Body>
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='EmployeeId'>
@@ -93,7 +121,7 @@ const EmployeeRegister = ({ history }) => {
                 value={municipality}
                 onChange={ChangeMunicipality}
               >
-                <option disabled>Select a Municipality</option>
+                <option>Select a Municipality</option>
                 <option>Boac</option>
                 <option>Mogpog</option>
                 <option>Gasan</option>
@@ -109,7 +137,7 @@ const EmployeeRegister = ({ history }) => {
                 value={barangay}
                 onChange={ChangeBarangay}
               >
-                <option disabled>Select a Barangay</option>
+                <option>Select a Barangay</option>
                 {areas.map((area, index) => (
                   <option key={index}>{area.barangay}</option>
                 ))}
@@ -119,6 +147,7 @@ const EmployeeRegister = ({ history }) => {
               <Form.Control
                 type='text'
                 value={address}
+                hidden
                 onChange={(e) => setEmployeeAddress(e.target.value)}
               />
             </Form.Group>

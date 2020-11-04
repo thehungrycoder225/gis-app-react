@@ -25,7 +25,7 @@ import {
 } from '../constants/employeeConstants';
 
 import axios from 'axios';
-export const employeeLogin = (empId) => async (dispatch) => {
+export const login = (empId) => async (dispatch) => {
   try {
     dispatch({
       type: EMPLOYEE_LOGIN_REQUEST,
@@ -57,13 +57,13 @@ export const employeeLogin = (empId) => async (dispatch) => {
   }
 };
 
-export const employeeLogout = () => (dispatch) => {
+export const logout = () => (dispatch) => {
   localStorage.removeItem('employeeInfo');
   dispatch({ type: EMPLOYEE_LOGOUT });
   dispatch({ type: EMPLOYEE_LIST_RESET });
 };
 
-export const employeeRegister = (
+export const register = (
   empId,
   name,
   age,

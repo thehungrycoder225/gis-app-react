@@ -25,7 +25,7 @@ import {
 } from '../constants/studentConstants';
 
 import axios from 'axios';
-export const studentLogin = (studentId) => async (dispatch) => {
+export const login = (studentId) => async (dispatch) => {
   try {
     dispatch({
       type: STUDENT_LOGIN_REQUEST,
@@ -57,13 +57,13 @@ export const studentLogin = (studentId) => async (dispatch) => {
   }
 };
 
-export const studentLogout = () => (dispatch) => {
+export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   dispatch({ type: STUDENT_LOGOUT });
   dispatch({ type: STUDENT_LIST_RESET });
 };
 
-export const studentRegister = (
+export const register = (
   studentId,
   name,
   age,

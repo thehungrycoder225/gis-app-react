@@ -34,10 +34,6 @@ const employeeSchema = new Schema(
       type: String,
       required: true,
     },
-    office: {
-      type: String,
-      required: true,
-    },
     address: {
       type: String,
     },
