@@ -7,6 +7,7 @@ import connectDB from './config/db.js';
 import areaRoutes from './routes/areaRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import employeeRoutes from './routes/employeeRoutes.js';
+import studentRoutes from './routes/studentRoutes.js';
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api/areas', areaRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/employees', employeeRoutes);
+app.use('/api/students', studentRoutes);
 app.get('/', (req, res) => {
   res.send('API is Running');
 });

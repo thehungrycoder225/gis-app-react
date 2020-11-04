@@ -17,7 +17,7 @@ const authEmployee = asyncHandler(async (req, res, next) => {
   const employee = await Employee.findOne({ empId });
 
   if (!employee) {
-    return next(new AppError('Invalid empId', 401));
+    return next(new AppError('Invalid Employee Id', 401));
   } else {
     res.json({
       _id: employee._id,
@@ -25,6 +25,7 @@ const authEmployee = asyncHandler(async (req, res, next) => {
       name: employee.name,
       age: employee.age,
       phone: employee.phone,
+      gender: employee.gender,
       department: employee.department,
       municipality: employee.municipality,
       barangay: employee.barangay,
@@ -44,6 +45,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     name,
     age,
     phone,
+    gender,
     department,
     office,
     municipality,
@@ -62,6 +64,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     name,
     age,
     phone,
+    gender,
     department,
     office,
     municipality,
@@ -75,6 +78,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
       name: employee.name,
       age: employee.age,
       phone: employee.phone,
+      gender: employee.gender,
       department: employee.department,
       office: employee.office,
       municipality: employee.municipality,
@@ -86,7 +90,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     });
   } else {
     res.status(400);
-    throw new Error('Invalid User Data');
+    throw new Error('Invalid Employee Data');
   }
 });
 
@@ -102,6 +106,7 @@ const getEmployeeProfile = asyncHandler(async (req, res) => {
       empId: employee.empId,
       name: employee.name,
       age: employee.age,
+      gender: employee.gender,
       phone: employee.phone,
       department: employee.department,
       municipality: employee.municipality,
@@ -110,7 +115,7 @@ const getEmployeeProfile = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new AppError('Employee not found', 404);
+    throw new AppError('Employee Record not found', 404);
   }
 });
 
@@ -125,6 +130,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
     employee.name = req.body.name || employee.name;
     employee.age = req.body.age || employee.age;
     employee.phone = req.body.phone || employee.phone;
+    employee.gender = req.body.gender || employee.gender;
     employee.department = req.body.department || employee.department;
     employee.municipality = req.body.municipality || employee.municipality;
     employee.barangay = req.body.barangay || employee.barangay;
@@ -137,6 +143,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
       name: updatedEmployee.name,
       age: updatedEmployee.age,
       phone: updatedEmployee.phone,
+      gender: updatedEmployee.gender,
       department: updatedEmployee.department,
       municipality: updatedEmployee.municipality,
       barangay: updatedEmployee.barangay,
@@ -144,7 +151,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
     });
   } else {
     res.status(404);
-    throw new AppError('Employee not found', 404);
+    throw new AppError('Employee Record not found', 404);
   }
 });
 
@@ -173,10 +180,10 @@ const deleteEmployee = asyncHandler(async (req, res) => {
   const employee = await Employee.findById(req.params.id);
   if (employee) {
     await employee.remove();
-    res.json({ message: 'employee Removed' });
+    res.json({ message: 'Employee Record Removed' });
   } else {
     res.status(404);
-    throw new Error('employee not found');
+    throw new Error('Employee Record not found');
   }
 });
 
@@ -186,7 +193,7 @@ const getEmployeeById = asyncHandler(async (req, res) => {
     res.json(employee);
   } else {
     res.status(404);
-    throw new Error('Employee not found');
+    throw new Error('Employee Record not found');
   }
 });
 
@@ -200,6 +207,7 @@ const updateEmployee = asyncHandler(async (req, res) => {
     employee.name = req.body.name || employee.name;
     employee.age = req.body.age || employee.age;
     employee.phone = req.body.phone || employee.phone;
+    employee.gender = req.body.gender || employee.gender;
     employee.department = req.body.department || employee.department;
     employee.municipality = req.body.municipality || employee.municipality;
     employee.barangay = req.body.barangay || employee.barangay;
@@ -212,6 +220,7 @@ const updateEmployee = asyncHandler(async (req, res) => {
       name: updatedEmployee.name,
       age: updatedEmployee.age,
       phone: updatedEmployee.phone,
+      gender: updatedEmployee.gender,
       department: updatedEmployee.department,
       municipality: updatedEmployee.municipality,
       barangay: updatedEmployee.barangay,

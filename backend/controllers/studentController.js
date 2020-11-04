@@ -4,228 +4,250 @@ import AppError from '../utils/apperror.js';
 import ApiFeatures from '../utils/apifeatures.js';
 import generateToken from '../utils/generateToken.js';
 
-// @desc Register New Employee
-// @route POST /api/employees/login
+// @desc Auth Student
+// @route POST /api/students/login
 // @access Public
 
 const authStudent = asyncHandler(async (req, res, next) => {
-  const { empId } = req.body;
-  if (!empId) {
-    return next(new AppError('Please provide your Employee Id', 400));
+  const { studentId } = req.body;
+  if (!studentId) {
+    return next(new AppError('Please provide your valid Student Id', 400));
   }
 
-  const employee = await Employee.findOne({ empId });
+  const student = await Student.findOne({ studentId });
 
-  if (!employee) {
+  if (!student) {
     return next(new AppError('Invalid empId', 401));
   } else {
     res.json({
-      _id: employee._id,
-      empId: employee.empId,
-      name: employee.name,
-      age: employee.age,
-      phone: employee.phone,
-      department: employee.department,
-      municipality: employee.municipality,
-      barangay: employee.barangay,
-      address: employee.address,
-      token: generateToken(employee._id),
+      _id: student._id,
+      studentId: student.studentId,
+      name: student.name,
+      age: student.age,
+      gender: student.gender,
+      phone: student.phone,
+      school: student.school,
+      course: student.course,
+      yearLevel: student.yearLevel,
+      municipality: student.municipality,
+      barangay: student.barangay,
+      address: student.address,
+      token: generateToken(student._id),
     });
   }
 });
-// @desc Register New Employee
-// @route POST /api/employee
+// @desc Register New Student
+// @route POST /api/students
 // @access Public
 
-const registerEmployee = asyncHandler(async (req, res, next) => {
+const registerStudent = asyncHandler(async (req, res, next) => {
   const {
-    empId,
+    studentId,
     name,
     age,
+    gender,
     phone,
-    department,
-    office,
+    school,
+    course,
+    yearLevel,
     municipality,
     barangay,
     address,
   } = req.body;
 
-  const employeeExist = await Employee.findOne({ empId });
-  if (employeeExist) {
+  const studentExist = await Student.findOne({ studentId });
+  if (studentExist) {
     res.status(400);
-    throw new Error('Employee with that Id Already Exist');
+    throw new Error('Student Record Already Exist');
   }
 
-  const employee = await Employee.create({
-    empId,
+  const student = await Student.create({
+    studentId,
     name,
     age,
+    gender,
     phone,
-    department,
-    office,
+    school,
+    course,
+    yearLevel,
     municipality,
     barangay,
     address,
-    token: generateToken(employee._id),
   });
 
-  if (employee) {
+  if (student) {
     res.status(201).json({
-      empId: employee.empId,
-      name: employee.name,
-      age: employee.age,
-      phone: employee.phone,
-      department: employee.department,
-      office: employee.office,
-      municipality: employee.municipality,
-      barangay: employee.barangay,
-      address: employee.address,
-      location: employee.location,
-      formattedAddress: employee.formattedAddress,
+      _id: student._id,
+      studentId: student.studentId,
+      name: student.name,
+      age: student.age,
+      gender: student.gender,
+      phone: student.phone,
+      school: student.school,
+      course: student.course,
+      yearLevel: student.yearLevel,
+      municipality: student.municipality,
+      barangay: student.barangay,
+      address: student.address,
+      formattedAddress: student.formattedAddress,
+      token: generateToken(student._id),
     });
   } else {
     res.status(400);
-    throw new Error('Invalid User Data');
+    throw new Error('Invalid Student Data');
   }
 });
 
-// @desc Auth user & get profile
-// @route GET /api/employees/profile
+// @desc Auth student & get profile
+// @route GET /api/students/profile
 // @access Private
 
-const getEmployeeProfile = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.employee._id);
-  if (employee) {
+const getStudentProfile = asyncHandler(async (req, res) => {
+  const student = await Student.findById(req.student._id);
+  if (student) {
     res.json({
-      _id: employee._id,
-      empId: employee.empId,
-      name: employee.name,
-      age: employee.age,
-      phone: employee.phone,
-      department: employee.department,
-      municipality: employee.municipality,
-      barangay: employee.barangay,
-      address: employee.address,
+      _id: student._id,
+      studentId: student.studentId,
+      name: student.name,
+      age: student.age,
+      gender: student.gender,
+      phone: student.phone,
+      school: student.school,
+      course: student.course,
+      yearLevel: student.yearLevel,
+      municipality: student.municipality,
+      barangay: student.barangay,
+      address: student.address,
     });
   } else {
     res.status(404);
-    throw new AppError('Employee not found', 404);
+    throw new AppError('Student Record not found', 404);
   }
 });
 
-// @desc Auth user & get profile
-// @route PUT /api/employees/profile
+// @desc Auth student & update profile
+// @route PUT /api/students/profile
 // @access Private
 
-const updateEmployeeProfile = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.employee._id);
-  if (employee) {
-    employee.empId = req.body.empId || employee.empId;
-    employee.name = req.body.name || employee.name;
-    employee.age = req.body.age || employee.age;
-    employee.phone = req.body.phone || employee.phone;
-    employee.department = req.body.department || employee.department;
-    employee.municipality = req.body.municipality || employee.municipality;
-    employee.barangay = req.body.barangay || employee.barangay;
-    employee.address = req.body.address || employee.address;
+const updateStudentProfile = asyncHandler(async (req, res) => {
+  const student = await Student.findById(req.student._id);
+  if (student) {
+    student.studentId = req.body.studentId || student.studentId;
+    student.name = req.body.name || student.name;
+    student.age = req.body.age || student.age;
+    student.gender = req.body.gender || student.gender;
+    student.phone = req.body.phone || student.phone;
+    student.school = req.body.school || student.school;
+    student.course = req.body.course || student.course;
+    student.municipality = req.body.municipality || student.municipality;
+    student.barangay = req.body.barangay || student.barangay;
+    student.address = req.body.address || student.address;
 
-    const updatedEmployee = await employee.save();
+    const updatedStudent = await student.save();
     res.json({
-      _id: updatedEmployee._id,
-      empId: updatedEmployee.empId,
-      name: updatedEmployee.name,
-      age: updatedEmployee.age,
-      phone: updatedEmployee.phone,
-      department: updatedEmployee.department,
-      municipality: updatedEmployee.municipality,
-      barangay: updatedEmployee.barangay,
-      address: updatedEmployee.address,
+      _id: updatedStudent._id,
+      studentId: updatedStudent.studentId,
+      name: updatedStudent.name,
+      age: updatedStudent.age,
+      gender: updatedStudent.gender,
+      phone: updatedStudent.phone,
+      school: updatedStudent.school,
+      course: updatedStudent.course,
+      yearLevel: updatedStudent.yearLevel,
+      municipality: updatedStudent.municipality,
+      barangay: updatedStudent.barangay,
+      address: updatedStudent.address,
     });
   } else {
     res.status(404);
-    throw new AppError('Employee not found', 404);
+    throw new AppError('Student Record not found', 404);
   }
 });
 
 // @desc Auth user & get profile
-// @route GET /api/employee/profile
+// @route GET /api/students/profile
 // @access Private
 
-const getEmployees = asyncHandler(async (req, res) => {
-  const features = new ApiFeatures(Employee.find(), req.query)
+const getStudents = asyncHandler(async (req, res) => {
+  const features = new ApiFeatures(Student.find(), req.query)
     .filter()
     .sort()
     .limitFields()
     .paginate();
-  const employee = await features.query;
-  if (!employee) {
-    return next(new AppError('Employee Does Not Exist', 404));
+  const student = await features.query;
+  if (!student) {
+    return next(new AppError('Student Does Not Exist', 404));
   }
-  return res.status(200).json(employee);
+  return res.status(200).json(student);
 });
 
-// @desc Delete User
-// @route DELETE /api/employee/:id
+// @desc Delete Student
+// @route DELETE /api/students/:id
 // @access Private
 
-const deleteEmployee = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.params.id);
-  if (employee) {
-    await employee.remove();
-    res.json({ message: 'employee Removed' });
+const deleteStudent = asyncHandler(async (req, res) => {
+  const student = await Student.findById(req.params.id);
+  if (student) {
+    await student.remove();
+    res.json({ message: 'Student Removed' });
   } else {
     res.status(404);
-    throw new Error('employee not found');
+    throw new Error('Student Record not found');
   }
 });
 
-const getEmployeeById = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.params.id);
-  if (employee) {
-    res.json(employee);
+const getStudentById = asyncHandler(async (req, res) => {
+  const student = await Student.findById(req.params.id);
+  if (student) {
+    res.json(student);
   } else {
     res.status(404);
-    throw new Error('Employee not found');
+    throw new Error('Student Record not found');
   }
 });
 
-// @desc Update User
-// @route PUT /api/employee/:id
+// @desc Update Student
+// @route PUT /api/students/:id
 // @access Private
-const updateEmployee = asyncHandler(async (req, res) => {
-  const employee = await Employee.findById(req.params.id);
-  if (employee) {
-    employee.empId = req.body.empId || employee.empId;
-    employee.name = req.body.name || employee.name;
-    employee.age = req.body.age || employee.age;
-    employee.phone = req.body.phone || employee.phone;
-    employee.department = req.body.department || employee.department;
-    employee.municipality = req.body.municipality || employee.municipality;
-    employee.barangay = req.body.barangay || employee.barangay;
-    employee.address = req.body.address || employee.address;
+const updateStudent = asyncHandler(async (req, res) => {
+  const student = await Student.findById(req.params.id);
+  if (student) {
+    student.studentId = req.body.studentId || student.studentId;
+    student.name = req.body.name || student.name;
+    student.age = req.body.age || student.age;
+    student.gender = req.body.gender || student.gender;
+    student.phone = req.body.phone || student.phone;
+    student.school = req.body.school || student.school;
+    student.course = req.body.course || student.course;
+    student.municipality = req.body.municipality || student.municipality;
+    student.barangay = req.body.barangay || student.barangay;
+    student.address = req.body.address || student.address;
 
-    const updatedEmployee = await employee.save();
+    const updatedStudent = await student.save();
     res.json({
-      _id: updatedEmployee._id,
-      empId: updatedEmployee.empId,
-      name: updatedEmployee.name,
-      age: updatedEmployee.age,
-      phone: updatedEmployee.phone,
-      department: updatedEmployee.department,
-      municipality: updatedEmployee.municipality,
-      barangay: updatedEmployee.barangay,
-      address: updatedEmployee.address,
+      _id: updatedStudent._id,
+      studentId: updatedStudent.studentId,
+      name: updatedStudent.name,
+      age: updatedStudent.age,
+      gender: updatedStudent.gender,
+      phone: updatedStudent.phone,
+      school: updatedStudent.school,
+      course: updatedStudent.course,
+      yearLevel: updatedStudent.yearLevel,
+      municipality: updatedStudent.municipality,
+      barangay: updatedStudent.barangay,
+      address: updatedStudent.address,
     });
   }
 });
 
 export {
   authStudent,
-  getEmployeeProfile,
-  registerEmployee,
-  updateEmployeeProfile,
-  getEmployees,
-  deleteEmployee,
-  getEmployeeById,
-  updateEmployee,
+  getStudentProfile,
+  registerStudent,
+  updateStudentProfile,
+  getStudents,
+  deleteStudent,
+  getStudentById,
+  updateStudent,
 };

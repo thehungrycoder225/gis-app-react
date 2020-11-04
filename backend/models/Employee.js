@@ -22,6 +22,10 @@ const employeeSchema = new Schema(
       type: Number,
       required: true,
     },
+    gender: {
+      type: String,
+      required: true,
+    },
     municipality: {
       type: String,
       required: true,

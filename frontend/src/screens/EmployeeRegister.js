@@ -13,6 +13,7 @@ const EmployeeRegister = ({ location, history }) => {
   const [name, setEmployeeName] = useState('');
   const [age, setEmployeeAge] = useState('');
   const [phone, setEmployeePhone] = useState('');
+  const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
@@ -61,7 +62,7 @@ const EmployeeRegister = ({ location, history }) => {
     <FormContainer>
       <Card>
         <Card.Header>
-          Employee Registration
+          <h1>Employee Registration</h1>
           {message && <Message variant='success'>{message}</Message>}
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
@@ -103,6 +104,18 @@ const EmployeeRegister = ({ location, history }) => {
                 value={phone}
                 onChange={(e) => setEmployeePhone(e.target.value)}
               />
+            </Form.Group>
+            <Form.Group controlId='employee-gender'>
+              <Form.Label>Gender:</Form.Label>
+              <Form.Control
+                as='select'
+                value={gender}
+                onChange={(e) => setEmployeeGender(e.target.value)}
+              >
+                <option disabled>Select Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+              </Form.Control>
             </Form.Group>
             <Form.Group controlId='employee-department'>
               <Form.Label>Department</Form.Label>
