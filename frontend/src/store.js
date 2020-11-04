@@ -11,6 +11,24 @@ import {
   userDeleteReducer,
   userUpdateReducer,
 } from './reducers/userReducers';
+import {
+  employeeLoginReducer,
+  employeeRegisterReducer,
+  employeeDetailsReducer,
+  employeeUpdateProfileReducer,
+  employeeListReducer,
+  employeeDeleteReducer,
+  employeeUpdateReducer,
+} from './reducers/employeeReducers';
+import {
+  studentLoginReducer,
+  studentRegisterReducer,
+  studentDetailsReducer,
+  studentUpdateProfileReducer,
+  studentListReducer,
+  studentDeleteReducer,
+  studentUpdateReducer,
+} from './reducers/studentReducers';
 
 const reducer = combineReducers({
   areaList: areaListReducer,
@@ -21,6 +39,20 @@ const reducer = combineReducers({
   userList: userListReducer,
   userDelete: userDeleteReducer,
   userUpdate: userUpdateReducer,
+  employeeLogin: employeeLoginReducer,
+  employeeRegister: employeeRegisterReducer,
+  employeeDetails: employeeDetailsReducer,
+  employeeUpdateProfile: employeeUpdateProfileReducer,
+  employeeList: employeeListReducer,
+  employeeDelete: employeeDeleteReducer,
+  employeeUpdate: employeeUpdateReducer,
+  studentLogin: studentLoginReducer,
+  studentRegister: studentRegisterReducer,
+  studentDetails: studentDetailsReducer,
+  studentUpdateProfile: studentUpdateProfileReducer,
+  studentList: studentListReducer,
+  studentDelete: studentDeleteReducer,
+  studentUpdate: studentUpdateReducer,
 });
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))

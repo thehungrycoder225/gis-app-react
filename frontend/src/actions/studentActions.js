@@ -1,34 +1,34 @@
 import {
-  EMPLOYEE_DETAILS_FAIL,
-  EMPLOYEE_DETAILS_REQUEST,
-  EMPLOYEE_DETAILS_SUCCESS,
-  EMPLOYEE_DELETE_FAIL,
-  EMPLOYEE_DELETE_REQUEST,
-  EMPLOYEE_DELETE_SUCCESS,
-  EMPLOYEE_LOGIN_FAIL,
-  EMPLOYEE_LOGIN_REQUEST,
-  EMPLOYEE_LOGIN_SUCCESS,
-  EMPLOYEE_LOGOUT,
-  EMPLOYEE_REGISTER_FAIL,
-  EMPLOYEE_REGISTER_REQUEST,
-  EMPLOYEE_REGISTER_SUCCESS,
-  EMPLOYEE_UPDATE_PROFILE_FAIL,
-  EMPLOYEE_UPDATE_PROFILE_REQUEST,
-  EMPLOYEE_UPDATE_PROFILE_SUCCESS,
-  EMPLOYEE_LIST_SUCCESS,
-  EMPLOYEE_LIST_REQUEST,
-  EMPLOYEE_LIST_FAIL,
-  EMPLOYEE_LIST_RESET,
-  EMPLOYEE_UPDATE_REQUEST,
-  EMPLOYEE_UPDATE_SUCCESS,
-  EMPLOYEE_UPDATE_FAIL,
-} from '../constants/employeeConstants';
+  STUDENT_DETAILS_FAIL,
+  STUDENT_DETAILS_REQUEST,
+  STUDENT_DETAILS_SUCCESS,
+  STUDENT_DELETE_FAIL,
+  STUDENT_DELETE_REQUEST,
+  STUDENT_DELETE_SUCCESS,
+  STUDENT_LOGIN_FAIL,
+  STUDENT_LOGIN_REQUEST,
+  STUDENT_LOGIN_SUCCESS,
+  STUDENT_LOGOUT,
+  STUDENT_REGISTER_FAIL,
+  STUDENT_REGISTER_REQUEST,
+  STUDENT_REGISTER_SUCCESS,
+  STUDENT_UPDATE_PROFILE_FAIL,
+  STUDENT_UPDATE_PROFILE_REQUEST,
+  STUDENT_UPDATE_PROFILE_SUCCESS,
+  STUDENT_LIST_SUCCESS,
+  STUDENT_LIST_REQUEST,
+  STUDENT_LIST_FAIL,
+  STUDENT_LIST_RESET,
+  STUDENT_UPDATE_REQUEST,
+  STUDENT_UPDATE_SUCCESS,
+  STUDENT_UPDATE_FAIL,
+} from '../constants/studentConstants';
 
 import axios from 'axios';
-export const employeeLogin = (empId) => async (dispatch) => {
+export const studentLogin = (studentId) => async (dispatch) => {
   try {
     dispatch({
-      type: EMPLOYEE_LOGIN_REQUEST,
+      type: STUDENT_LOGIN_REQUEST,
     });
 
     const config = {
@@ -36,19 +36,19 @@ export const employeeLogin = (empId) => async (dispatch) => {
         'Content-Type': 'application/json',
       },
     };
-    const { data } = await axios.post('/api/employees/login', {
-      empId,
+    const { data } = await axios.post('/api/students/login', {
+      studentId,
       config,
     });
 
     dispatch({
-      type: EMPLOYEE_LOGIN_SUCCESS,
+      type: STUDENT_LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('employeeInfo', JSON.stringify(data));
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_LOGIN_FAIL,
+      type: STUDENT_LOGIN_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -57,25 +57,28 @@ export const employeeLogin = (empId) => async (dispatch) => {
   }
 };
 
-export const employeeLogout = () => (dispatch) => {
-  localStorage.removeItem('employeeInfo');
-  dispatch({ type: EMPLOYEE_LOGOUT });
-  dispatch({ type: EMPLOYEE_LIST_RESET });
+export const studentLogout = () => (dispatch) => {
+  localStorage.removeItem('userInfo');
+  dispatch({ type: STUDENT_LOGOUT });
+  dispatch({ type: STUDENT_LIST_RESET });
 };
 
-export const employeeRegister = (
-  empId,
+export const studentRegister = (
+  studentId,
   name,
   age,
+  gender,
   phone,
-  department,
   municipality,
   barangay,
+  school,
+  course,
+  yearLevel,
   address
 ) => async (dispatch) => {
   try {
     dispatch({
-      type: EMPLOYEE_REGISTER_REQUEST,
+      type: STUDENT_REGISTER_REQUEST,
     });
 
     const config = {
@@ -84,33 +87,36 @@ export const employeeRegister = (
       },
     };
     const { data } = await axios.post(
-      '/api/employees',
+      '/api/students',
       {
-        empId,
+        studentId,
         name,
         age,
+        gender,
         phone,
-        department,
         municipality,
         barangay,
+        school,
+        course,
+        yearLevel,
         address,
       },
       config
     );
 
     dispatch({
-      type: EMPLOYEE_REGISTER_SUCCESS,
+      type: STUDENT_REGISTER_SUCCESS,
       payload: data,
     });
 
     dispatch({
-      type: EMPLOYEE_LOGIN_SUCCESS,
+      type: STUDENT_LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('employeeInfo', JSON.stringify(data));
+    localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_REGISTER_FAIL,
+      type: STUDENT_REGISTER_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -119,28 +125,28 @@ export const employeeRegister = (
   }
 };
 
-export const getEmployeeDetails = (id) => async (dispatch, getState) => {
+export const getStudentDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: EMPLOYEE_DETAILS_REQUEST,
+      type: STUDENT_DETAILS_REQUEST,
     });
     const {
-      employeeLogin: { employeeInfo },
+      userLogin: { userInfo },
     } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${employeeInfo.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/employees/${id}`, config);
+    const { data } = await axios.get(`/api/students/${id}`, config);
     dispatch({
-      type: EMPLOYEE_DETAILS_SUCCESS,
+      type: STUDENT_DETAILS_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_DETAILS_FAIL,
+      type: STUDENT_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -149,32 +155,28 @@ export const getEmployeeDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateEmployeeInfo = (employee) => async (dispatch, getState) => {
+export const updateStudentProfile = (student) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_REQUEST,
+      type: STUDENT_UPDATE_PROFILE_REQUEST,
     });
     const {
-      employeeLogin: { employeeInfo },
+      studentLogin: { studentLogin },
     } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${employeeInfo.token}`,
+        Authorization: `Bearer ${studentLogin.token}`,
       },
     };
-    const { data } = await axios.put(
-      `/api/employees/profile`,
-      employee,
-      config
-    );
+    const { data } = await axios.put(`/api/students/profile`, student, config);
     dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_SUCCESS,
+      type: STUDENT_UPDATE_PROFILE_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_FAIL,
+      type: STUDENT_UPDATE_PROFILE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -183,10 +185,10 @@ export const updateEmployeeInfo = (employee) => async (dispatch, getState) => {
   }
 };
 
-export const listEmployees = () => async (dispatch, getState) => {
+export const listStudents = () => async (dispatch, getState) => {
   try {
     dispatch({
-      type: EMPLOYEE_LIST_REQUEST,
+      type: STUDENT_LIST_REQUEST,
     });
     const {
       userLogin: { userInfo },
@@ -196,14 +198,14 @@ export const listEmployees = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/employees`, config);
+    const { data } = await axios.get(`/api/students`, config);
     dispatch({
-      type: EMPLOYEE_LIST_SUCCESS,
+      type: STUDENT_LIST_SUCCESS,
       payload: data,
     });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_LIST_FAIL,
+      type: STUDENT_LIST_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -212,10 +214,10 @@ export const listEmployees = () => async (dispatch, getState) => {
   }
 };
 
-export const deleteEmployee = (id) => async (dispatch, getState) => {
+export const deleteStudent = (id) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: EMPLOYEE_DELETE_REQUEST,
+      type: STUDENT_DELETE_REQUEST,
     });
     const {
       userLogin: { userInfo },
@@ -225,11 +227,11 @@ export const deleteEmployee = (id) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    await axios.delete(`/api/employees/${id}`, config);
-    dispatch({ type: EMPLOYEE_DELETE_SUCCESS });
+    await axios.delete(`/api/students/${id}`, config);
+    dispatch({ type: STUDENT_DELETE_SUCCESS });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_DELETE_FAIL,
+      type: STUDENT_DELETE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message
@@ -238,10 +240,10 @@ export const deleteEmployee = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateEmployee = (employee) => async (dispatch, getState) => {
+export const updateStudent = (student) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: EMPLOYEE_UPDATE_REQUEST,
+      type: STUDENT_UPDATE_REQUEST,
     });
     const {
       userLogin: { userInfo },
@@ -254,15 +256,15 @@ export const updateEmployee = (employee) => async (dispatch, getState) => {
       },
     };
     const { data } = await axios.put(
-      `/api/employees/${employee._id}`,
-      employee,
+      `/api/students/${student._id}`,
+      student,
       config
     );
-    dispatch({ type: EMPLOYEE_UPDATE_SUCCESS });
-    dispatch({ type: EMPLOYEE_DETAILS_SUCCESS, payload: data });
+    dispatch({ type: STUDENT_UPDATE_SUCCESS });
+    dispatch({ type: STUDENT_DETAILS_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
-      type: EMPLOYEE_UPDATE_FAIL,
+      type: STUDENT_UPDATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

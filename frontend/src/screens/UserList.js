@@ -15,7 +15,7 @@ const UserList = ({ history }) => {
   const { success: successDelete } = userDelete;
   useEffect(() => {
     if (userInfo && userInfo.role === 'admin') {
-      dispatch(listUsers());  
+      dispatch(listUsers());
     } else {
       history.push('/user/login');
     }
@@ -28,6 +28,7 @@ const UserList = ({ history }) => {
 
   return (
     <>
+      {console.log(users)}
       <h1>Users</h1>
       {loading ? (
         <Loader />

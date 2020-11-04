@@ -2,28 +2,27 @@ import React, { useState, useEffect } from 'react';
 import FormContainer from '../components/FormContainer';
 import { useDispatch, useSelector } from 'react-redux';
 import { listAreas } from '../actions/areaActions';
-import axios from 'axios';
-import { Form, Button, Container, Card } from 'react-bootstrap';
-const EmployeeRegister = () => {
+// import axios from 'axios';
+import { Form, Button, Card } from 'react-bootstrap';
+const EmployeeRegister = ({ history }) => {
   const dispatch = useDispatch();
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [employeeId, setEmployeeId] = useState('');
   const areaList = useSelector((state) => state.areaList);
-  const { loading, error, area } = areaList;
+  const { areas } = areaList;
   const submitHandler = (e) => {
     e.preventDefault();
   };
 
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
-    console.log(e.target.value);
     setMunicipality(e.target.value);
   };
 
   useEffect(() => {
-    console.log(dispatch(listAreas(municipality)));
-  }, [dispatch, area]);
+    dispatch(listAreas(municipality));
+  }, [dispatch, history, municipality]);
 
   return (
     <FormContainer>
@@ -90,11 +89,9 @@ const EmployeeRegister = () => {
                 onChange={(e) => setBarangay(e.target.value)}
               >
                 <option>Select a Barangay</option>
-                {/* {this.state.areas.map((area, index) => (
-                <option key={index} value={area.barangay}>
-                  {area.barangay}
-                </option>
-              ))} */}
+                {areas.map((area, index) => (
+                  <option key={index}>{area.barangay}</option>
+                ))}
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='employee-address'>

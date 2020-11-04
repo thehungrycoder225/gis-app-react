@@ -15,11 +15,7 @@ const getArea = asyncHandler(async (req, res, next) => {
       new AppError('A Municipality with this Query Does not Exists', 404)
     );
   }
-  return res.status(200).json({
-    success: true,
-    count: area.length,
-    data: area,
-  });
+  return res.status(200).json(area);
 });
-
+  
 export { getArea };
