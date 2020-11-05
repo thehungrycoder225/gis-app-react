@@ -138,7 +138,7 @@ const StudentRegister = ({ location, history }) => {
                 value={course}
                 onChange={(e) => setStudentCourse(e.target.value)}
               >
-                <option>Select a School</option>
+                <option>Select Course</option>
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='student-year'>

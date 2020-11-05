@@ -62,7 +62,7 @@ const covidCaseSchema = new Schema(
       default: Date.now,
     },
   },
-  { collection: 'covid_cases', timestamps: true }
+  { collection: 'covid_location', timestamps: true }
 );
 
 covidCaseSchema.pre('save', async function (next) {
@@ -76,7 +76,6 @@ covidCaseSchema.pre('save', async function (next) {
   this.address = undefined;
   next();
 });
-
 
 const CovidCase = mongoose.model('CovidCase', covidCaseSchema);
 export default CovidCase;

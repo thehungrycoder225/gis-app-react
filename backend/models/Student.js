@@ -72,8 +72,7 @@ const studentSchema = new Schema(
       },
     ],
   },
-  { timestamps: true },
-  { collection: 'student_location' }
+  { collection: 'student_location', timestamps: true }
 );
 
 studentSchema.pre('save', async function (next) {
