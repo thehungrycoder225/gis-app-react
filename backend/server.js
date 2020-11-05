@@ -8,6 +8,9 @@ import areaRoutes from './routes/areaRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import employeeRoutes from './routes/employeeRoutes.js';
 import studentRoutes from './routes/studentRoutes.js';
+import covidRoutes from './routes/covidRoutes.js';
+import departmentRoutes from './routes/departmentRoutes.js';
+import courseRoutes from './routes/courseRoutes.js';
 
 dotenv.config();
 
@@ -24,6 +27,9 @@ app.use('/api/areas', areaRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/employees', employeeRoutes);
 app.use('/api/students', studentRoutes);
+app.use('/api/covid', covidRoutes);
+app.use('/api/departments', departmentRoutes);
+app.use('/api/courses', courseRoutes);
 app.get('/', (req, res) => {
   res.send('API is Running');
 });

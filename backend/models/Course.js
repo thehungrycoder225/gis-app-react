@@ -10,8 +10,7 @@ const courseSchema = new Schema(
       type: String,
     },
   },
-  { timestamps: true },
-  { collection: 'msc_course' }
+  { collection: 'msc_course', timestamps: true }
 );
 
 const Course = mongoose.model('Course', courseSchema);

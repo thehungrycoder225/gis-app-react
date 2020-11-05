@@ -6,7 +6,6 @@ const covidCaseSchema = new Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
       ref: 'User',
     },
     caseId: {
@@ -31,6 +30,7 @@ const covidCaseSchema = new Schema(
     },
     status: {
       type: String,
+      required: [true, 'Please Indicate Status'],
     },
     location: {
       type: {
@@ -62,8 +62,7 @@ const covidCaseSchema = new Schema(
       default: Date.now,
     },
   },
-  { timestamps: true },
-  { collection: 'covid_cases' }
+  { collection: 'covid_cases', timestamps: true }
 );
 
 covidCaseSchema.pre('save', async function (next) {
@@ -78,19 +77,6 @@ covidCaseSchema.pre('save', async function (next) {
   next();
 });
 
-covidCaseSchema.pre('save', async function (next) {
-  const clientPromise = this.client.map(async (id) => await User.findById(id));
-  this.client = await Promise.all(clientPromise);
-  next();
-});
-
-covidCaseSchema.pre(/^find/, function (next) {
-  this.populate({
-    path: 'client',
-    select: '-__v -passwordChangedAt',
-  });
-  next();
-});
 
 const CovidCase = mongoose.model('CovidCase', covidCaseSchema);
 export default CovidCase;

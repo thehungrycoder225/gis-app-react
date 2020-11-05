@@ -5,6 +5,7 @@ import { Form, Button, Card } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listAreas } from '../actions/areaActions';
+import { listDepartments } from '../actions/departmentActions';
 import { register } from '../actions/employeeActions';
 
 const EmployeeRegister = ({ location, history }) => {
@@ -25,6 +26,8 @@ const EmployeeRegister = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/';
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
+  const departmentList = useSelector((state) => state.departmentList);
+  const { departments } = departmentList;
 
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
@@ -38,6 +41,7 @@ const EmployeeRegister = ({ location, history }) => {
 
   useEffect(() => {
     dispatch(listAreas(municipality));
+    dispatch(listDepartments());
     setEmployeeAddress(`${barangay},${municipality},Marinduque`);
   }, [dispatch, history, municipality, barangay, redirect]);
 
@@ -49,6 +53,7 @@ const EmployeeRegister = ({ location, history }) => {
         name,
         age,
         phone,
+        gender,
         department,
         municipality,
         barangay,
@@ -112,7 +117,7 @@ const EmployeeRegister = ({ location, history }) => {
                 value={gender}
                 onChange={(e) => setEmployeeGender(e.target.value)}
               >
-                <option disabled>Select Gender</option>
+                <option>Select Gender</option>
                 <option>Male</option>
                 <option>Female</option>
               </Form.Control>
@@ -125,6 +130,9 @@ const EmployeeRegister = ({ location, history }) => {
                 onChange={(e) => setEmployeeDepartment(e.target.value)}
               >
                 <option>Select a Department</option>
+                {departments.map((el, index) => (
+                  <option key={index}>{el.department}</option>
+                ))}
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='employee-municipality'>
@@ -160,7 +168,6 @@ const EmployeeRegister = ({ location, history }) => {
               <Form.Control
                 type='text'
                 value={address}
-                hidden
                 onChange={(e) => setEmployeeAddress(e.target.value)}
               />
             </Form.Group>

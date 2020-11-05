@@ -6,12 +6,8 @@ const departmentSchema = new Schema(
     department: {
       type: String,
     },
-    office: {
-      type: String,
-    },
   },
-  { timestamps: true },
-  { collection: 'msc_course' }
+  { collection: 'msc_department', timestamps: true }
 );
 
 const Department = mongoose.model('Department', departmentSchema);
