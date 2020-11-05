@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { areaListReducer } from './reducers/areaReducers';
+import { courseListReducer } from './reducers/courseReducers';
 import { departmentListReducer } from './reducers/departmentReducers';
 import {
   userLoginReducer,
@@ -33,6 +34,7 @@ import {
 
 const reducer = combineReducers({
   areaList: areaListReducer,
+  courseList: courseListReducer,
   departmentList: departmentListReducer,
   userLogin: userLoginReducer,
   userRegister: userRegisterReducer,

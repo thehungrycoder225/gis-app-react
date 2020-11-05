@@ -5,6 +5,7 @@ import { Form, Button, Card } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listAreas } from '../actions/areaActions';
+import { listCourses } from '../actions/courseActions';
 import { register } from '../actions/studentActions';
 
 const StudentRegister = ({ location, history }) => {
@@ -26,7 +27,13 @@ const StudentRegister = ({ location, history }) => {
   const [message, setMessage] = useState(null);
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
+  const courseList = useSelector((state) => state.courseList);
+  const { courses } = courseList;
 
+  const ChangeSchool = async (e) => {
+    e.preventDefault();
+    await setStudentSchool(e.target.value);
+  };
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
     await setMunicipality(e.target.value);
@@ -38,9 +45,10 @@ const StudentRegister = ({ location, history }) => {
   };
 
   useEffect(() => {
+    dispatch(listCourses(school));
     dispatch(listAreas(municipality));
     setStudentAddress(`${barangay},${municipality},Marinduque`);
-  }, [dispatch, history, municipality, barangay, redirect]);
+  }, [dispatch, history, municipality, barangay, school, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -123,12 +131,23 @@ const StudentRegister = ({ location, history }) => {
             </Form.Group>
             <Form.Group controlId='student-school'>
               <Form.Label>School</Form.Label>
-              <Form.Control
-                as='select'
-                value={school}
-                onChange={(e) => setStudentSchool(e.target.value)}
-              >
+              <Form.Control as='select' value={school} onChange={ChangeSchool}>
                 <option>Select a School</option>
+                <option>School of Business and Management </option>
+                <option> School of Education </option>
+                <option> School of Environmental Science </option>
+                <option> School of Fisheries </option>
+                <option> School of Governance</option>
+                <option>
+                  {' '}
+                  School of Graduate Studies and Professional Education{' '}
+                </option>
+                <option> School of Industrial Technology </option>
+                <option> School of Basic Education (SHS Program)</option>
+                <option> School of Education (Laboratory Program) </option>
+                <option> School of Information and Computing Sciences </option>
+                <option> School of Engineering </option>
+                <option> School of Arts anSciences</option>
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='student-course'>
@@ -139,6 +158,9 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentCourse(e.target.value)}
               >
                 <option>Select Course</option>
+                {courses.map((course, index) => (
+                  <option key={index}>{course.program}</option>
+                ))}
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='student-year'>

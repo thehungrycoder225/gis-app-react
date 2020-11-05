@@ -168,6 +168,7 @@ const EmployeeRegister = ({ location, history }) => {
               <Form.Control
                 type='text'
                 value={address}
+                hidden
                 onChange={(e) => setEmployeeAddress(e.target.value)}
               />
             </Form.Group>
