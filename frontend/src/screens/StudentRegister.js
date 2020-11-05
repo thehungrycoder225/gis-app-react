@@ -75,8 +75,9 @@ const StudentRegister = ({ location, history }) => {
       <Card>
         <Card.Header>
           <h1>Student Registration</h1>
-          {message && <Message variant='success'>{message}</Message>}
-          {error && <Message variant='danger'>{error}</Message>}
+          {message
+            ? 'success' && <Message variant='success'>{message}</Message>
+            : error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
         </Card.Header>
         <Card.Body>
@@ -133,21 +134,24 @@ const StudentRegister = ({ location, history }) => {
               <Form.Label>School</Form.Label>
               <Form.Control as='select' value={school} onChange={ChangeSchool}>
                 <option>Select a School</option>
+                <option>School of Agriculture</option>
+                <option> School of Arts and Sciences</option>
                 <option>School of Business and Management </option>
+                <option>School of Community and Health Care </option>
                 <option> School of Education </option>
                 <option> School of Environmental Science </option>
+                <option> School of Engineering </option>
                 <option> School of Fisheries </option>
-                <option> School of Governance</option>
+
+                <option> School of Industrial Technology </option>
+                <option> School of Information and Computing Sciences </option>
+                <option> School of Basic Education (SHS Program)</option>
+                <option> School of Education (Laboratory Program) </option>
                 <option>
                   {' '}
                   School of Graduate Studies and Professional Education{' '}
                 </option>
-                <option> School of Industrial Technology </option>
-                <option> School of Basic Education (SHS Program)</option>
-                <option> School of Education (Laboratory Program) </option>
-                <option> School of Information and Computing Sciences </option>
-                <option> School of Engineering </option>
-                <option> School of Arts anSciences</option>
+                <option> School of Governance</option>
               </Form.Control>
             </Form.Group>
             <Form.Group controlId='student-course'>
