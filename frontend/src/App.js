@@ -7,6 +7,7 @@ import { Container } from 'react-bootstrap';
 import Home from './screens/Home';
 import StudentRegister from './screens/StudentRegister';
 import EmployeeRegister from './screens/EmployeeRegister';
+import CovidRegister from './screens/CovidRegister';
 import CovidMap from './screens/CovidMap';
 import UserLogin from './screens/UserLogin';
 import UserRegister from './screens/UserRegister';
@@ -24,13 +25,14 @@ class App extends React.Component {
             <Route path='/' component={Home} exact />
             <Route path='/student/register' component={StudentRegister} />
             <Route path='/employee/register' component={EmployeeRegister} />
+            <Route path='/covid/register' component={CovidRegister} />
             <Route path='/user/login' component={UserLogin} />
             <Route path='/user/register' component={UserRegister} />
             <Route path='/user/profile' component={UserProfile} />
             <Route path='/admin/user-list' component={UserList} />
             <Route path='/admin/user/:id/edit' component={UserEdit} />
-            <Route path='/map' component={CovidMap} />
           </Container>
+          <Route path='/map' component={CovidMap} />
         </main>
         <Footer />
       </Router>

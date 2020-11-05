@@ -23,7 +23,7 @@ const StudentRegister = ({ location, history }) => {
   const [barangay, setBarangay] = useState('');
   const [address, setStudentAddress] = useState('');
   const studentRegister = useSelector((state) => state.studentRegister);
-  const { loading, error, studentInfo } = studentRegister;
+  const { loading, error } = studentRegister;
   const [message, setMessage] = useState(null);
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
@@ -83,7 +83,7 @@ const StudentRegister = ({ location, history }) => {
         <Card.Body>
           <Form onSubmit={submitHandler}>
             <Form.Group>
-              <Form.Label controlId='student-id'>Student Id:</Form.Label>
+              <Form.Label controlid='student-id'>Student Id:</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='19A1991'
@@ -92,7 +92,7 @@ const StudentRegister = ({ location, history }) => {
               ></Form.Control>
             </Form.Group>
             <Form.Group>
-              <Form.Label controlId='student-name'>Student Name:</Form.Label>
+              <Form.Label controlid='student-name'>Student Name:</Form.Label>
               <Form.Control
                 type='text'
                 placeholder='Jane V. Doe'
@@ -100,7 +100,7 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentName(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-age'>
+            <Form.Group controlid='student-age'>
               <Form.Label>Age:</Form.Label>
               <Form.Control
                 type='number'
@@ -109,7 +109,7 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentAge(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='student-gender'>
+            <Form.Group controlid='student-gender'>
               <Form.Label>Gender:</Form.Label>
               <Form.Control
                 as='select'
@@ -121,7 +121,7 @@ const StudentRegister = ({ location, history }) => {
                 <option>Female</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-phone'>
+            <Form.Group controlid='student-phone'>
               <Form.Label>Phone:</Form.Label>
               <Form.Control
                 type='number'
@@ -130,7 +130,7 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentPhone(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='student-school'>
+            <Form.Group controlid='student-school'>
               <Form.Label>School</Form.Label>
               <Form.Control as='select' value={school} onChange={ChangeSchool}>
                 <option>Select a School</option>
@@ -154,7 +154,7 @@ const StudentRegister = ({ location, history }) => {
                 <option> School of Governance</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-course'>
+            <Form.Group controlid='student-course'>
               <Form.Label>Course</Form.Label>
               <Form.Control
                 as='select'
@@ -167,7 +167,7 @@ const StudentRegister = ({ location, history }) => {
                 ))}
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-year'>
+            <Form.Group controlid='student-year'>
               <Form.Label>Year:</Form.Label>
               <Form.Control
                 type='number'
@@ -178,7 +178,7 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentYearLevel(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='student-municipality'>
+            <Form.Group controlid='student-municipality'>
               <Form.Label>Municipality</Form.Label>
               <Form.Control
                 as='select'
@@ -194,7 +194,7 @@ const StudentRegister = ({ location, history }) => {
                 <option>Santa Cruz</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-barangay'>
+            <Form.Group controlid='student-barangay'>
               <Form.Label>Barangay</Form.Label>
               <Form.Control
                 as='select'
@@ -207,7 +207,7 @@ const StudentRegister = ({ location, history }) => {
                 ))}
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='student-address'>
+            <Form.Group controlid='student-address'>
               <Form.Control
                 type='text'
                 value={address}

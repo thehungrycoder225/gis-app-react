@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import FormContainer from '../components/FormContainer';
 import { Form, Button, Card } from 'react-bootstrap';
-import Message from '../components/Message';
-import Loader from '../components/Loader';
 import { listAreas } from '../actions/areaActions';
 import { listDepartments } from '../actions/departmentActions';
 import { register } from '../actions/employeeActions';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
+import FormContainer from '../components/FormContainer';
 
 const EmployeeRegister = ({ location, history }) => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const EmployeeRegister = ({ location, history }) => {
   const [message, setMessage] = useState(null);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
-  const { loading, error, employeeInfo } = employeeRegister;
+  const { loading, error } = employeeRegister;
   const redirect = location.search ? location.search.split('=')[1] : '/';
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
@@ -74,7 +74,7 @@ const EmployeeRegister = ({ location, history }) => {
         </Card.Header>
         <Card.Body>
           <Form onSubmit={submitHandler}>
-            <Form.Group controlId='EmployeeId'>
+            <Form.Group controlid='EmployeeId'>
               <Form.Label>Employee Id:</Form.Label>
               <Form.Control
                 type='text'
@@ -83,7 +83,7 @@ const EmployeeRegister = ({ location, history }) => {
                 onChange={(e) => setEmployeeId(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='employee-name'>
+            <Form.Group controlid='employee-name'>
               <Form.Label>Employee Name:</Form.Label>
               <Form.Control
                 type='text'
@@ -92,7 +92,7 @@ const EmployeeRegister = ({ location, history }) => {
                 onChange={(e) => setEmployeeName(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='employee-age'>
+            <Form.Group controlid='employee-age'>
               <Form.Label>Employee Age:</Form.Label>
               <Form.Control
                 type='number'
@@ -101,7 +101,7 @@ const EmployeeRegister = ({ location, history }) => {
                 onChange={(e) => setEmployeeAge(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='employee-phone'>
+            <Form.Group controlid='employee-phone'>
               <Form.Label>Phone:</Form.Label>
               <Form.Control
                 type='number'
@@ -110,7 +110,7 @@ const EmployeeRegister = ({ location, history }) => {
                 onChange={(e) => setEmployeePhone(e.target.value)}
               />
             </Form.Group>
-            <Form.Group controlId='employee-gender'>
+            <Form.Group controlid='employee-gender'>
               <Form.Label>Gender:</Form.Label>
               <Form.Control
                 as='select'
@@ -122,7 +122,7 @@ const EmployeeRegister = ({ location, history }) => {
                 <option>Female</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='employee-department'>
+            <Form.Group controlid='employee-department'>
               <Form.Label>Department</Form.Label>
               <Form.Control
                 as='select'
@@ -135,7 +135,7 @@ const EmployeeRegister = ({ location, history }) => {
                 ))}
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='employee-municipality'>
+            <Form.Group controlid='employee-municipality'>
               <Form.Label>Municipality</Form.Label>
               <Form.Control
                 as='select'
@@ -151,7 +151,7 @@ const EmployeeRegister = ({ location, history }) => {
                 <option>Santa Cruz</option>
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='employee-barangay'>
+            <Form.Group controlid='employee-barangay'>
               <Form.Label>Barangay</Form.Label>
               <Form.Control
                 as='select'
@@ -164,7 +164,7 @@ const EmployeeRegister = ({ location, history }) => {
                 ))}
               </Form.Control>
             </Form.Group>
-            <Form.Group controlId='employee-address'>
+            <Form.Group controlid='employee-address'>
               <Form.Control
                 type='text'
                 value={address}

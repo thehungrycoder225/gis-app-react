@@ -31,6 +31,14 @@ import {
   studentDeleteReducer,
   studentUpdateReducer,
 } from './reducers/studentReducers';
+import {
+  covidRegisterReducer,
+  covidDetailsReducer,
+  covidUpdateProfileReducer,
+  covidListReducer,
+  covidDeleteReducer,
+  covidUpdateReducer,
+} from './reducers/covidReducers';
 
 const reducer = combineReducers({
   areaList: areaListReducer,
@@ -57,6 +65,12 @@ const reducer = combineReducers({
   studentList: studentListReducer,
   studentDelete: studentDeleteReducer,
   studentUpdate: studentUpdateReducer,
+  covidRegister: covidRegisterReducer,
+  covidDetails: covidDetailsReducer,
+  covidUpdateProfile: covidUpdateProfileReducer,
+  covidList: covidListReducer,
+  covidDelete: covidDeleteReducer,
+  covidUpdate: covidUpdateReducer,
 });
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))

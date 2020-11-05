@@ -1,0 +1,104 @@
+import {
+  COVID_REGISTER_REQUEST,
+  COVID_REGISTER_SUCCESS,
+  COVID_REGISTER_FAIL,
+  COVID_DETAILS_REQUEST,
+  COVID_DETAILS_SUCCESS,
+  COVID_DETAILS_FAIL,
+  COVID_UPDATE_PROFILE_SUCCESS,
+  COVID_UPDATE_PROFILE_REQUEST,
+  COVID_UPDATE_PROFILE_FAIL,
+  COVID_LIST_SUCCESS,
+  COVID_LIST_REQUEST,
+  COVID_LIST_FAIL,
+  COVID_LIST_RESET,
+  COVID_DELETE_SUCCESS,
+  COVID_DELETE_REQUEST,
+  COVID_DELETE_FAIL,
+  COVID_UPDATE_REQUEST,
+  COVID_UPDATE_SUCCESS,
+  COVID_UPDATE_FAIL,
+  COVID_UPDATE_RESET,
+} from '../constants/covidConstants';
+
+export const covidRegisterReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COVID_REGISTER_REQUEST:
+      return { loading: true };
+    case COVID_REGISTER_SUCCESS:
+      return { loading: false, covidInfo: action.payload };
+    case COVID_REGISTER_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const covidDetailsReducer = (state = { covid: {} }, action) => {
+  switch (action.type) {
+    case COVID_DETAILS_REQUEST:
+      return { ...state, loading: true };
+    case COVID_DETAILS_SUCCESS:
+      return { loading: false, covid: action.payload };
+    case COVID_DETAILS_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const covidUpdateProfileReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COVID_UPDATE_PROFILE_REQUEST:
+      return { loading: true };
+    case COVID_UPDATE_PROFILE_SUCCESS:
+      return { loading: false, success: true, covidInfo: action.payload };
+    case COVID_UPDATE_PROFILE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const covidListReducer = (state = { covids: [] }, action) => {
+  switch (action.type) {
+    case COVID_LIST_REQUEST:
+      return { loading: true };
+    case COVID_LIST_SUCCESS:
+      return { loading: false, covids: action.payload };
+    case COVID_LIST_FAIL:
+      return { loading: false, error: action.payload };
+    case COVID_LIST_RESET:
+      return { covids: [] };
+    default:
+      return state;
+  }
+};
+
+export const covidDeleteReducer = (state = {}, action) => {
+  switch (action.type) {
+    case COVID_DELETE_REQUEST:
+      return { loading: true };
+    case COVID_DELETE_SUCCESS:
+      return { loading: false, success: true };
+    case COVID_DELETE_FAIL:
+      return { loading: false, error: action.payload };
+    default:
+      return state;
+  }
+};
+
+export const covidUpdateReducer = (state = { covid: {} }, action) => {
+  switch (action.type) {
+    case COVID_UPDATE_REQUEST:
+      return { loading: true };
+    case COVID_UPDATE_SUCCESS:
+      return { loading: false, success: true };
+    case COVID_UPDATE_FAIL:
+      return { loading: false, error: action.payload };
+    case COVID_UPDATE_RESET:
+      return { covid: {} };
+    default:
+      return state;
+  }
+};
