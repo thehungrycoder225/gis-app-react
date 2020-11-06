@@ -125,7 +125,7 @@ const CovidRegister = ({ location, history }) => {
                 value={status}
                 onChange={(e) => setStatus(e.target.value)}
               >
-                <option disabled>Select Case Status</option>
+                <option>Select Case Status</option>
                 <option>Active</option>
                 <option>Recovered</option>
                 <option>Died</option>

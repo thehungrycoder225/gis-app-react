@@ -29,7 +29,7 @@ const UserEdit = ({ match, history }) => {
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: USER_UPDATE_RESET });
-      history.push('/admin/user-list');
+      history.push('/admin/user/list');
     } else {
       if (!user.name || user._id !== userId) {
         dispatch(getUserDetails(userId));
@@ -47,7 +47,7 @@ const UserEdit = ({ match, history }) => {
   };
   return (
     <>
-      <Link to='/admin/user-list' className='btn btn-light my-3'>
+      <Link to='/admin/user/list' className='btn btn-light my-3'>
         Go Back
       </Link>
       <FormContainer>

@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { listCases } from '../actions/covidActions';
 import { Map, Marker, Popoup, TileLayer } from 'react-leaflet';
 import { Icon } from 'leaflet';
+import useSwr from 'swr';
 import './map.css';
 const CovidMap = () => {
+  const dispatch = useDispatch();
+  const covidList = useSelector((state) => state.covidList);
+  const { cases } = covidList;
+  useEffect(() => {
+    dispatch(listCases());
+  }, [dispatch]);
   return (
     <Map
       className='leaflet-container'
@@ -13,6 +22,9 @@ const CovidMap = () => {
         url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
       ></TileLayer>
+      {/* {cases.map((el) => (
+        <Marker />
+      ))} */}
     </Map>
   );
 };

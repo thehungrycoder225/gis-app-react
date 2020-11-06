@@ -8,10 +8,7 @@ import {
 } from '../controllers/covidController.js';
 import { protect, admin, client } from '../middleware/authMiddleware.js';
 const router = express.Router();
-router
-  .route('/')
-  .post(protect, client, addCovidCase)
-  .get(protect, client, getCases);
+router.route('/').post(protect, client, addCovidCase).get(getCases);
 router
   .route('/:id')
   .delete(protect, client, deleteCase)

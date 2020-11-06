@@ -80,12 +80,12 @@ export const listCases = () => async (dispatch, getState) => {
     dispatch({
       type: COVID_LIST_REQUEST,
     });
-    const {
-      userLogin: { userInfo },
-    } = getState();
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Accept: 'application/json',
+        'Content-Type': 'application/json ',
+        'Access-Control-Origin': '*',
+        'Access-Control-Allow-Methods': '*',
       },
     };
     const { data } = await axios.get(`/api/covid`, config);
@@ -104,7 +104,7 @@ export const listCases = () => async (dispatch, getState) => {
   }
 };
 
-export const deleteEmployee = (id) => async (dispatch, getState) => {
+export const deleteCase = (id) => async (dispatch, getState) => {
   try {
     dispatch({
       type: COVID_DELETE_REQUEST,

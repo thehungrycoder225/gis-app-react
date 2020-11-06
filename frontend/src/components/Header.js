@@ -47,7 +47,7 @@ const Header = () => {
                       <i className='fas fa-briefcase'></i>Employee Registration
                     </Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to='/map'>
+                  <LinkContainer to='/covid/map'>
                     <Nav.Link>
                       <i className='fas fa-map-marker-alt'></i>COVID-19 Map
                     </Nav.Link>
@@ -56,13 +56,13 @@ const Header = () => {
               )}
               {userInfo && userInfo.role === 'admin' && (
                 <NavDropdown title={userInfo.role} id='adminmenu'>
-                  <LinkContainer to='/admin/user-list'>
+                  <LinkContainer to='/admin/user/list'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/student-list'>
+                  <LinkContainer to='/admin/student/list'>
                     <NavDropdown.Item>Students</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/employee-list'>
+                  <LinkContainer to='/admin/employee/list'>
                     <NavDropdown.Item>Employees</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to='/admin/map'>
@@ -72,10 +72,13 @@ const Header = () => {
               )}
               {userInfo && userInfo.role === 'client' && (
                 <NavDropdown title={userInfo.role} id='clientmenu'>
-                  <LinkContainer to='/covid/register'>
+                  <LinkContainer to='/client/covid/register'>
                     <NavDropdown.Item>Covid Case</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/client/map'>
+                  <LinkContainer to='/client/covid/list'>
+                    <NavDropdown.Item>Covid List</NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to='/client/covid/map'>
                     <NavDropdown.Item>Covid Map</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
