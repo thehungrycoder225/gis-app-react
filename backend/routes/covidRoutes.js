@@ -6,13 +6,16 @@ import {
   updateCase,
   getCaseId,
 } from '../controllers/covidController.js';
-import { protect, admin } from '../middleware/authMiddleware.js';
+import { protect, admin, client } from '../middleware/authMiddleware.js';
 const router = express.Router();
-router.route('/').post(protect, addCovidCase).get(protect, admin, getCases);
+router
+  .route('/')
+  .post(protect, client, addCovidCase)
+  .get(protect, client, getCases);
 router
   .route('/:id')
-  .delete(protect, admin, deleteCase)
-  .get(protect, admin, getCaseId)
-  .put(protect, admin, updateCase);
+  .delete(protect, client, deleteCase)
+  .get(protect, client, getCaseId)
+  .put(protect, client, updateCase);
 
 export default router;

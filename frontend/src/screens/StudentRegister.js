@@ -69,7 +69,6 @@ const StudentRegister = ({ location, history }) => {
         address
       )
     );
-    setMessage('Registration Successful');
   };
 
   return (

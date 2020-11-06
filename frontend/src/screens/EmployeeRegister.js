@@ -60,7 +60,6 @@ const EmployeeRegister = ({ location, history }) => {
         address
       )
     );
-    setMessage('Registration Successful');
   };
 
   return (
