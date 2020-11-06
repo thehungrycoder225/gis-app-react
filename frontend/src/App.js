@@ -14,6 +14,8 @@ import UserRegister from './screens/UserRegister';
 import UserProfile from './screens/UserProfile';
 import UserList from './screens/UserList';
 import UserEdit from './screens/UserEdit';
+import StudentList from './screens/StudentList';
+import StudentEdit from './screens/StudentEdit';
 
 class App extends React.Component {
   render() {
@@ -31,8 +33,10 @@ class App extends React.Component {
             <Route path='/user/profile' component={UserProfile} />
             <Route path='/admin/user-list' component={UserList} />
             <Route path='/admin/user/:id/edit' component={UserEdit} />
+            <Route path='/admin/student-list' component={StudentList} />
+            <Route path='/admin/student/:id/edit' component={StudentEdit} />
           </Container>
-          <Route path='/map' component={CovidMap} />
+          <Route path='/covid/map' component={CovidMap} />
         </main>
         <Footer />
       </Router>

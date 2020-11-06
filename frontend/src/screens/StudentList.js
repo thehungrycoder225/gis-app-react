@@ -4,31 +4,31 @@ import { Table, Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { listUsers, deleteUser } from '../actions/userActions';
-const UserList = ({ history }) => {
+import { listStudents, deleteStudent } from '../actions/studentActions';
+const StudentList = ({ history }) => {
   const dispatch = useDispatch();
-  const userList = useSelector((state) => state.userList);
-  const { loading, error, users } = userList;
+  const studentList = useSelector((state) => state.studentList);
+  const { loading, error, students } = studentList;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
-  const userDelete = useSelector((state) => state.userDelete);
-  const { success: successDelete } = userDelete;
+  const studentDelete = useSelector((state) => state.studentDelete);
+  const { success: successDelete } = studentDelete;
   useEffect(() => {
     if (userInfo && userInfo.role === 'admin') {
-      dispatch(listUsers());
+      dispatch(listStudents());
     } else {
       history.push('/user/login');
     }
   }, [userInfo, dispatch, history, successDelete]);
   const deleteHandler = (id) => {
-    if (window.confirm('Are  you sure you want to  delete this user?')) {
-      dispatch(deleteUser(id));
+    if (window.confirm('Are  you sure you want to  delete this record?')) {
+      dispatch(deleteStudent(id));
     }
   };
 
   return (
     <>
-      <h1>Users</h1>
+      <h1>Students</h1>
       {loading ? (
         <Loader />
       ) : error ? (
@@ -37,32 +37,32 @@ const UserList = ({ history }) => {
         <Table striped bordered hover responsive className='table-sm'>
           <thead>
             <tr>
-              <th>ID</th>
-              <th>Email</th>
+              <th>Student Id:</th>
               <th>Name</th>
-              <th>Username</th>
-              <th>Role</th>
-              <th>Edit</th>
+              <th>Age</th>
+              <th>Gender</th>
+              <th>Phone Number</th>
+              <th>School</th>
+              <th>Course</th>
+              <th>Year Level</th>
+              <th>Address</th>
+              <th>Record Control</th>
             </tr>
           </thead>
           <tbody>
-            {users.map((user) => (
-              <tr key={user.id}>
-                <td>{user._id}</td>
+            {students.map((student) => (
+              <tr key={student.id}>
+                <td>{student.studentId}</td>
+                <td>{student.name}</td>
+                <td>{student.age}</td>
+                <td>{student.gender}</td>
+                <td>{student.phone}</td>
+                <td>{student.school}</td>
+                <td>{student.course}</td>
+                <td>{student.yearLevel}</td>
+                <td>{student.location.formattedAddress}</td>
                 <td>
-                  <a href={`mailto:${user.email}`}>{user.email}</a>
-                </td>
-                <td>{user.name}</td>
-                <td>{user.username}</td>
-                <td>
-                  {user.role === 'admin' ? (
-                    <i className='fas fa-check' style={{ color: 'green' }}></i>
-                  ) : (
-                    <i className='fas fa-times' style={{ color: 'red' }}></i>
-                  )}
-                </td>
-                <td>
-                  <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                  <LinkContainer to={`/admin/student/${student._id}/edit`}>
                     <Button variant='light' className='btn-sm'>
                       <i className='fas fa-edit'></i>
                     </Button>
@@ -70,7 +70,7 @@ const UserList = ({ history }) => {
                   <Button
                     variant='danger'
                     className='btn-sm'
-                    onClick={() => deleteHandler(user._id)}
+                    onClick={() => deleteHandler(student._id)}
                   >
                     <i className='fas fa-trash'></i>
                   </Button>
@@ -84,4 +84,4 @@ const UserList = ({ history }) => {
   );
 };
 
-export default UserList;
+export default StudentList;

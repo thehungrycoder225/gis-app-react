@@ -123,13 +123,13 @@ const EmployeeRegister = ({ location, history }) => {
               </Form.Control>
             </Form.Group>
             <Form.Group controlid='employee-department'>
-              <Form.Label>Department</Form.Label>
+              <Form.Label>Office:</Form.Label>
               <Form.Control
                 as='select'
                 value={department}
                 onChange={(e) => setEmployeeDepartment(e.target.value)}
               >
-                <option>Select a Department</option>
+                <option>Select Office</option>
                 {departments.map((el, index) => (
                   <option key={index}>{el.department}</option>
                 ))}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
-import { Form, Button, Card } from 'react-bootstrap';
+import { Form, Button, Card, Modal } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { listAreas } from '../actions/areaActions';
@@ -29,6 +29,8 @@ const StudentRegister = ({ location, history }) => {
   const { areas } = areaList;
   const courseList = useSelector((state) => state.courseList);
   const { courses } = courseList;
+
+  const [terms, setTermsShow] = useState(false);
 
   const ChangeSchool = async (e) => {
     e.preventDefault();
@@ -82,6 +84,7 @@ const StudentRegister = ({ location, history }) => {
         </Card.Header>
         <Card.Body>
           <Form onSubmit={submitHandler}>
+            <Card.Text as='h5'>Basic Information</Card.Text>
             <Form.Group>
               <Form.Label controlid='student-id'>Student Id:</Form.Label>
               <Form.Control
@@ -168,7 +171,7 @@ const StudentRegister = ({ location, history }) => {
               </Form.Control>
             </Form.Group>
             <Form.Group controlid='student-year'>
-              <Form.Label>Year:</Form.Label>
+              <Form.Label>Year Level:</Form.Label>
               <Form.Control
                 type='number'
                 placeholder='1'
@@ -178,6 +181,7 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentYearLevel(e.target.value)}
               />
             </Form.Group>
+            <Card.Text as='h5'>Present Address:</Card.Text>
             <Form.Group controlid='student-municipality'>
               <Form.Label>Municipality</Form.Label>
               <Form.Control
@@ -215,6 +219,24 @@ const StudentRegister = ({ location, history }) => {
                 onChange={(e) => setStudentAddress(e.target.value)}
               />
             </Form.Group>
+            <Form.Check />
+            <p className='text-muted'>
+              Please ensure that you're currently located in or within the
+              vicinity of the address stated above before submitting, By
+              clicking Sign Up, you agree to our and Cookies Policy.
+              <Button
+                variant='link'
+                color='primary'
+                size='sm'
+                onClick={() => setTermsShow(true)}
+              >
+                Terms
+              </Button>
+              ,{' '}
+              <Button variant='link' size='sm'>
+                Data Policy{' '}
+              </Button>
+            </p>
             <Button variant='success' type='submit'>
               Submit
             </Button>{' '}
@@ -222,6 +244,17 @@ const StudentRegister = ({ location, history }) => {
           </Form>
         </Card.Body>
       </Card>
+      <Modal
+        size='lg'
+        show={terms}
+        onHide={() => setTermsShow(false)}
+        aria-labelledby='terms-modal'
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id='terms-modal'>Terms</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>...</Modal.Body>
+      </Modal>
     </FormContainer>
   );
 };

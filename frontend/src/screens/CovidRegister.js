@@ -4,6 +4,8 @@ import { Form, Button, Card } from 'react-bootstrap';
 import { listAreas } from '../actions/areaActions';
 import { register } from '../actions/covidActions';
 import FormContainer from '../components/FormContainer';
+import Message from '../components/Message';
+import Loader from '../components/Loader';
 const CovidRegister = ({ location, history }) => {
   const dispatch = useDispatch();
   const [caseId, setCaseId] = useState('');
@@ -29,6 +31,9 @@ const CovidRegister = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    dispatch(
+      register(caseId, age, gender, municipality, barangay, address, status)
+    );
   };
   useEffect(() => {
     dispatch(listAreas(municipality));
@@ -39,6 +44,8 @@ const CovidRegister = ({ location, history }) => {
       <Card>
         <Card.Header>
           <h1>Record New Covid-19 Case</h1>
+          {error && <Message variant='danger'>{error}</Message>}
+          {loading && <Loader />}
         </Card.Header>
         <Card.Body>
           <Form onSubmit={submitHandler}>
