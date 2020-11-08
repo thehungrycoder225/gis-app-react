@@ -148,6 +148,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
       municipality: updatedEmployee.municipality,
       barangay: updatedEmployee.barangay,
       address: updatedEmployee.address,
+      formattedAddress: employee.formattedAddress,
     });
   } else {
     res.status(404);
@@ -155,8 +156,8 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Auth user & get profile
-// @route GET /api/employee/profile
+// @desc Auth user & get all employee
+// @route GET /api/employee/
 // @access Private
 
 const getEmployees = asyncHandler(async (req, res) => {

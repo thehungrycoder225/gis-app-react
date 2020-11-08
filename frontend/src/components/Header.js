@@ -22,7 +22,7 @@ const Header = () => {
             <Nav className='ml-auto'>
               <LinkContainer to='/'>
                 <Nav.Link>
-                  <i className='fas fa-home'></i> Home
+                  <i className='px-1 fas fa-home'></i> Home
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
@@ -38,18 +38,19 @@ const Header = () => {
                 <>
                   <LinkContainer to='/student/register'>
                     <Nav.Link>
-                      <i className='fas fa-graduation-cap'></i>Student
+                      <i className='px-1 fas fa-graduation-cap'></i>Student
                       Registration
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to='/employee/register'>
                     <Nav.Link>
-                      <i className='fas fa-briefcase'></i>Employee Registration
+                      <i className='px-1 fas fa-briefcase'></i>Employee
+                      Registration
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to='/covid/map'>
                     <Nav.Link>
-                      <i className='fas fa-map-marker-alt'></i>COVID-19 Map
+                      <i className='px-1 fas fa-map-marker-alt'></i>COVID-19 Map
                     </Nav.Link>
                   </LinkContainer>
                 </>

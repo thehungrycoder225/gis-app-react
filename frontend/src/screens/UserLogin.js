@@ -54,7 +54,7 @@ const UserLogin = ({ location, history }) => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <Button variant='success' type='submit'>
+            <Button variant='primary' type='submit'>
               Log In
             </Button>
           </Form>

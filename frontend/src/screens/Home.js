@@ -1,15 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import { MDBContainer } from 'mdbreact';
 import Logo from '../extras/Logo';
 
 const Home = () => {
   return (
-    <Container>
-      <Link to='/user/login'>
-        <Logo />
-      </Link>
-    </Container>
+    <>
+      <MDBContainer>
+        <Link to='/user/login'>
+          <Logo />
+        </Link>
+      </MDBContainer>
+    </>
   );
 };
 

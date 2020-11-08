@@ -21,7 +21,10 @@ const CovidList = ({ history, match }) => {
   };
   const registerCovidCaseHandler = (covid) => {};
   useEffect(() => {
-    if ((userInfo && userInfo.role === 'admin') || userInfo.role === 'client') {
+    if (
+      (userInfo && userInfo.role === 'admin') ||
+      (userInfo && userInfo.role === 'client')
+    ) {
       dispatch(listCases());
     } else {
       history.push('/user/login');
@@ -31,7 +34,7 @@ const CovidList = ({ history, match }) => {
     <>
       <Row className='align-items-center'>
         <Col>
-          <h1>Covid Cases</h1>
+          <h1>Covid-19 Records</h1>
         </Col>
         <Col className='text-right'>
           <Button className='my-3' onClick={registerCovidCaseHandler}>
@@ -53,6 +56,7 @@ const CovidList = ({ history, match }) => {
               <th>Address</th>
               <th>Status</th>
               <th>Date Recorded</th>
+              <th>Date Updated</th>
               <th>Control</th>
             </tr>
           </thead>
@@ -65,6 +69,7 @@ const CovidList = ({ history, match }) => {
                 <td>{covid.location.formattedAddress}</td>
                 <td>{covid.status}</td>
                 <td>{covid.createdAt}</td>
+                <td>{covid.updatedAt}</td>
                 <td>
                   <LinkContainer to={`/client/covid/${covid._id}/edit`}>
                     <Button variant='light' className='btn-sm'>

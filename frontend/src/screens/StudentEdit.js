@@ -41,7 +41,7 @@ const Student = ({ match, history }) => {
   useEffect(() => {
     if (successUpdate) {
       dispatch({ type: STUDENT_UPDATE_RESET });
-      history.push('/admin/student-list');
+      history.push('/admin/student/list');
     } else {
       if (!student.name || student._id !== sId) {
         dispatch(getStudentDetails(sId));
@@ -51,17 +51,37 @@ const Student = ({ match, history }) => {
         setStudentAge(student.age);
         setStudentGender(student.gender);
         setStudentPhone(student.phone);
-        setStudentSchool(student.school);
-        setStudentCourse(student.course);
         setStudentYearLevel(student.yearLevel);
-        setMunicipality(student.municipality);
-        setBarangay(student.barangay);
+        if (municipality === '' && barangay === '') {
+          setBarangay(student.barangay);
+          setMunicipality(student.municipality);
+        } else {
+          setMunicipality(municipality);
+          setBarangay(barangay);
+          setAddress(`${barangay},${municipality},Marinduque`);
+        }
+        if (school === '' && course === '') {
+          setStudentCourse(student.course);
+          setStudentSchool(student.school);
+        } else {
+          setStudentCourse(course);
+          setStudentSchool(school);
+        }
       }
     }
     dispatch(listCourses(school));
     dispatch(listAreas(municipality));
-    setAddress(`${barangay},${municipality},Marinduque`);
-  }, [dispatch, history, sId, student, school, municipality, successUpdate]);
+  }, [
+    dispatch,
+    history,
+    sId,
+    student,
+    school,
+    course,
+    municipality,
+    barangay,
+    successUpdate,
+  ]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -83,12 +103,12 @@ const Student = ({ match, history }) => {
   };
   return (
     <>
-      <Link to='/admin/student-list' className='btn btn-light my-3'>
+      <Link to='/admin/student/list' className='btn btn-light my-3'>
         Go Back
       </Link>
       <FormContainer>
         {' '}
-        <h1>Edit Student Inforamtion</h1> {loadingUpdate && <Loader />}
+        <h1>Edit Student Information</h1> {loadingUpdate && <Loader />}
         {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
         {loading ? (
           <Loader />
@@ -234,7 +254,6 @@ const Student = ({ match, history }) => {
               <Form.Control
                 type='text'
                 hidden
-                
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
               />

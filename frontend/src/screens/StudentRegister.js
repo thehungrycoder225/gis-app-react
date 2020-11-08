@@ -24,7 +24,7 @@ const StudentRegister = ({ location, history }) => {
   const [address, setStudentAddress] = useState('');
   const studentRegister = useSelector((state) => state.studentRegister);
   const { loading, error } = studentRegister;
-  const [message, setMessage] = useState(null);
+  const [message] = useState(null);
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
   const courseList = useSelector((state) => state.courseList);

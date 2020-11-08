@@ -19,7 +19,7 @@ const EmployeeRegister = ({ location, history }) => {
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
-  const [message, setMessage] = useState(null);
+  const [message] = useState(null);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
   const { loading, error } = employeeRegister;

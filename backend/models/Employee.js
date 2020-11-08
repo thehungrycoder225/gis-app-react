@@ -12,6 +12,7 @@ const employeeSchema = new Schema(
     },
     name: {
       type: String,
+      unique: true,
       required: true,
     },
     age: {
@@ -50,6 +51,9 @@ const employeeSchema = new Schema(
         type: ['Number'],
         index: '2dsphere',
       },
+      formattedAddress: {
+        type: String,
+      },
     },
     locations: [
       {
@@ -68,7 +72,6 @@ const employeeSchema = new Schema(
 
 employeeSchema.pre('save', async function (next) {
   const loc = await geocoder.geocode(this.address);
-  console.log(loc);
   this.location = {
     type: 'Point',
     coordinates: [loc[0].longitude, loc[0].latitude],

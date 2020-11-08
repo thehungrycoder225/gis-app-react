@@ -34,12 +34,12 @@ export const covidRegisterReducer = (state = {}, action) => {
   }
 };
 
-export const covidDetailsReducer = (state = { cases: {} }, action) => {
+export const covidDetailsReducer = (state = { record: {} }, action) => {
   switch (action.type) {
     case COVID_DETAILS_REQUEST:
       return { ...state, loading: true };
     case COVID_DETAILS_SUCCESS:
-      return { loading: false, cases: action.payload };
+      return { loading: false, record: action.payload };
     case COVID_DETAILS_FAIL:
       return { loading: false, error: action.payload };
     default:
@@ -88,7 +88,7 @@ export const covidDeleteReducer = (state = {}, action) => {
   }
 };
 
-export const covidUpdateReducer = (state = { cases: {} }, action) => {
+export const covidUpdateReducer = (state = { record: {} }, action) => {
   switch (action.type) {
     case COVID_UPDATE_REQUEST:
       return { loading: true };
@@ -97,7 +97,7 @@ export const covidUpdateReducer = (state = { cases: {} }, action) => {
     case COVID_UPDATE_FAIL:
       return { loading: false, error: action.payload };
     case COVID_UPDATE_RESET:
-      return { cases: {} };
+      return { record: {} };
     default:
       return state;
   }

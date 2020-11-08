@@ -9,8 +9,10 @@ import StudentRegister from './screens/StudentRegister';
 import StudentList from './screens/StudentList';
 import StudentEdit from './screens/StudentEdit';
 import EmployeeRegister from './screens/EmployeeRegister';
+import EmployeeList from './screens/EmployeeList';
 import CovidRegister from './screens/CovidRegister';
 import CovidList from './screens/CovidList';
+import CovidEdit from './screens/CovidEdit';
 import CovidMap from './screens/CovidMap';
 import UserLogin from './screens/UserLogin';
 import UserRegister from './screens/UserRegister';
@@ -30,13 +32,15 @@ class App extends React.Component {
             <Route path='/employee/register' component={EmployeeRegister} />
             <Route path='/client/covid/register' component={CovidRegister} />
             <Route path='/client/covid/list' component={CovidList} />
+            <Route path='/client/covid/:id/edit' component={CovidEdit} />
             <Route path='/user/login' component={UserLogin} />
             <Route path='/user/register' component={UserRegister} />
             <Route path='/user/profile' component={UserProfile} />
             <Route path='/admin/user/list' component={UserList} />
             <Route path='/admin/user/:id/edit' component={UserEdit} />
-            <Route path='/admin/student-list' component={StudentList} />
+            <Route path='/admin/student/list' component={StudentList} />
             <Route path='/admin/student/:id/edit' component={StudentEdit} />
+            <Route path='/admin/employee/list' component={EmployeeList} />
           </Container>
           <Route path='/covid/map' component={CovidMap} />
         </main>
