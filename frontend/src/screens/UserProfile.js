@@ -4,6 +4,7 @@ import { Button, Form, Card } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import logo from '../extras/Logo2.svg';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
 const UserProfile = ({ location, history }) => {
   const [email, setEmail] = useState('');
@@ -50,14 +51,13 @@ const UserProfile = ({ location, history }) => {
   return (
     <FormContainer>
       {loading && <Loader />}
-      <Card>
-        <Card.Header>
-          {' '}
-          <h1>User Profile</h1>{' '}
+      <Card className='w-50 border-0 border-0 shadow p-2 mb-5 my-5  rounded'>
+        <Card.Title className='text-center mt-3 h1'>
+          <img src={logo} alt='logo' className='p-3 ' /> <h1>User Profile</h1>{' '}
           {message && <Message variant='danger'>{message}</Message>}
           {error && <Message variant='danger'>{error}</Message>}
           {success && <Message variant='success'>Profile Updated</Message>}
-        </Card.Header>
+        </Card.Title>
         <Card.Body>
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='email'>
@@ -106,7 +106,7 @@ const UserProfile = ({ location, history }) => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Group>
-            <Button variant='primary' type='submit'>
+            <Button variant='primary' block type='submit'>
               Update
             </Button>
           </Form>

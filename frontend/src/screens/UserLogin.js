@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { Form, Card, Button, Row, Col } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import logo from '../extras/Logo2.svg';
 import { login } from '../actions/userActions';
 const UserLogin = ({ location, history }) => {
   const [username, setUsername] = useState('');
@@ -26,17 +27,20 @@ const UserLogin = ({ location, history }) => {
   };
   return (
     <FormContainer>
-      <Row className='my-5 vw-100 '>
-        <Col responsive></Col>
-        <Col responsive>
-          <Card className='my-5 border-0'>
-            <Card.Text className='text-center mt-5'>
+      <Row className='my-5 vw-100  border-0 shadow p-3 mb-5 rounded border-0'>
+        <Col sm={6} md={6} lg={6}>
+          <Card className='border-0'></Card>
+        </Col>
+        <Col sm={6} md={6} lg={6}>
+          <Card className='border-0 p-5'>
+            <img src={logo} alt='logo' className='mt-3' />
+            <Card.Text className='text-center mt-2'>
               {' '}
               {loading ? <Loader /> : <h1>User Login</h1>}
               {error && <Message variant='danger'>{error}</Message>}
             </Card.Text>
             <Card.Body>
-              <Form onSubmit={submitHandler}>
+              <Form onSubmit={submitHandler} className='my-3 '>
                 <Form.Group controlId='username'>
                   <Form.Label>Username</Form.Label>
                   <Form.Control
@@ -61,6 +65,9 @@ const UserLogin = ({ location, history }) => {
                   {loading ? <Loader /> : <span>Login</span>}
                 </Button>
               </Form>
+              <Link to='/user/forgot-password' className='text-warning'>
+                Forgot password?
+              </Link>
             </Card.Body>
           </Card>
         </Col>

@@ -1,0 +1,18 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: sofiapro-light
+font link: https://www.fontspring.com/fonts/mostardesign/sofia-pro/sofia-pro-light
+font author: Mostardesign
+font author site: http://www.motyfo.com/
+
+
+icon designer: Paul Stevens
+icon designer link: /paulstevens
+        
+
+fontColor: {"hex":"#284A6C"}
+bgColor: {"hex":"#F4F4F4"}
+iconColor: {"hex":"#284A6C"}
+
+      
