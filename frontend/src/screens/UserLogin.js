@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { Form, Card, Button, Row, Col } from 'react-bootstrap';
+import { Form, Card, Button, Row, Col, Container } from 'react-bootstrap';
 import FormContainer from '../components/FormContainer';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -29,7 +29,9 @@ const UserLogin = ({ location, history }) => {
     <FormContainer>
       <Row className='my-5 vw-100  border-0 shadow p-3 mb-5 rounded border-0'>
         <Col sm={6} md={6} lg={6}>
-          <Card className='border-0'></Card>
+          <Container className='border-0 d-flex align-items-center justify-content-center h-100'>
+            <h1>WELCOME BACK</h1>
+          </Container>
         </Col>
         <Col sm={6} md={6} lg={6}>
           <Card className='border-0 p-5'>
@@ -38,9 +40,10 @@ const UserLogin = ({ location, history }) => {
               {' '}
               {loading ? <Loader /> : <h1>User Login</h1>}
               {error && <Message variant='danger'>{error}</Message>}
+              Please Enter Your Credentials to access the admin panel
             </Card.Text>
             <Card.Body>
-              <Form onSubmit={submitHandler} className='my-3 '>
+              <Form onSubmit={submitHandler} className='my-1 '>
                 <Form.Group controlId='username'>
                   <Form.Label>Username</Form.Label>
                   <Form.Control

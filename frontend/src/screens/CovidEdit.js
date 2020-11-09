@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { getCaseDetails, updateCase } from '../actions/covidActions';
 import { COVID_UPDATE_RESET } from '../constants/covidConstants';
@@ -77,105 +77,111 @@ const CovidEdit = ({ match, history }) => {
 
   return (
     <>
-      <Link to='/client/covid/list'>Go Back</Link>
+      <Link to='/client/covid/list' className='btn btn-outline-warning'>
+        Go Back
+      </Link>
       <FormContainer>
-        <h1>Edit Case Details</h1>
-        {loadingUpdate && <Loader />}
-        {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
-        {loading ? (
-          <Loader />
-        ) : error ? (
-          <Message variant='danger'>{error}</Message>
-        ) : (
-          <Form onSubmit={submitHandler}>
-            <Form.Group>
-              <Form.Label controlid='case-id'>Case Id:</Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='CC19-001'
-                value={caseId}
-                onChange={(e) => setCaseId(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group>
-              <Form.Label controlid='case-age'>Age:</Form.Label>
-              <Form.Control
-                type='number'
-                min='0'
-                max='100'
-                placeholder='20'
-                value={age}
-                onChange={(e) => setAge(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group controlid='case-gender'>
-              <Form.Label>Gender:</Form.Label>
-              <Form.Control
-                as='select'
-                value={gender}
-                onChange={(e) => setGender(e.target.value)}
-              >
-                <option>Select Gender</option>
-                <option>Male</option>
-                <option>Female</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlid='case-municipality'>
-              <Form.Label>Municipality</Form.Label>
-              <Form.Control
-                as='select'
-                value={municipality}
-                onChange={(e) => setMunicipality(e.target.value)}
-              >
-                <option>Select a Municipality</option>
-                <option>Boac</option>
-                <option>Mogpog</option>
-                <option>Gasan</option>
-                <option>Buenavista</option>
-                <option>Torrijos</option>
-                <option>Santa Cruz</option>
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlid='case-barangay'>
-              <Form.Label>Barangay</Form.Label>
-              <Form.Control
-                as='select'
-                value={barangay}
-                onChange={BarangayHandleChange}
-              >
-                <option>Select a Barangay</option>
-                {areas.map((area, index) => (
-                  <option key={index}>{area.barangay}</option>
-                ))}
-              </Form.Control>
-            </Form.Group>
-            <Form.Group controlid='case-address'>
-              <Form.Control
-                type='text'
-                value={address}
-                hidden
-                onChange={(e) => setAddress(e.target.value)}
-              />
-            </Form.Group>
-            <Form.Group controlid='case-status'>
-              <Form.Label>Status</Form.Label>
-              <Form.Control
-                as='select'
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-              >
-                <option>Select Case Status</option>
-                <option>Active</option>
-                <option>Recovered</option>
-                <option>Died</option>
-              </Form.Control>
-            </Form.Group>
-            <Button variant='primary' type='submit'>
-              Update
-            </Button>{' '}
-            <Button variant='light'>Clear</Button>
-          </Form>
-        )}
+        <Card className='w-50 border-0 border-0 shadow p-5 mb-5 my-5  rounded'>
+          <h1>Edit Case Details</h1>
+          {loadingUpdate && <Loader />}
+          {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}
+          {loading ? (
+            <Loader className='text-center' />
+          ) : error ? (
+            <Message variant='danger'>{error}</Message>
+          ) : (
+            <Form onSubmit={submitHandler}>
+              <Form.Group>
+                <Form.Label controlid='case-id'>Case Id:</Form.Label>
+                <Form.Control
+                  type='text'
+                  placeholder='CC19-001'
+                  value={caseId}
+                  onChange={(e) => setCaseId(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group>
+                <Form.Label controlid='case-age'>Age:</Form.Label>
+                <Form.Control
+                  type='number'
+                  min='0'
+                  max='100'
+                  placeholder='20'
+                  value={age}
+                  onChange={(e) => setAge(e.target.value)}
+                ></Form.Control>
+              </Form.Group>
+              <Form.Group controlid='case-gender'>
+                <Form.Label>Gender:</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={gender}
+                  onChange={(e) => setGender(e.target.value)}
+                >
+                  <option>Select Gender</option>
+                  <option>Male</option>
+                  <option>Female</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlid='case-municipality'>
+                <Form.Label>Municipality</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={municipality}
+                  onChange={(e) => setMunicipality(e.target.value)}
+                >
+                  <option>Select a Municipality</option>
+                  <option>Boac</option>
+                  <option>Mogpog</option>
+                  <option>Gasan</option>
+                  <option>Buenavista</option>
+                  <option>Torrijos</option>
+                  <option>Santa Cruz</option>
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlid='case-barangay'>
+                <Form.Label>Barangay</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={barangay}
+                  onChange={BarangayHandleChange}
+                >
+                  <option>Select a Barangay</option>
+                  {areas.map((area, index) => (
+                    <option key={index}>{area.barangay}</option>
+                  ))}
+                </Form.Control>
+              </Form.Group>
+              <Form.Group controlid='case-address'>
+                <Form.Control
+                  type='text'
+                  value={address}
+                  hidden
+                  onChange={(e) => setAddress(e.target.value)}
+                />
+              </Form.Group>
+              <Form.Group controlid='case-status'>
+                <Form.Label>Status</Form.Label>
+                <Form.Control
+                  as='select'
+                  value={status}
+                  onChange={(e) => setStatus(e.target.value)}
+                >
+                  <option>Select Case Status</option>
+                  <option>Active</option>
+                  <option>Recovered</option>
+                  <option>Died</option>
+                </Form.Control>
+              </Form.Group>
+              <Button variant='primary' block type='submit'>
+                Update
+              </Button>{' '}
+              <Button variant='warning' type='reset' block>
+                Clear
+              </Button>
+            </Form>
+          )}
+        </Card>
       </FormContainer>
     </>
   );

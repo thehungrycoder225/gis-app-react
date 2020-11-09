@@ -9,6 +9,7 @@ import {
   Popup,
   LayersControl,
 } from 'react-leaflet';
+import GeoMap from '../components/GeoMap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { HeatmapLayer } from 'react-leaflet-heatmap-layer';
@@ -27,31 +28,8 @@ const CovidMap = () => {
   }, [dispatch, error]);
   return (
     <Container fluid>
-      <Card className='w-auto border-0 shadow p-4 rounded'>
-        <Card.Title className='text-center p-1'>
-          <span className='h1 text-primary'>
-            MARINDUQUE <span className='text-danger h1'> COVID-19</span>{' '}
-          </span>
-        </Card.Title>
-        <Map
-          className='leaflet-container'
-          center={[13.402105, 121.944669]}
-          zoom={12}
-        >
-          <LayersControl postion='top-right'>
-            <LayersControl.BaseLayer checked name='Street Map'>
-              <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url='https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'
-              />
-            </LayersControl.BaseLayer>
-            <LayersControl.BaseLayer name='Detail'>
-              <TileLayer
-                attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-                url='https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png'
-              />
-            </LayersControl.BaseLayer>
-          </LayersControl>
+      <Card className='border-0 shadow p-4 rounded'>
+        <GeoMap>
           {loading ? (
             <Loader />
           ) : error ? (
@@ -110,7 +88,7 @@ const CovidMap = () => {
           ) : (
             <></>
           )}
-        </Map>
+        </GeoMap>
       </Card>
     </Container>
   );

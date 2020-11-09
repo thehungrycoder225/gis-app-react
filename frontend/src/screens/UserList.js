@@ -34,8 +34,8 @@ const UserList = ({ history }) => {
       ) : error ? (
         <Message variant='danger'>{error}</Message>
       ) : (
-        <Table striped bordered hover responsive className='table-sm'>
-          <thead>
+        <Table striped bordered hover responsive size='sm'>
+          <thead className='bg-dark text-warning'>
             <tr>
               <th>ID</th>
               <th>Email</th>
@@ -63,12 +63,12 @@ const UserList = ({ history }) => {
                 </td>
                 <td>
                   <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                    <Button variant='light' className='btn-sm'>
+                    <Button variant='light' className='btn-sm  mx-1'>
                       <i className='fas fa-edit'></i>
                     </Button>
                   </LinkContainer>
                   <Button
-                    variant='danger'
+                    variant='outline-danger'
                     className='btn-sm'
                     onClick={() => deleteHandler(user._id)}
                   >

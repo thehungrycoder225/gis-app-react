@@ -70,9 +70,6 @@ const Header = () => {
                   <LinkContainer to='/admin/employee/list'>
                     <NavDropdown.Item>Employees</NavDropdown.Item>
                   </LinkContainer>
-                  <LinkContainer to='/admin/map'>
-                    <NavDropdown.Item>Map</NavDropdown.Item>
-                  </LinkContainer>
                 </NavDropdown>
               )}
               {userInfo && userInfo.role === 'client' && (
@@ -81,10 +78,7 @@ const Header = () => {
                     <NavDropdown.Item>Covid Case</NavDropdown.Item>
                   </LinkContainer>
                   <LinkContainer to='/client/covid/list'>
-                    <NavDropdown.Item>Covid List</NavDropdown.Item>
-                  </LinkContainer>
-                  <LinkContainer to='/client/covid/map'>
-                    <NavDropdown.Item>Covid Map</NavDropdown.Item>
+                    <NavDropdown.Item>Covid Records</NavDropdown.Item>
                   </LinkContainer>
                 </NavDropdown>
               )}

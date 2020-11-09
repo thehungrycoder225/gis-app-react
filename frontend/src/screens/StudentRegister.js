@@ -80,7 +80,7 @@ const StudentRegister = ({ location, history }) => {
 
   return (
     <FormContainer>
-      <Card className='w-auto border-0 border-0 shadow p-2 mb-5 my-5  rounded'>
+      <Card className='w-auto border-0 shadow p-2 mb-5 my-5  rounded'>
         <Card.Title className='text-center mt-3'>
           <img src={logo} alt='Brand Logo' className='p-3' />
           <h1>

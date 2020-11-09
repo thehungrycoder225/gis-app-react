@@ -1,8 +1,19 @@
+@font-face {
+  font-family: 'Google Sans';
+  font-weight: 400;
+  src: local('Google Sans'), local('GoogleSans-Regular'),
+    url('fonts/GoogleSans-Regular.ttf');
+}
+@font-face {
+  font-family: 'Noir';
+  font-weight: 400;
+  src: local('Noir'), local('NoirStd-Regular'), url('fonts/NoirStd-Regular.ttf');
+}
 main {
   min-height: 80vh;
 }
 
 body {
-  font-family: 'Google Sans Regular', sans-serif;
+  font-family: 'Noir', 'Google Sans Regular', sans-serif;
   font-weight: 400;
 }

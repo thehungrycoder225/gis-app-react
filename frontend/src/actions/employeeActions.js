@@ -127,12 +127,12 @@ export const getEmployeeDetails = (id) => async (dispatch, getState) => {
       type: EMPLOYEE_DETAILS_REQUEST,
     });
     const {
-      employeeLogin: { employeeInfo },
+      userLogin: { userInfo },
     } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${employeeInfo.token}`,
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
     const { data } = await axios.get(`/api/employees/${id}`, config);

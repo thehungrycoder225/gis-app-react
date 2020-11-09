@@ -1,16 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MDBContainer } from 'mdbreact';
+import { Container } from 'react-bootstrap';
 import Logo from '../extras/Logo';
-
+import Animate from '../components/Animate';
 const Home = () => {
   return (
     <>
-      <MDBContainer>
+      <Container>
         <Link to='/user/login'>
           <Logo />
         </Link>
-      </MDBContainer>
+      </Container>
     </>
   );
 };
