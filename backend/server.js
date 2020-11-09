@@ -1,4 +1,5 @@
 import express from 'express';
+import path from 'path';
 import cors from 'cors';
 import colors from 'colors';
 import dotenv from 'dotenv';
@@ -30,10 +31,18 @@ app.use('/api/students', studentRoutes);
 app.use('/api/covid', covidRoutes);
 app.use('/api/departments', departmentRoutes);
 app.use('/api/courses', courseRoutes);
-app.get('/', (req, res) => {
-  res.send('API is Running');
-});
 
+const __dirname = path.resolve();
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/frontend/build')));
+  app.get('*', (req, res) =>
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+  );
+} else {
+  app.get('/', (req, res) => {
+    res.send('API is running...');
+  });
+}
 let port = process.env.PORT;
 app.listen(port || 5000, () => {
   console.log(

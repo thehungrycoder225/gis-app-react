@@ -62,7 +62,7 @@ const covidCaseSchema = new Schema(
       default: Date.now,
     },
   },
-  { collection: 'covid_location', timestamps: true }
+  { collection: 'covid_cases', timestamps: true }
 );
 
 covidCaseSchema.pre('save', async function (next) {
