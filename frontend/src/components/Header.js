@@ -40,15 +40,9 @@ const Header = () => {
                 </NavDropdown>
               ) : (
                 <>
-                  <LinkContainer to='/student/register'>
+                  <LinkContainer to='/register'>
                     <Nav.Link>
-                      <i className='px-1 fas fa-graduation-cap'></i>Student
-                      Registration
-                    </Nav.Link>
-                  </LinkContainer>
-                  <LinkContainer to='/employee/register'>
-                    <Nav.Link>
-                      <i className='px-1 fas fa-briefcase'></i>Employee
+                      <i className='px-1 far fa-edit'></i>
                       Registration
                     </Nav.Link>
                   </LinkContainer>

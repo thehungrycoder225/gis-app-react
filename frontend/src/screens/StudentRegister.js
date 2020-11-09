@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import FormContainer from '../components/FormContainer';
 import { Form, Button, Card, Row, Col, Modal } from 'react-bootstrap';
@@ -59,7 +60,7 @@ const StudentRegister = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     if (!isAgree) {
-      alert('You Must accept the Terms of Service');
+      alert(<Message variant='danger'>Hello</Message>);
     } else {
       dispatch(
         register(
@@ -89,7 +90,11 @@ const StudentRegister = ({ location, history }) => {
           </h1>
           {message
             ? 'success' && <Message variant='success'>{message}</Message>
-            : error && <Message variant='danger'>{error}</Message>}
+            : error && (
+                <Message variant='outline-warning text-danger border-0 w-50 m-auto text-center '>
+                  {error}
+                </Message>
+              )}
           {loading && <Loader />}
         </Card.Title>
         <Card.Body>
@@ -261,12 +266,15 @@ const StudentRegister = ({ location, history }) => {
                   </span>{' '}
                 </p>
               }
-              onClick={(e) => setTerms(true)}
+              onClick={() => setTerms(true)}
             />
             <Container className='w-auto text-center'>
-              <Button className=' m-1 w-50' variant='primary' type='submit'>
+              <Button className=' m-1 w-25' variant='primary' type='submit'>
                 Sign Up
               </Button>{' '}
+              <Link to={'/register'}>
+                <Button variant='outline-warning w-25'>Go Back</Button>
+              </Link>
             </Container>
           </Form>
         </Card.Body>

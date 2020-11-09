@@ -20,7 +20,7 @@ import UserRegister from './screens/UserRegister';
 import UserProfile from './screens/UserProfile';
 import UserList from './screens/UserList';
 import UserEdit from './screens/UserEdit';
-
+import Register from './screens/Register';
 class App extends React.Component {
   render() {
     return (
@@ -30,6 +30,7 @@ class App extends React.Component {
           <Container>
             <Route path='/' component={Home} exact />
             <Route path='/student/register' component={StudentRegister} />
+            <Route path='/register' component={Register} />
             <Route path='/employee/register' component={EmployeeRegister} />
             <Route path='/client/covid/register' component={CovidRegister} />
             <Route path='/client/covid/:id/edit' component={CovidEdit} />
