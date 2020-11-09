@@ -5,9 +5,9 @@ import {
   COVID_DELETE_FAIL,
   COVID_DELETE_REQUEST,
   COVID_DELETE_SUCCESS,
-  COVID_REGISTER_FAIL,
-  COVID_REGISTER_REQUEST,
-  COVID_REGISTER_SUCCESS,
+  COVID_CREATE_FAIL,
+  COVID_CREATE_REQUEST,
+  COVID_CREATE_SUCCESS,
   COVID_LIST_SUCCESS,
   COVID_LIST_REQUEST,
   COVID_LIST_FAIL,
@@ -17,7 +17,7 @@ import {
 } from '../constants/covidConstants';
 
 import axios from 'axios';
-export const register = (
+export const createCase = (
   caseId,
   age,
   gender,
@@ -28,7 +28,7 @@ export const register = (
 ) => async (dispatch, getState) => {
   try {
     dispatch({
-      type: COVID_REGISTER_REQUEST,
+      type: COVID_CREATE_REQUEST,
     });
 
     const {
@@ -36,33 +36,24 @@ export const register = (
     } = getState();
     const config = {
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
     const { data } = await axios.post(
       '/api/covid',
-      {
-        caseId,
-        age,
-        gender,
-        municipality,
-        barangay,
-        address,
-        status,
-      },
+      { caseId, age, gender, municipality, barangay, address, status },
       config
     );
 
     dispatch({
-      type: COVID_REGISTER_SUCCESS,
+      type: COVID_CREATE_SUCCESS,
       payload: data,
     });
 
     localStorage.setItem('covidInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
-      type: COVID_REGISTER_FAIL,
+      type: COVID_CREATE_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

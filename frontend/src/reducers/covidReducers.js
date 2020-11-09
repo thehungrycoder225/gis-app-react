@@ -1,7 +1,8 @@
 import {
-  COVID_REGISTER_REQUEST,
-  COVID_REGISTER_SUCCESS,
-  COVID_REGISTER_FAIL,
+  COVID_CREATE_REQUEST,
+  COVID_CREATE_SUCCESS,
+  COVID_CREATE_FAIL,
+  COVID_CREATE_RESET,
   COVID_DETAILS_REQUEST,
   COVID_DETAILS_SUCCESS,
   COVID_DETAILS_FAIL,
@@ -21,14 +22,16 @@ import {
   COVID_UPDATE_RESET,
 } from '../constants/covidConstants';
 
-export const covidRegisterReducer = (state = {}, action) => {
+export const covidCreateReducer = (state = {}, action) => {
   switch (action.type) {
-    case COVID_REGISTER_REQUEST:
+    case COVID_CREATE_REQUEST:
       return { loading: true };
-    case COVID_REGISTER_SUCCESS:
-      return { loading: false, caseInfo: action.payload };
-    case COVID_REGISTER_FAIL:
+    case COVID_CREATE_SUCCESS:
+      return { loading: false, success: true, covidInfo: action.payload };
+    case COVID_CREATE_FAIL:
       return { loading: false, error: action.payload };
+    case COVID_CREATE_RESET:
+      return {};
     default:
       return state;
   }

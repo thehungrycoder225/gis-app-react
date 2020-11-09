@@ -20,7 +20,9 @@ const CovidList = ({ history, match }) => {
       dispatch(deleteCase(id));
     }
   };
-  const registerCovidCaseHandler = (covid) => {};
+  const registerCovidCaseHandler = () => {
+    history.push('/client/covid/register');
+  };
   useEffect(() => {
     if (
       (userInfo && userInfo.role === 'admin') ||

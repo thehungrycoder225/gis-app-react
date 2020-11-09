@@ -14,7 +14,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { HeatmapLayer } from 'react-leaflet-heatmap-layer';
 import { Icon } from 'leaflet';
-import './map.css';
+import '../stylesheets/map.css';
 import { Card, Container, Table } from 'react-bootstrap';
 const CovidMap = () => {
   const dispatch = useDispatch();

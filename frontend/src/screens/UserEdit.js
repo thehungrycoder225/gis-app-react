@@ -13,12 +13,12 @@ const UserEdit = ({ match, history }) => {
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [role, setRole] = useState(' ');
-  //   const [message, setMessage] = useState(null);
   const dispatch = useDispatch();
 
   const userDetails = useSelector((state) => state.userDetails);
   const { loading, error, user } = userDetails;
-
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const userUpdate = useSelector((state) => state.userUpdate);
   const {
     loading: loadingUpdate,
@@ -27,6 +27,9 @@ const UserEdit = ({ match, history }) => {
   } = userUpdate;
 
   useEffect(() => {
+    if (!userInfo || !userInfo.role === 'admin') {
+      history.push('/user/login');
+    }
     if (successUpdate) {
       dispatch({ type: USER_UPDATE_RESET });
       history.push('/admin/user/list');
@@ -40,7 +43,7 @@ const UserEdit = ({ match, history }) => {
         setRole(user.role);
       }
     }
-  }, [dispatch, history, userId, user, successUpdate]);
+  }, [userInfo, dispatch, history, userId, user, successUpdate]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser({ _id: userId, name, email, role }));

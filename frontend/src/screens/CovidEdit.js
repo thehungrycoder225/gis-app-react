@@ -24,6 +24,8 @@ const CovidEdit = ({ match, history }) => {
   const covidDetails = useSelector((state) => state.covidDetails);
   const { loading, error, record } = covidDetails;
   const covidUpdate = useSelector((state) => state.covidUpdate);
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
   const {
     loading: loadingUpdate,
     error: errorUpdate,
@@ -31,6 +33,9 @@ const CovidEdit = ({ match, history }) => {
   } = covidUpdate;
 
   useEffect(() => {
+    if (!userInfo || !userInfo.role === 'client') {
+      history.push('/user/login');
+    }
     if (successUpdate) {
       dispatch({ type: COVID_UPDATE_RESET });
       history.push('/client/covid/list');
@@ -53,7 +58,16 @@ const CovidEdit = ({ match, history }) => {
         }
       }
     }
-  }, [dispatch, history, cId, record, municipality, barangay, successUpdate]);
+  }, [
+    userInfo,
+    dispatch,
+    history,
+    cId,
+    record,
+    municipality,
+    barangay,
+    successUpdate,
+  ]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -81,7 +95,7 @@ const CovidEdit = ({ match, history }) => {
         Go Back
       </Link>
       <FormContainer>
-        <Card className='w-50 border-0 border-0 shadow p-5 mb-5 my-5  rounded'>
+        <Card className='w-50 border-0  shadow p-5 mb-5 my-5  rounded'>
           <h1>Edit Case Details</h1>
           {loadingUpdate && <Loader />}
           {errorUpdate && <Message variant='danger'>{errorUpdate}</Message>}

@@ -32,7 +32,7 @@ import {
   studentUpdateReducer,
 } from './reducers/studentReducers';
 import {
-  covidRegisterReducer,
+  covidCreateReducer,
   covidDetailsReducer,
   covidUpdateProfileReducer,
   covidListReducer,
@@ -65,7 +65,7 @@ const reducer = combineReducers({
   studentList: studentListReducer,
   studentDelete: studentDeleteReducer,
   studentUpdate: studentUpdateReducer,
-  covidRegister: covidRegisterReducer,
+  covidCreate: covidCreateReducer,
   covidDetails: covidDetailsReducer,
   covidUpdateProfile: covidUpdateProfileReducer,
   covidList: covidListReducer,

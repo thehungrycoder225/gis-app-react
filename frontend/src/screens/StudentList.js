@@ -15,6 +15,7 @@ const StudentList = ({ history }) => {
   const { userInfo } = userLogin;
   const studentDelete = useSelector((state) => state.studentDelete);
   const { success: successDelete } = studentDelete;
+
   useEffect(() => {
     if (userInfo && userInfo.role === 'admin') {
       dispatch(listStudents());

@@ -31,6 +31,8 @@ const StudentEdit = ({ match, history }) => {
   const { courses } = courseList;
   const studentDetails = useSelector((state) => state.studentDetails);
   const { loading, error, student } = studentDetails;
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
 
   const studentUpdate = useSelector((state) => state.studentUpdate);
   const {
@@ -40,6 +42,9 @@ const StudentEdit = ({ match, history }) => {
   } = studentUpdate;
 
   useEffect(() => {
+    if (!userInfo || !userInfo.role === 'admin') {
+      history.push('/user/login');
+    }
     if (successUpdate) {
       dispatch({ type: STUDENT_UPDATE_RESET });
       history.push('/admin/student/list');
@@ -73,6 +78,7 @@ const StudentEdit = ({ match, history }) => {
     dispatch(listCourses(school));
     dispatch(listAreas(municipality));
   }, [
+    userInfo,
     dispatch,
     history,
     sId,

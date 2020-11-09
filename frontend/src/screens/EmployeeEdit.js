@@ -37,6 +37,8 @@ const EmployeeEdit = ({ match, history }) => {
     success: successUpdate,
   } = employeeUpdate;
 
+  const userLogin = useSelector((state) => state.userInfo);
+  const { userInfo } = userLogin;
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
     await setMunicipality(e.target.value);
@@ -48,6 +50,9 @@ const EmployeeEdit = ({ match, history }) => {
   };
 
   useEffect(() => {
+    if (!userInfo || !userInfo.role === 'admin') {
+      history.push('/user/login');
+    }
     if (successUpdate) {
       dispatch({ type: EMPLOYEE_UPDATE_RESET });
       history.push('/admin/employee/list');
@@ -78,6 +83,7 @@ const EmployeeEdit = ({ match, history }) => {
     dispatch(listDepartments(department));
     dispatch(listAreas(municipality));
   }, [
+    userInfo,
     dispatch,
     history,
     eId,

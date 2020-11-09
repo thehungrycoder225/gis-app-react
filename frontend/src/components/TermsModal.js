@@ -1,9 +1,9 @@
-import React from 'react';
-import { Modal } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 import logo from '../extras/Logo2.svg';
-const TermsModal = ({ show, setShow }) => {
+const TermsModal = ({ show }) => {
   return (
-    <Modal size='lg' show={show} onHide={setShow} aria-labelledby='terms-modal'>
+    <Modal size='lg' show={show} onHide={show} aria-labelledby='terms-modal'>
       <Modal.Header closeButton>
         <Modal.Title id='terms-modal' className='m-auto'>
           <img src={logo} alt='Brand Logo' className='d-inline-block  m-auto' />
@@ -42,9 +42,10 @@ const TermsModal = ({ show, setShow }) => {
             Republic Act 10173{' '}
           </a>{' '}
           or the National Privacy Act of 2012 without the expressed written
-          consent of the users concerned. Click SUBMIT button if you agree and
+          consent of the users concerned. Click I Agee button if you agree and
           allow MSC to include you in the map. Thank you.
         </p>
+        <Button onClick={() => show}>I Agree</Button>
       </Modal.Body>
     </Modal>
   );
