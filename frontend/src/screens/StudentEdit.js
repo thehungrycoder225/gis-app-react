@@ -110,7 +110,7 @@ const StudentEdit = ({ match, history }) => {
   };
   return (
     <>
-      <Link to='/admin/student/list' className='btn btn-light my-3'>
+      <Link to='/admin/student/list' className='btn btn-outline-warning my-3'>
         Go Back
       </Link>
       <FormContainer>

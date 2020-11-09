@@ -37,7 +37,7 @@ const EmployeeEdit = ({ match, history }) => {
     success: successUpdate,
   } = employeeUpdate;
 
-  const userLogin = useSelector((state) => state.userInfo);
+  const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
@@ -114,7 +114,7 @@ const EmployeeEdit = ({ match, history }) => {
 
   return (
     <>
-      <Link to='/admin/employee/list' className='btn btn-light my-3'>
+      <Link to='/admin/employee/list' className='btn btn-outline-warning my-3'>
         Go Back
       </Link>
       <FormContainer>

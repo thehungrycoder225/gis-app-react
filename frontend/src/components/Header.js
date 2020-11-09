@@ -60,7 +60,10 @@ const Header = () => {
                 </>
               )}
               {userInfo && userInfo.role === 'admin' && (
-                <NavDropdown title={userInfo.role} id='adminmenu'>
+                <NavDropdown
+                  title={userInfo.role + ' ' + 'Panel'}
+                  id='adminmenu'
+                >
                   <LinkContainer to='/admin/user/list'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
@@ -73,7 +76,10 @@ const Header = () => {
                 </NavDropdown>
               )}
               {userInfo && userInfo.role === 'client' && (
-                <NavDropdown title={userInfo.role} id='clientmenu'>
+                <NavDropdown
+                  title={userInfo.role + ' ' + 'Panel'}
+                  id='clientmenu'
+                >
                   <LinkContainer to='/client/covid/list'>
                     <NavDropdown.Item>Covid Records</NavDropdown.Item>
                   </LinkContainer>
