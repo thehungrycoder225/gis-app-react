@@ -46,6 +46,7 @@ const CovidRegister = ({ location, history }) => {
     }
     if (success) {
       history.push('/client/covid/list');
+      dispatch({ type: COVID_CREATE_RESET });
     } else {
     }
     dispatch(listAreas(municipality));
