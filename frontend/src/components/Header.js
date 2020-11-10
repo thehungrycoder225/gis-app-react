@@ -3,13 +3,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { logout } from '../actions/userActions';
+import { elogout } from '../actions/employeeActions';
+import { slogout } from '../actions/studentActions';
 import logo from '../extras/Logo.svg';
 const Header = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+  const employeeLogin = useSelector((state) => state.employeeLogin);
+  const { employeeInfo } = employeeLogin;
+  const studentLogin = useSelector((state) => state.studentLogin);
+  const { studentInfo } = studentLogin;
   const logoutHandler = () => {
     dispatch(logout());
+  };
+  const eLogoutHandler = () => {
+    dispatch(elogout());
+  };
+  const sLogoutHandler = () => {
+    dispatch(slogout());
   };
   return (
     <header>
@@ -38,26 +50,47 @@ const Header = () => {
                     Logout
                   </NavDropdown.Item>
                 </NavDropdown>
+              ) : employeeInfo ? (
+                <NavDropdown title={employeeInfo.name} id='employeeName'>
+                  <LinkContainer to='/employee/profile'>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={eLogoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
+              ) : studentInfo ? (
+                <NavDropdown title={studentInfo.name} id='studentName'>
+                  <LinkContainer to='/student/profile'>
+                    <NavDropdown.Item>Profile</NavDropdown.Item>
+                  </LinkContainer>
+                  <NavDropdown.Item onClick={sLogoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
               ) : (
                 <>
+                  <LinkContainer to='/covid/map'>
+                    <Nav.Link>
+                      <i className='px-1 fas fa-map-marker-alt'></i>COVID-19 Map
+                    </Nav.Link>
+                  </LinkContainer>
                   <LinkContainer to='/register'>
                     <Nav.Link>
                       <i className='px-1 far fa-edit'></i>
                       Registration
                     </Nav.Link>
                   </LinkContainer>
-                  <LinkContainer to='/covid/map'>
+                  <LinkContainer to='/login'>
                     <Nav.Link>
-                      <i className='px-1 fas fa-map-marker-alt'></i>COVID-19 Map
+                      <i className='px-1 fas fa-fingerprint'></i>
+                      Login
                     </Nav.Link>
                   </LinkContainer>
                 </>
               )}
               {userInfo && userInfo.role === 'admin' && (
-                <NavDropdown
-                  title={userInfo.role + ' ' + 'Panel'}
-                  id='adminmenu'
-                >
+                <NavDropdown title={userInfo.role + 'Panel'} id='adminmenu'>
                   <LinkContainer to='/admin/user/list'>
                     <NavDropdown.Item>Users</NavDropdown.Item>
                   </LinkContainer>
@@ -70,10 +103,7 @@ const Header = () => {
                 </NavDropdown>
               )}
               {userInfo && userInfo.role === 'client' && (
-                <NavDropdown
-                  title={userInfo.role + ' ' + 'Panel'}
-                  id='clientmenu'
-                >
+                <NavDropdown title={userInfo.role + 'Panel'} id='clientmenu'>
                   <LinkContainer to='/client/covid/list'>
                     <NavDropdown.Item>Covid Records</NavDropdown.Item>
                   </LinkContainer>

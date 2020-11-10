@@ -36,7 +36,7 @@ const UserRegister = ({ location, history }) => {
         window.location.reload();
       }, 3000);
     }
-  }, [history, success, error, userInfo]);
+  }, [dispatch, history, success, error, userInfo]);
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {

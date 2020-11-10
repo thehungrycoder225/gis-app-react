@@ -17,7 +17,7 @@ const authEmployee = asyncHandler(async (req, res, next) => {
   const employee = await Employee.findOne({ empId });
 
   if (!employee) {
-    return next(new AppError('Invalid Employee Id', 401));
+    return next(new AppError('Invalid Employee Id#', 401));
   } else {
     res.json({
       _id: employee._id,
@@ -30,6 +30,8 @@ const authEmployee = asyncHandler(async (req, res, next) => {
       municipality: employee.municipality,
       barangay: employee.barangay,
       address: employee.address,
+      formattedAddress: employee.formattedAddress,
+      location: employee.location,
       token: generateToken(employee._id),
     });
   }

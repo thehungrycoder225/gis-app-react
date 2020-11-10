@@ -25,7 +25,7 @@ import {
 } from '../constants/employeeConstants';
 
 import axios from 'axios';
-export const login = (empId) => async (dispatch) => {
+export const eLogin = (empId) => async (dispatch) => {
   try {
     dispatch({
       type: EMPLOYEE_LOGIN_REQUEST,
@@ -57,7 +57,7 @@ export const login = (empId) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const elogout = () => (dispatch) => {
   localStorage.removeItem('employeeInfo');
   dispatch({ type: EMPLOYEE_LOGOUT });
   dispatch({ type: EMPLOYEE_LIST_RESET });
@@ -113,6 +113,36 @@ export const register = (
   } catch (error) {
     dispatch({
       type: EMPLOYEE_REGISTER_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getEmployeeProfile = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: EMPLOYEE_DETAILS_REQUEST,
+    });
+    const {
+      employeeLogin: { employeeInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${employeeInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/employees/${id}`, config);
+    dispatch({
+      type: EMPLOYEE_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: EMPLOYEE_DETAILS_FAIL,
       payload:
         error.response && error.response.data.message
           ? error.response.data.message

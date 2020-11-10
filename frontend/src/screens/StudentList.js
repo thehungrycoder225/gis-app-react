@@ -136,7 +136,7 @@ const StudentList = ({ history }) => {
               </thead>
               <tbody>
                 {students.map((student) => (
-                  <tr key={student.id}>
+                  <tr key={student._id}>
                     <td>{student.studentId}</td>
                     <td>{student.name}</td>
                     <td>{student.age}</td>

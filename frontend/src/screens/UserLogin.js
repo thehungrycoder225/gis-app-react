@@ -17,10 +17,15 @@ const UserLogin = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
   useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
     if (userInfo) {
       history.push(redirect);
     }
-  }, [history, userInfo, redirect]);
+  }, [history, userInfo, error, redirect]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(login(username, password));
@@ -36,12 +41,19 @@ const UserLogin = ({ location, history }) => {
         <Col sm={6} md={6} lg={6}>
           <Card className='border-0 p-5'>
             <img src={logo} alt='logo' className='mt-3' />
-            <Card.Text className='text-center mt-2'>
+            <Card.Title className='text-center mt-2'>
               {' '}
               {loading ? <Loader /> : <h1>User Login</h1>}
-              {error && <Message variant='danger'>{error}</Message>}
-              Please Enter Your Credentials to access the admin panel
-            </Card.Text>
+              {error ? (
+                <Message variant='outline-danger text-danger border-0 text-center'>
+                  {error}
+                </Message>
+              ) : (
+                <span className='text-muted'>
+                  Please Enter Your Credentials to access the admin panel
+                </span>
+              )}
+            </Card.Title>
             <Card.Body>
               <Form onSubmit={submitHandler} className='my-1 '>
                 <Form.Group controlId='username'>

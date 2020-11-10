@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Table, Button, Row, Col, Container, Card } from 'react-bootstrap';
+import { Table, Button, Row, Col, Container } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { listCases, deleteCase } from '../actions/covidActions';
 import CovidMap from './CovidMap';

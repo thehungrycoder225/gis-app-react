@@ -31,15 +31,15 @@ const EmployeeRegister = ({ location, history }) => {
   const [address, setEmployeeAddress] = useState('');
   const [message] = useState(null);
   const [terms, setTermsShow] = useState(false);
-  const [isAgree, setTerms] = useState(false);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
   const { loading, error, employeeInfo } = employeeRegister;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
   const departmentList = useSelector((state) => state.departmentList);
   const { departments } = departmentList;
+
+  const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
@@ -52,16 +52,30 @@ const EmployeeRegister = ({ location, history }) => {
   };
 
   useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
     if (employeeInfo) {
       history.push(redirect);
     }
     dispatch(listAreas(municipality));
     dispatch(listDepartments());
     setEmployeeAddress(`${barangay},${municipality},Marinduque`);
-  }, [employeeInfo, dispatch, history, municipality, barangay, redirect]);
+  }, [
+    employeeInfo,
+    dispatch,
+    history,
+    municipality,
+    barangay,
+    redirect,
+    error,
+  ]);
 
   const submitHandler = (e) => {
     e.preventDefault();
+
     dispatch(
       register(
         empId,
@@ -87,7 +101,11 @@ const EmployeeRegister = ({ location, history }) => {
               Employee <span className='text-warning'>Registration</span>{' '}
             </h1>
             {message && <Message variant='success'>{message}</Message>}
-            {error && <Message variant='danger'>{error}</Message>}
+            {error && (
+              <Message variant='outline-warning text-danger border-0 w-50 m-auto text-center'>
+                {error}
+              </Message>
+            )}
             {loading && <Loader />}
           </Card.Title>
           <Card.Body>
@@ -97,7 +115,9 @@ const EmployeeRegister = ({ location, history }) => {
               <Row>
                 <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='EmployeeId'>
-                    <Form.Label>Employee Id:</Form.Label>
+                    <Form.Label>
+                      <span className='text-danger'>*</span> Employee Id :
+                    </Form.Label>
                     <Form.Control
                       type='text'
                       placeholder='2020-4099'
@@ -106,7 +126,9 @@ const EmployeeRegister = ({ location, history }) => {
                     />
                   </Form.Group>
                   <Form.Group controlid='employee-name'>
-                    <Form.Label> Name:</Form.Label>
+                    <Form.Label>
+                      <span className='text-danger'>*</span> Name:
+                    </Form.Label>
                     <Form.Control
                       type='text'
                       placeholder='John V. Doe'
@@ -115,6 +137,7 @@ const EmployeeRegister = ({ location, history }) => {
                     />
                   </Form.Group>
                   <Form.Group controlid='employee-age'>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label> Age:</Form.Label>
                     <Form.Control
                       type='number'
@@ -124,6 +147,7 @@ const EmployeeRegister = ({ location, history }) => {
                     />
                   </Form.Group>
                   <Form.Group controlid='employee-phone'>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label>Phone:</Form.Label>
                     <Form.Control
                       type='number'
@@ -135,6 +159,7 @@ const EmployeeRegister = ({ location, history }) => {
                 </Col>
                 <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='employee-gender'>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label>Gender:</Form.Label>
                     <Form.Control
                       as='select'
@@ -147,6 +172,7 @@ const EmployeeRegister = ({ location, history }) => {
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlid='employee-department'>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label>Office:</Form.Label>
                     <Form.Control
                       as='select'
@@ -161,6 +187,7 @@ const EmployeeRegister = ({ location, history }) => {
                   </Form.Group>
                   <Form.Group controlid='employee-municipality'>
                     <Card.Text as='h5'>Present Address</Card.Text>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label>Municipality:</Form.Label>
                     <Form.Control
                       as='select'
@@ -177,6 +204,7 @@ const EmployeeRegister = ({ location, history }) => {
                     </Form.Control>
                   </Form.Group>
                   <Form.Group controlid='employee-barangay'>
+                    <span className='text-danger'>*</span>{' '}
                     <Form.Label>Barangay:</Form.Label>
                     <Form.Control
                       as='select'
@@ -198,27 +226,20 @@ const EmployeeRegister = ({ location, history }) => {
                     />
                   </Form.Group>
                 </Col>
-                <Form.Check
-                  type='checkbox'
-                  value={isAgree}
-                  label={
-                    <p className='text-muted'>
-                      Please ensure that you're currently located in or within
-                      the vicinity of the address stated above before
-                      submitting, By clicking Sign Up, you agree to our{' '}
-                      <span
-                        role='button'
-                        className='text-warning  pointer-event'
-                        size='sm'
-                        onClick={() => setTermsShow(true)}
-                      >
-                        Terms and Data Privacy Conditions
-                      </span>
-                      .{' '}
-                    </p>
-                  }
-                  onClick={() => setTerms(true)}
-                />
+                <p className='text-muted'>
+                  Please ensure that you're currently located in or within the
+                  vicinity of the address stated above before submitting, By
+                  clicking Sign Up, you agree to our{' '}
+                  <span
+                    role='button'
+                    className='text-warning  pointer-event'
+                    size='sm'
+                    onClick={() => setTermsShow(true)}
+                  >
+                    Terms and Data Privacy Conditions
+                  </span>
+                  .{' '}
+                </p>
               </Row>
               <Container className='w-auto text-center'>
                 <Button className=' m-1 w-25' variant='primary' type='submit'>

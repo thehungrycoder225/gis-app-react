@@ -1,19 +1,12 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listCases } from '../actions/covidActions';
-import {
-  Map,
-  Marker,
-  CircleMarker,
-  TileLayer,
-  Popup,
-  LayersControl,
-} from 'react-leaflet';
+import { Marker, Popup } from 'react-leaflet';
 import GeoMap from '../components/GeoMap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import { HeatmapLayer } from 'react-leaflet-heatmap-layer';
-import { Icon } from 'leaflet';
+// import { HeatmapLayer } from 'react-leaflet-heatmap-layer';
+// import { Icon } from 'leaflet';
 import '../stylesheets/map.css';
 import { Card, Container, Table } from 'react-bootstrap';
 const CovidMap = () => {

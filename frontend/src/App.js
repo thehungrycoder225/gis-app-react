@@ -8,7 +8,10 @@ import Home from './screens/Home';
 import StudentRegister from './screens/StudentRegister';
 import StudentList from './screens/StudentList';
 import StudentEdit from './screens/StudentEdit';
+import StudentLogin from './screens/StudentLogin';
 import EmployeeRegister from './screens/EmployeeRegister';
+import EmployeeLogin from './screens/EmployeeLogin';
+import EmployeeProfile from './screens/EmployeeProfile';
 import EmployeeList from './screens/EmployeeList';
 import EmployeeEdit from './screens/EmployeeEdit';
 import CovidRegister from './screens/CovidRegister';
@@ -21,6 +24,8 @@ import UserProfile from './screens/UserProfile';
 import UserList from './screens/UserList';
 import UserEdit from './screens/UserEdit';
 import Register from './screens/Register';
+import LoginMenu from './screens/Login';
+
 class App extends React.Component {
   render() {
     return (
@@ -29,9 +34,13 @@ class App extends React.Component {
         <main className='py-3'>
           <Container>
             <Route path='/' component={Home} exact />
-            <Route path='/student/register' component={StudentRegister} />
             <Route path='/register' component={Register} />
+            <Route path='/login' component={LoginMenu} />
             <Route path='/employee/register' component={EmployeeRegister} />
+            <Route path='/employee/login' component={EmployeeLogin} />
+            <Route path='/employee/profile' component={EmployeeProfile} />
+            <Route path='/student/register' component={StudentRegister} />
+            <Route path='/student/login' component={StudentLogin} />
             <Route path='/client/covid/register' component={CovidRegister} />
             <Route path='/client/covid/:id/edit' component={CovidEdit} />
             <Route path='/user/login' component={UserLogin} />

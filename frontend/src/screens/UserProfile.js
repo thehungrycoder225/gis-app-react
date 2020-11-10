@@ -6,7 +6,7 @@ import Message from '../components/Message';
 import Loader from '../components/Loader';
 import logo from '../extras/Logo2.svg';
 import { getUserDetails, updateUserProfile } from '../actions/userActions';
-const UserProfile = ({ location, history }) => {
+const UserProfile = ({ history }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [username, setUsername] = useState('');
@@ -46,6 +46,9 @@ const UserProfile = ({ location, history }) => {
       dispatch(
         updateUserProfile({ id: user._id, email, name, username, password })
       );
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
     }
   };
   return (

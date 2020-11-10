@@ -4,7 +4,7 @@ const GeoMap = ({ children }) => {
   return (
     <>
       <Map
-        className='leaflet-container'
+        className='leaflet-map-container'
         center={[13.3954112, 121.9563893]}
         zoom={11}
       >

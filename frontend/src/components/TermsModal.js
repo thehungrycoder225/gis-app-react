@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import logo from '../extras/Logo2.svg';
 const TermsModal = ({ show }) => {

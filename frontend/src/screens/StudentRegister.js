@@ -5,7 +5,6 @@ import FormContainer from '../components/FormContainer';
 import { Form, Button, Card, Row, Col, Modal } from 'react-bootstrap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import TermsModal from '../components/TermsModal';
 import { listAreas } from '../actions/areaActions';
 import { listCourses } from '../actions/courseActions';
 import { register } from '../actions/studentActions';
@@ -14,7 +13,6 @@ import logo from '../extras/Logo2.svg';
 
 const StudentRegister = ({ location, history }) => {
   const dispatch = useDispatch();
-  const redirect = location.search ? location.search.split('=')[1] : '/';
   const [studentId, setStudentId] = useState('');
   const [name, setStudentName] = useState('');
   const [age, setStudentAge] = useState('');
@@ -26,14 +24,16 @@ const StudentRegister = ({ location, history }) => {
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setStudentAddress] = useState('');
-  const [isAgree, setTerms] = useState(false);
+
   const studentRegister = useSelector((state) => state.studentRegister);
-  const { loading, error } = studentRegister;
+  const { loading, error, studentInfo } = studentRegister;
   const [message] = useState(null);
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
   const courseList = useSelector((state) => state.courseList);
   const { courses } = courseList;
+
+  const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const [show, setTermsShow] = useState(false);
 
@@ -52,32 +52,46 @@ const StudentRegister = ({ location, history }) => {
   };
 
   useEffect(() => {
+    if (studentInfo) {
+      history.push(redirect);
+    }
+    if (error) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000);
+    }
     dispatch(listCourses(school));
     dispatch(listAreas(municipality));
     setStudentAddress(`${barangay},${municipality},Marinduque`);
-  }, [dispatch, history, municipality, barangay, school, redirect]);
+  }, [
+    dispatch,
+    history,
+    municipality,
+    barangay,
+    school,
+    redirect,
+    studentInfo,
+    error,
+  ]);
 
   const submitHandler = (e) => {
     e.preventDefault();
-    if (!isAgree) {
-      alert(<Message variant='danger'>Hello</Message>);
-    } else {
-      dispatch(
-        register(
-          studentId,
-          name,
-          age,
-          gender,
-          phone,
-          municipality,
-          barangay,
-          school,
-          course,
-          yearLevel,
-          address
-        )
-      );
-    }
+
+    dispatch(
+      register(
+        studentId,
+        name,
+        age,
+        gender,
+        phone,
+        municipality,
+        barangay,
+        school,
+        course,
+        yearLevel,
+        address
+      )
+    );
   };
 
   return (
@@ -103,7 +117,10 @@ const StudentRegister = ({ location, history }) => {
               <Col sm={6} md={6} lg={6}>
                 <Card.Text as='h5'>Basic Information</Card.Text>
                 <Form.Group>
-                  <Form.Label controlid='student-id'>Student Id:</Form.Label>
+                  <Form.Label controlid='student-id'>
+                    {' '}
+                    <span className='text-danger'>*</span> Student Id:
+                  </Form.Label>
                   <Form.Control
                     type='text'
                     placeholder='19A1991'
@@ -112,7 +129,10 @@ const StudentRegister = ({ location, history }) => {
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group>
-                  <Form.Label controlid='student-name'>Name:</Form.Label>
+                  <Form.Label controlid='student-name'>
+                    {' '}
+                    <span className='text-danger'>*</span> Name:
+                  </Form.Label>
                   <Form.Control
                     type='text'
                     placeholder='Jane V. Doe'
@@ -121,7 +141,10 @@ const StudentRegister = ({ location, history }) => {
                   ></Form.Control>
                 </Form.Group>
                 <Form.Group controlid='student-age'>
-                  <Form.Label>Age:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Age:
+                  </Form.Label>
                   <Form.Control
                     type='number'
                     placeholder='19'
@@ -130,7 +153,10 @@ const StudentRegister = ({ location, history }) => {
                   />
                 </Form.Group>
                 <Form.Group controlid='student-gender'>
-                  <Form.Label>Gender:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Gender:
+                  </Form.Label>
                   <Form.Control
                     as='select'
                     value={gender}
@@ -142,7 +168,10 @@ const StudentRegister = ({ location, history }) => {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlid='student-phone'>
-                  <Form.Label>Phone:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Phone:
+                  </Form.Label>
                   <Form.Control
                     type='number'
                     placeholder='09999999'
@@ -154,7 +183,10 @@ const StudentRegister = ({ location, history }) => {
               <Col sm={6} md={6} lg={6}>
                 <Card.Text as='h5'>Course Information</Card.Text>
                 <Form.Group controlid='student-school'>
-                  <Form.Label>School:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> School:
+                  </Form.Label>
                   <Form.Control
                     as='select'
                     value={school}
@@ -185,7 +217,10 @@ const StudentRegister = ({ location, history }) => {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlid='student-course'>
-                  <Form.Label>Course:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Course:
+                  </Form.Label>
                   <Form.Control
                     as='select'
                     value={course}
@@ -198,7 +233,10 @@ const StudentRegister = ({ location, history }) => {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlid='student-year'>
-                  <Form.Label>Year Level:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Year Level:
+                  </Form.Label>
                   <Form.Control
                     type='number'
                     placeholder='1'
@@ -210,7 +248,10 @@ const StudentRegister = ({ location, history }) => {
                 </Form.Group>
                 <Card.Text as='h5'>Present Address</Card.Text>
                 <Form.Group controlid='student-municipality'>
-                  <Form.Label>Municipality:</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Municipality:
+                  </Form.Label>
                   <Form.Control
                     as='select'
                     value={municipality}
@@ -226,7 +267,10 @@ const StudentRegister = ({ location, history }) => {
                   </Form.Control>
                 </Form.Group>
                 <Form.Group controlid='student-barangay'>
-                  <Form.Label>Barangay</Form.Label>
+                  <Form.Label>
+                    {' '}
+                    <span className='text-danger'>*</span> Barangay
+                  </Form.Label>
                   <Form.Control
                     as='select'
                     value={barangay}
@@ -248,26 +292,19 @@ const StudentRegister = ({ location, history }) => {
                 </Form.Group>
               </Col>
             </Row>
-            <Form.Check
-              type='checkbox'
-              value={isAgree}
-              label={
-                <p className='text-muted'>
-                  Please ensure that you're currently located in or within the
-                  vicinity of the address stated above before signing up, By
-                  clicking Sign Up, you agree to our{' '}
-                  <span
-                    role='button'
-                    className='text-warning  pointer-event'
-                    size='sm'
-                    onClick={() => setTermsShow(true)}
-                  >
-                    Terms and Data Privacy Conditions.
-                  </span>{' '}
-                </p>
-              }
-              onClick={() => setTerms(true)}
-            />
+            <p className='text-muted'>
+              Please ensure that you're currently located in or within the
+              vicinity of the address stated above before signing up, By
+              clicking Sign Up, you agree to our{' '}
+              <span
+                role='button'
+                className='text-warning  pointer-event'
+                size='sm'
+                onClick={() => setTermsShow(true)}
+              >
+                Terms and Data Privacy Conditions.
+              </span>{' '}
+            </p>
             <Container className='w-auto text-center'>
               <Button className=' m-1 w-25' variant='primary' type='submit'>
                 Sign Up
@@ -279,7 +316,60 @@ const StudentRegister = ({ location, history }) => {
           </Form>
         </Card.Body>
       </Card>
-      <TermsModal show={show} />
+      <Modal
+        size='lg'
+        show={show}
+        onHide={() => setTermsShow(false)}
+        aria-labelledby='terms-modal'
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id='terms-modal' className='m-auto'>
+            <img
+              src={logo}
+              alt='Brand Logo'
+              className='d-inline-block  m-auto'
+            />
+            <h1 className='text-primary d-inline-block mx-5'>
+              Data <span className='text-warning'>Privacy Statement</span>
+            </h1>
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body className='p-5 text-justify'>
+          <p>
+            The information collected and stored shall be used exclusively for
+            the purpose of Geospatial Mapping of MCS employees and students,
+            MSC’s initiative to help in the government’s effort to control the
+            spread of COVID-19.
+          </p>
+          <p>
+            Upon submission of the form, this application will automatically
+            collect the geographic coordinates of your current location. Your
+            personal data together with the geospatial data shall be sent
+            automatically to a server were your information will be processed
+            and pinned to a map. After submission of the form, you will be
+            disconnected to the system and the system has no capability to track
+            your location.
+          </p>
+          <p>
+            You will see your information in the map if you will access the
+            Public View of the map, while other users will not be able to see
+            your data. MSC is duty-bound to protect such information as
+            prescribed under{' '}
+            <a
+              href='https://bit.ly/36iCCpt'
+              rel='noreferrer'
+              target='_blank'
+              className='font-weight-bold text-decoration-none text-warning'
+            >
+              {' '}
+              Republic Act 10173{' '}
+            </a>{' '}
+            or the National Privacy Act of 2012 without the expressed written
+            consent of the users concerned. Click SUBMIT button if you agree and
+            allow MSC to include you in the map. Thank you.
+          </p>
+        </Modal.Body>
+      </Modal>
     </FormContainer>
   );
 };
