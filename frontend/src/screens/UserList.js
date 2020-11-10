@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { LinkContainer } from 'react-router-bootstrap';
-import { Table, Button } from 'react-bootstrap';
+import { Table, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
@@ -26,9 +26,27 @@ const UserList = ({ history }) => {
     }
   };
 
+  const createUserHandler = () => {
+    history.push('/user/register');
+  };
+
   return (
     <>
-      <h1>Users</h1>
+      <Row>
+        <Col sm={6} md={6} lg={6}>
+          <h1>User Records</h1>
+        </Col>
+        <Col className='text-right ' sm={6} md={6} lg={6}>
+          <Button
+            className='my-3'
+            variant='warning'
+            onClick={createUserHandler}
+          >
+            <i className='fas fa-plus  px-1'></i>Create New User
+          </Button>
+        </Col>
+      </Row>
+
       {loading ? (
         <Loader />
       ) : error ? (

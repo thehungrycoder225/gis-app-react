@@ -6,6 +6,7 @@ import FormContainer from '../components/FormContainer';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { register } from '../actions/userActions';
+import { USER_REGISTER_RESET } from '../constants/userConstants';
 const UserRegister = ({ location, history }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -16,14 +17,26 @@ const UserRegister = ({ location, history }) => {
   const dispatch = useDispatch();
 
   const userRegister = useSelector((state) => state.userRegister);
-  const { loading, error, userInfo } = userRegister;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  const { loading, error, success } = userRegister;
+
+  const userLogin = useSelector((state) => state.userLogin);
+  const { userInfo } = userLogin;
+  // const redirect = location.search ? location.search.split('=')[1] : '/';
 
   useEffect(() => {
-    if (userInfo) {
-      history.push(redirect);
+    if (!userInfo || !userInfo.role === 'admin') {
+      history.push('/user/login');
     }
-  }, [history, userInfo, redirect]);
+    if (success) {
+      history.push('/admin/user/list');
+      dispatch({ type: USER_REGISTER_RESET });
+    }
+    if (error) {
+      setTimeout(() => {
+        window.location.reload();
+      }, 3000);
+    }
+  }, [history, success, error, userInfo]);
   const submitHandler = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
@@ -34,14 +47,14 @@ const UserRegister = ({ location, history }) => {
   };
   return (
     <FormContainer>
-      <Card>
-        <Card.Header>
+      <Card className='w-50 border-0 shadow p-2 mb-5 my-5  rounded'>
+        <Card.Title className='text-center mt-3'>
           {' '}
-          <h1>User Register</h1>{' '}
+          <h1>Create New User</h1>{' '}
           {message && <Message variant='danger'>{message}</Message>}
           {error && <Message variant='danger'>{error}</Message>}
           {loading && <Loader />}
-        </Card.Header>
+        </Card.Title>
         <Card.Body>
           <Form onSubmit={submitHandler}>
             <Form.Group controlId='email'>
@@ -90,20 +103,16 @@ const UserRegister = ({ location, history }) => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </Form.Group>
-            <Button variant='success' type='submit'>
+            <Button variant='primary' type='submit' block>
               Register
             </Button>
           </Form>
           <Row className='py-3'>
             <Col>
-              Have an account?{' '}
-              <Link
-                to={
-                  redirect ? `/user/login?redirect=${redirect}` : '/user/login'
-                }
-              >
-                {' '}
-                Login{' '}
+              <Link className='text-decoration-none' to={'/admin/user/list'}>
+                <Button variant='outline-warning ' block>
+                  Go Back
+                </Button>
               </Link>
             </Col>
           </Row>

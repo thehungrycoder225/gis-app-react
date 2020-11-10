@@ -65,16 +65,20 @@ export const logout = () => (dispatch) => {
 };
 
 export const register = (email, name, username, password) => async (
-  dispatch
+  dispatch,
+  getState
 ) => {
   try {
     dispatch({
       type: USER_REGISTER_REQUEST,
     });
-
+    const {
+      userLogin: { userInfo },
+    } = getState();
     const config = {
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${userInfo.token}`,
       },
     };
     const { data } = await axios.post(
@@ -93,10 +97,10 @@ export const register = (email, name, username, password) => async (
       payload: data,
     });
 
-    dispatch({
-      type: USER_LOGIN_SUCCESS,
-      payload: data,
-    });
+    // dispatch({
+    //   type: USER_LOGIN_SUCCESS,
+    //   payload: data,
+    // });
     localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({

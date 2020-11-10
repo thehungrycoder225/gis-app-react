@@ -17,7 +17,7 @@ const authStudent = asyncHandler(async (req, res, next) => {
   const student = await Student.findOne({ studentId });
 
   if (!student) {
-    return next(new AppError('Invalid empId', 401));
+    return next(new AppError('Invalid Student Id', 401));
   } else {
     res.json({
       _id: student._id,

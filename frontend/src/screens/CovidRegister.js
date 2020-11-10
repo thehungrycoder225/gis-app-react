@@ -41,7 +41,7 @@ const CovidRegister = ({ location, history }) => {
     );
   };
   useEffect(() => {
-    if (!userInfo || !userInfo.role == 'client') {
+    if (!userInfo || !userInfo.role === 'client') {
       history.push('/user/login');
     }
     if (success) {
@@ -51,7 +51,15 @@ const CovidRegister = ({ location, history }) => {
     }
     dispatch(listAreas(municipality));
     setAddress(`${barangay},${municipality},Marinduque`);
-  }, [userInfo, dispatch, history, municipality, barangay, covidCreate]);
+  }, [
+    userInfo,
+    dispatch,
+    history,
+    municipality,
+    barangay,
+    success,
+    covidCreate,
+  ]);
   return (
     <>
       <Link to='/client/covid/list' className='btn btn-outline-warning'>

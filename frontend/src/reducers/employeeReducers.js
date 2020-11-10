@@ -23,6 +23,7 @@ import {
   EMPLOYEE_UPDATE_SUCCESS,
   EMPLOYEE_UPDATE_FAIL,
   EMPLOYEE_UPDATE_RESET,
+  EMPLOYEE_REGISTER_RESET,
 } from '../constants/employeeConstants';
 
 export const employeeLoginReducer = (state = {}, action) => {
@@ -48,6 +49,8 @@ export const employeeRegisterReducer = (state = {}, action) => {
       return { loading: false, employeeInfo: action.payload };
     case EMPLOYEE_REGISTER_FAIL:
       return { loading: false, error: action.payload };
+    case EMPLOYEE_REGISTER_RESET:
+      return {};
     default:
       return state;
   }

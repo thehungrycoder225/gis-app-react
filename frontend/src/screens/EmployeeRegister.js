@@ -34,7 +34,7 @@ const EmployeeRegister = ({ location, history }) => {
   const [isAgree, setTerms] = useState(false);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
-  const { loading, error } = employeeRegister;
+  const { loading, error, employeeInfo } = employeeRegister;
   const redirect = location.search ? location.search.split('=')[1] : '/';
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
@@ -52,10 +52,13 @@ const EmployeeRegister = ({ location, history }) => {
   };
 
   useEffect(() => {
+    if (employeeInfo) {
+      history.push(redirect);
+    }
     dispatch(listAreas(municipality));
     dispatch(listDepartments());
     setEmployeeAddress(`${barangay},${municipality},Marinduque`);
-  }, [dispatch, history, municipality, barangay, redirect]);
+  }, [employeeInfo, dispatch, history, municipality, barangay, redirect]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -77,7 +80,7 @@ const EmployeeRegister = ({ location, history }) => {
   return (
     <>
       <FormContainer>
-        <Card className='w-auto border-0 border-0 shadow p-2 mb-5 my-5  rounded'>
+        <Card className='w-auto border-0  shadow p-2 mb-5 my-5  rounded'>
           <Card.Title className='text-center mt-3'>
             <img src={logo} alt='Brand Logo' className='p-3' />
             <h1>
