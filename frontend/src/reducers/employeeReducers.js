@@ -46,7 +46,7 @@ export const employeeRegisterReducer = (state = {}, action) => {
     case EMPLOYEE_REGISTER_REQUEST:
       return { loading: true };
     case EMPLOYEE_REGISTER_SUCCESS:
-      return { loading: false, employeeInfo: action.payload };
+      return { loading: false, success: true, employeeInfo: action.payload };
     case EMPLOYEE_REGISTER_FAIL:
       return { loading: false, error: action.payload };
     case EMPLOYEE_REGISTER_RESET:

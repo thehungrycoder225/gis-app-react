@@ -24,7 +24,7 @@ const EmployeeLogin = ({ location, history }) => {
         window.location.reload();
       }, 2000);
     }
-  }, [dispatch, error, redirect, history, employeeInfo]);
+  }, [error, redirect, history, employeeInfo]);
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(eLogin(empId));

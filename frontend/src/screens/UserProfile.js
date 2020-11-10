@@ -58,8 +58,12 @@ const UserProfile = ({ history }) => {
         <Card.Title className='text-center mt-3 h1'>
           <img src={logo} alt='logo' className='p-3 ' /> <h1>User Profile</h1>{' '}
           {message && <Message variant='danger'>{message}</Message>}
-          {error && <Message variant='danger'>{error}</Message>}
-          {success && <Message variant='success'>Profile Updated</Message>}
+          {error ? (
+            <Message variant='danger'>{error}</Message>
+          ) : (
+            success && <Message variant='success'>Profile Updated</Message>
+          )}
+          {loading && <Loader />}
         </Card.Title>
         <Card.Body>
           <Form onSubmit={submitHandler}>

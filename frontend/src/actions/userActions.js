@@ -23,6 +23,8 @@ import {
   USER_UPDATE_SUCCESS,
   USER_UPDATE_FAIL,
 } from '../constants/userConstants';
+import { STUDENT_LIST_RESET } from '../constants/studentConstants';
+import { EMPLOYEE_LIST_RESET } from '../constants/employeeConstants';
 
 import axios from 'axios';
 export const login = (username, password) => async (dispatch) => {
@@ -62,6 +64,8 @@ export const logout = () => (dispatch) => {
   localStorage.removeItem('userInfo');
   dispatch({ type: USER_LOGOUT });
   dispatch({ type: USER_LIST_RESET });
+  dispatch({ type: STUDENT_LIST_RESET });
+  dispatch({ type: EMPLOYEE_LIST_RESET });
 };
 
 export const register = (email, name, username, password) => async (
@@ -101,7 +105,7 @@ export const register = (email, name, username, password) => async (
     //   type: USER_LOGIN_SUCCESS,
     //   payload: data,
     // });
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    // localStorage.setItem('userInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: USER_REGISTER_FAIL,

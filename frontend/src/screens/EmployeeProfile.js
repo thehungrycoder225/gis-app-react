@@ -12,8 +12,8 @@ import {
 import { listAreas } from '../actions/areaActions';
 import { listDepartments } from '../actions/departmentActions';
 import {
-  getEmployeeProfile,
-  updateEmployeeInfo,
+  getProfileDetails,
+  updateEmployeeProfile,
 } from '../actions/employeeActions';
 import { Marker, Popup } from 'react-leaflet';
 import Message from '../components/Message';
@@ -23,7 +23,6 @@ import GeoMap from '../components/GeoMap';
 import logo from '../extras/Logo2.svg';
 
 const EmployeeProfile = ({ history }) => {
-  const dispatch = useDispatch();
   const [empId, setEmployeeId] = useState('');
   const [name, setEmployeeName] = useState('');
   const [age, setEmployeeAge] = useState('');
@@ -33,13 +32,22 @@ const EmployeeProfile = ({ history }) => {
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
+  const [location, setEmployeeLocation] = useState('');
+  const [coordinates, setEmployeeCoordinates] = useState('');
   const [message] = useState(null);
+
+  const dispatch = useDispatch();
 
   const employeeDetails = useSelector((state) => state.employeeDetails);
   const { loading, error, employee } = employeeDetails;
 
   const employeeLogin = useSelector((state) => state.employeeLogin);
   const { employeeInfo } = employeeLogin;
+
+  const employeeUpdateProfile = useSelector(
+    (state) => state.employeeUpdateProfile
+  );
+  const { success } = employeeUpdateProfile;
 
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
@@ -62,13 +70,15 @@ const EmployeeProfile = ({ history }) => {
       history.push('/employee/login');
     } else {
       if (!employee.name) {
-        dispatch(getEmployeeProfile('profile'));
+        dispatch(getProfileDetails('profile'));
       } else {
         setEmployeeId(employee.empId);
         setEmployeeName(employee.name);
         setEmployeeAge(employee.age);
         setEmployeePhone(employee.phone);
         setEmployeeGender(employee.gender);
+        setEmployeeLocation(employee.location);
+        setEmployeeCoordinates(employee.location.coordinates);
         if (municipality === '' && barangay === '') {
           setBarangay(employee.barangay);
           setMunicipality(employee.municipality);
@@ -86,21 +96,12 @@ const EmployeeProfile = ({ history }) => {
     }
     dispatch(listAreas(municipality));
     dispatch(listDepartments());
-    setEmployeeAddress(`${barangay},${municipality},Marinduque`);
-  }, [
-    employeeInfo,
-    employee,
-    dispatch,
-    history,
-    municipality,
-    barangay,
-    department,
-  ]);
+  }, [employeeInfo, municipality, department, barangay, dispatch, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      updateEmployeeInfo({
+      updateEmployeeProfile({
         id: employee._id,
         empId,
         name,
@@ -113,6 +114,9 @@ const EmployeeProfile = ({ history }) => {
         address,
       })
     );
+    setTimeout(() => {
+      window.location.reload();
+    }, 3000);
   };
 
   return (
@@ -127,19 +131,10 @@ const EmployeeProfile = ({ history }) => {
                 <Message variant='danger'>{error}</Message>
               ) : (
                 <>
-                  <Marker
-                    position={[
-                      employeeInfo.location.coordinates[1],
-                      employeeInfo.location.coordinates[0],
-                    ]}
-                  >
+                  <Marker position={[coordinates[1], coordinates[0]]}>
                     <Popup>
                       <p className='text-danger h4 font-weight-bold my-3 text-center'>
-                        You are here{' '}
-                        {employeeInfo.name.split(
-                          '',
-                          employeeInfo.name.length - 5
-                        )}
+                        You are here {name.split('', name.length - 5)}
                       </p>
                       <Table
                         striped
@@ -151,32 +146,32 @@ const EmployeeProfile = ({ history }) => {
                         <tbody className='text-uppercase text-center'>
                           <tr>
                             <th>ID</th>
-                            <td>{employeeInfo.empId}</td>
+                            <td>{empId}</td>
                           </tr>
                           <tr>
                             <th>Name</th>
-                            <td>{employeeInfo.name}</td>
+                            <td>{name}</td>
                           </tr>
                           <tr>
                             <th>Age</th>
-                            <td>{employeeInfo.age}</td>
+                            <td>{age}</td>
                           </tr>
                           <tr>
                             <th>Gender</th>
-                            <td>{employeeInfo.gender}</td>
+                            <td>{gender}</td>
                           </tr>
                           <tr>
                             <th>Contact #</th>
-                            <td>{employeeInfo.phone}</td>
+                            <td>{phone}</td>
                           </tr>
                           <tr>
                             <th>Office</th>
-                            <td>{employeeInfo.department}</td>
+                            <td>{department}</td>
                           </tr>
 
                           <tr>
                             <th>Address</th>
-                            <td>{employeeInfo.location.formattedAddress}</td>
+                            <td>{location.formattedAddress}</td>
                           </tr>
                         </tbody>
                       </Table>
@@ -196,12 +191,13 @@ const EmployeeProfile = ({ history }) => {
                   Employee <span className='text-warning'>Profile</span>{' '}
                 </h1>
                 {message && <Message variant='success'>{message}</Message>}
-                {error && (
-                  <Message variant='outline-warning text-danger border-0 w-50 m-auto text-center'>
-                    {error}
-                  </Message>
+                {error ? (
+                  <Message variant='danger'>{error}</Message>
+                ) : (
+                  success && (
+                    <Message variant='success'>Profile Updated</Message>
+                  )
                 )}
-                {loading && <Loader />}
               </Card.Title>
               <Card.Body>
                 <Form className='p-3' onSubmit={submitHandler}>

@@ -96,7 +96,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
   }
 });
 
-// @desc Auth user & get profile
+// @desc Auth employee & get profile
 // @route GET /api/employees/profile
 // @access Private
 
@@ -114,6 +114,8 @@ const getEmployeeProfile = asyncHandler(async (req, res) => {
       municipality: employee.municipality,
       barangay: employee.barangay,
       address: employee.address,
+      formattedAddress: employee.formattedAddress,
+      location: employee.location,
     });
   } else {
     res.status(404);
@@ -175,7 +177,7 @@ const getEmployees = asyncHandler(async (req, res) => {
   return res.status(200).json(employee);
 });
 
-// @desc Delete User
+// @desc Delete Employee
 // @route DELETE /api/employee/:id
 // @access Private
 
@@ -200,7 +202,7 @@ const getEmployeeById = asyncHandler(async (req, res) => {
   }
 });
 
-// @desc Update User
+// @desc Update Employee
 // @route PUT /api/employee/:id
 // @access Private
 const updateEmployee = asyncHandler(async (req, res) => {

@@ -18,7 +18,6 @@ import {
   EMPLOYEE_LIST_SUCCESS,
   EMPLOYEE_LIST_REQUEST,
   EMPLOYEE_LIST_FAIL,
-  EMPLOYEE_LIST_RESET,
   EMPLOYEE_UPDATE_REQUEST,
   EMPLOYEE_UPDATE_SUCCESS,
   EMPLOYEE_UPDATE_FAIL,
@@ -60,7 +59,6 @@ export const eLogin = (empId) => async (dispatch) => {
 export const elogout = () => (dispatch) => {
   localStorage.removeItem('employeeInfo');
   dispatch({ type: EMPLOYEE_LOGOUT });
-  dispatch({ type: EMPLOYEE_LIST_RESET });
 };
 
 export const register = (
@@ -121,36 +119,6 @@ export const register = (
   }
 };
 
-export const getEmployeeProfile = (id) => async (dispatch, getState) => {
-  try {
-    dispatch({
-      type: EMPLOYEE_DETAILS_REQUEST,
-    });
-    const {
-      employeeLogin: { employeeInfo },
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${employeeInfo.token}`,
-      },
-    };
-    const { data } = await axios.get(`/api/employees/${id}`, config);
-    dispatch({
-      type: EMPLOYEE_DETAILS_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: EMPLOYEE_DETAILS_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
-
 export const getEmployeeDetails = (id) => async (dispatch, getState) => {
   try {
     dispatch({
@@ -181,7 +149,40 @@ export const getEmployeeDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateEmployeeInfo = (employee) => async (dispatch, getState) => {
+export const getProfileDetails = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: EMPLOYEE_DETAILS_REQUEST,
+    });
+    const {
+      employeeLogin: { employeeInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${employeeInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/employees/${id}`, config);
+    dispatch({
+      type: EMPLOYEE_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: EMPLOYEE_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const updateEmployeeProfile = (employee) => async (
+  dispatch,
+  getState
+) => {
   try {
     dispatch({
       type: EMPLOYEE_UPDATE_PROFILE_REQUEST,
