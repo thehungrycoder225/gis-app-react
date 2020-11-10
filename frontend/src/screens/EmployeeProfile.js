@@ -9,7 +9,6 @@ import {
   Container,
   Table,
 } from 'react-bootstrap';
-import { listAreas } from '../actions/areaActions';
 import { listDepartments } from '../actions/departmentActions';
 import {
   getProfileDetails,
@@ -29,8 +28,6 @@ const EmployeeProfile = ({ history }) => {
   const [phone, setEmployeePhone] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
-  const [municipality, setMunicipality] = useState('');
-  const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
   const [location, setEmployeeLocation] = useState('');
   const [coordinates, setEmployeeCoordinates] = useState('');
@@ -49,21 +46,8 @@ const EmployeeProfile = ({ history }) => {
   );
   const { success } = employeeUpdateProfile;
 
-  const areaList = useSelector((state) => state.areaList);
-  const { areas } = areaList;
-
   const departmentList = useSelector((state) => state.departmentList);
   const { departments } = departmentList;
-
-  const ChangeMunicipality = async (e) => {
-    e.preventDefault();
-    await setMunicipality(e.target.value);
-  };
-
-  const ChangeBarangay = async (e) => {
-    e.preventDefault();
-    await setBarangay(e.target.value);
-  };
 
   useEffect(() => {
     if (!employeeInfo) {
@@ -77,26 +61,14 @@ const EmployeeProfile = ({ history }) => {
         setEmployeeAge(employee.age);
         setEmployeePhone(employee.phone);
         setEmployeeGender(employee.gender);
+        setEmployeeDepartment(employee.department);
+        setEmployeeAddress(employee.location.formattedAddress);
         setEmployeeLocation(employee.location);
         setEmployeeCoordinates(employee.location.coordinates);
-        if (municipality === '' && barangay === '') {
-          setBarangay(employee.barangay);
-          setMunicipality(employee.municipality);
-        } else {
-          setBarangay(barangay);
-          setMunicipality(municipality);
-          setEmployeeAddress(`${barangay},${municipality},Marinduque`);
-        }
-        if (department === '') {
-          setEmployeeDepartment(employee.department);
-        } else {
-          setEmployeeDepartment(department);
-        }
       }
     }
-    dispatch(listAreas(municipality));
-    dispatch(listDepartments());
-  }, [employeeInfo, municipality, department, barangay, dispatch, history]);
+    // dispatch(listDepartments(department));
+  }, [employeeInfo, employee, dispatch, history]);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -109,8 +81,6 @@ const EmployeeProfile = ({ history }) => {
         phone,
         gender,
         department,
-        municipality,
-        barangay,
         address,
       })
     );
@@ -125,16 +95,17 @@ const EmployeeProfile = ({ history }) => {
         <Col sm={6} md={6} lg={6}>
           <FormContainer>
             <GeoMap>
-              {loading ? (
+              {console.log(employee)}
+              {/* {loading ? (
                 <Loader />
               ) : error ? (
                 <Message variant='danger'>{error}</Message>
               ) : (
                 <>
-                  <Marker position={[coordinates[1], coordinates[0]]}>
+                  <Marker position={[0, 0]}>
                     <Popup>
                       <p className='text-danger h4 font-weight-bold my-3 text-center'>
-                        You are here {name.split('', name.length - 5)}
+                        You are here {name}
                       </p>
                       <Table
                         striped
@@ -178,7 +149,7 @@ const EmployeeProfile = ({ history }) => {
                     </Popup>
                   </Marker>
                 </>
-              )}
+              )} */}
             </GeoMap>
           </FormContainer>
         </Col>
@@ -269,41 +240,11 @@ const EmployeeProfile = ({ history }) => {
                           ))}
                         </Form.Control>
                       </Form.Group>
-                      <Form.Group controlid='employee-municipality'>
-                        <Card.Text as='h5'>Present Address</Card.Text>
-                        <Form.Label>Municipality:</Form.Label>
-                        <Form.Control
-                          as='select'
-                          value={municipality}
-                          onChange={ChangeMunicipality}
-                        >
-                          <option>Select a Municipality</option>
-                          <option>Boac</option>
-                          <option>Mogpog</option>
-                          <option>Gasan</option>
-                          <option>Buenavista</option>
-                          <option>Torrijos</option>
-                          <option>Santa Cruz</option>
-                        </Form.Control>
-                      </Form.Group>
-                      <Form.Group controlid='employee-barangay'>
-                        <Form.Label>Barangay:</Form.Label>
-                        <Form.Control
-                          as='select'
-                          value={barangay}
-                          onChange={ChangeBarangay}
-                        >
-                          <option>Select a Barangay</option>
-                          {areas.map((area, index) => (
-                            <option key={index}>{area.barangay}</option>
-                          ))}
-                        </Form.Control>
-                      </Form.Group>
                       <Form.Group controlid='employee-address'>
+                        <Form.Label>Address:</Form.Label>
                         <Form.Control
                           type='text'
                           value={address}
-                          hidden
                           onChange={(e) => setEmployeeAddress(e.target.value)}
                         />
                       </Form.Group>

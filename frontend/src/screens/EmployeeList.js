@@ -34,6 +34,7 @@ const EmployeeList = ({ history }) => {
       <Row>
         <Col sm={6} md={6} lg={6}>
           <GeoMap>
+            {loading ? <Loader /> : error ? <Message>{error}</Message> : null}
             {loading ? (
               <Loader />
             ) : error ? (
@@ -43,11 +44,9 @@ const EmployeeList = ({ history }) => {
                 {employees.map((employee) => (
                   <Marker
                     key={employee._id}
-                    position={[
-                      employee.location.coordinates[1],
-                      employee.location.coordinates[0],
-                    ]}
+                    position={employee.location.coordinates.reverse()}
                   >
+                    {console.table(employee)}
                     <Popup>
                       <p className='text-danger h4 font-weight-bold my-3 text-center'>
                         Employee Details

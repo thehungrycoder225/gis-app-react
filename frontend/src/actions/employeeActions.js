@@ -68,8 +68,6 @@ export const register = (
   phone,
   gender,
   department,
-  municipality,
-  barangay,
   address
 ) => async (dispatch) => {
   try {
@@ -91,8 +89,6 @@ export const register = (
         phone,
         gender,
         department,
-        municipality,
-        barangay,
         address,
       },
       config

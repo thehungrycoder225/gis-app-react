@@ -27,14 +27,14 @@ const employeeSchema = new Schema(
       type: String,
       required: true,
     },
-    municipality: {
-      type: String,
-      required: true,
-    },
-    barangay: {
-      type: String,
-      required: true,
-    },
+    // municipality: {
+    //   type: String,
+    //   required: true,
+    // },
+    // barangay: {
+    //   type: String,
+    //   required: true,
+    // },
     department: {
       type: String,
       required: true,
@@ -73,6 +73,11 @@ const employeeSchema = new Schema(
 employeeSchema.pre('save', async function (next) {
   const loc = await geocoder.geocode(this.address);
   this.location = {
+    type: 'Point',
+    coordinates: [loc[0].longitude, loc[0].latitude],
+    formattedAddress: loc[0].formattedAddress,
+  };
+  this.locations = {
     type: 'Point',
     coordinates: [loc[0].longitude, loc[0].latitude],
     formattedAddress: loc[0].formattedAddress,

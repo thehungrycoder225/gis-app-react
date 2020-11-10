@@ -44,10 +44,7 @@ const StudentList = ({ history }) => {
                 {students.map((student) => (
                   <Marker
                     key={student._id}
-                    position={[
-                      student.location.coordinates[1],
-                      student.location.coordinates[0],
-                    ]}
+                    position={student.location.coordinates.reverse()}
                   >
                     <Popup>
                       <p className='text-danger h4 font-weight-bold my-3 text-center'>
