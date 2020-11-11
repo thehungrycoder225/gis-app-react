@@ -20,6 +20,7 @@ const StudentEdit = ({ match, history }) => {
   const [school, setStudentSchool] = useState('');
   const [course, setStudentCourse] = useState('');
   const [yearLevel, setStudentYearLevel] = useState('');
+  const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setAddress] = useState('');
@@ -58,13 +59,14 @@ const StudentEdit = ({ match, history }) => {
         setStudentGender(student.gender);
         setStudentPhone(student.phone);
         setStudentYearLevel(student.yearLevel);
-        if (municipality === '' && barangay === '') {
+        if (barangay === '' && municipality === '' && street == '') {
+          setStreet(student.street);
           setBarangay(student.barangay);
           setMunicipality(student.municipality);
         } else {
           setMunicipality(municipality);
           setBarangay(barangay);
-          setAddress(`${barangay},${municipality},Marinduque`);
+          setAddress(`${street},${barangay},${municipality},Marinduque`);
         }
         if (school === '' && course === '') {
           setStudentCourse(student.course);
@@ -85,6 +87,7 @@ const StudentEdit = ({ match, history }) => {
     student,
     school,
     course,
+    street,
     municipality,
     barangay,
     successUpdate,
@@ -99,6 +102,7 @@ const StudentEdit = ({ match, history }) => {
         age,
         gender,
         phone,
+        street,
         municipality,
         barangay,
         school,
@@ -182,8 +186,6 @@ const StudentEdit = ({ match, history }) => {
                       onChange={(e) => setStudentPhone(e.target.value)}
                     />
                   </Form.Group>
-                </Col>
-                <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='student-school'>
                     <Form.Label>School</Form.Label>
                     <Form.Control
@@ -218,6 +220,9 @@ const StudentEdit = ({ match, history }) => {
                       <option> School of Governance</option>
                     </Form.Control>
                   </Form.Group>
+                </Col>
+                <Col sm={6} md={6} lg={6}>
+                  <Card.Text as='h5'>Course Information:</Card.Text>
                   <Form.Group controlid='student-course'>
                     <Form.Label>Course</Form.Label>
                     <Form.Control
@@ -243,6 +248,15 @@ const StudentEdit = ({ match, history }) => {
                     />
                   </Form.Group>
                   <Card.Text as='h5'>Present Address:</Card.Text>
+                  <Form.Group controlid='student-street'>
+                    <Form.Label>House/Unit/Flr #,Street/Purok Name</Form.Label>
+                    <Form.Control
+                      type='text'
+                      placeholder='01 Macapuno Street'
+                      value={street}
+                      onInput={(e) => setStreet(e.target.value)}
+                    ></Form.Control>
+                  </Form.Group>
                   <Form.Group controlid='student-municipality'>
                     <Form.Label>Municipality</Form.Label>
                     <Form.Control

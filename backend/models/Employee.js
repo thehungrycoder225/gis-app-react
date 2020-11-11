@@ -27,14 +27,17 @@ const employeeSchema = new Schema(
       type: String,
       required: true,
     },
-    // municipality: {
-    //   type: String,
-    //   required: true,
-    // },
-    // barangay: {
-    //   type: String,
-    //   required: true,
-    // },
+    street: {
+      type: String,
+    },
+    municipality: {
+      type: String,
+      required: true,
+    },
+    barangay: {
+      type: String,
+      required: true,
+    },
     department: {
       type: String,
       required: true,

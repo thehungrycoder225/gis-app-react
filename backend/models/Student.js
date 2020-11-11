@@ -29,6 +29,9 @@ const studentSchema = new Schema(
     phone: {
       type: Number,
     },
+    street: {
+      type: String,
+    },
     municipality: {
       type: String,
     },

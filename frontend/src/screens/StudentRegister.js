@@ -20,6 +20,7 @@ const StudentRegister = ({ location, history }) => {
   const [phone, setStudentPhone] = useState('');
   const [school, setStudentSchool] = useState('');
   const [course, setStudentCourse] = useState('');
+  const [street, setStreet] = useState('');
   const [yearLevel, setStudentYearLevel] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
@@ -37,17 +38,18 @@ const StudentRegister = ({ location, history }) => {
 
   const [show, setTermsShow] = useState(false);
 
+  const ChangeStreet = async (e) => {
+    await setStreet(e.target.value);
+  };
   const ChangeSchool = async (e) => {
-    e.preventDefault();
     await setStudentSchool(e.target.value);
   };
+
   const ChangeMunicipality = async (e) => {
-    e.preventDefault();
     await setMunicipality(e.target.value);
   };
 
   const ChangeBarangay = async (e) => {
-    e.preventDefault();
     await setBarangay(e.target.value);
   };
 
@@ -60,12 +62,13 @@ const StudentRegister = ({ location, history }) => {
         window.location.reload();
       }, 2000);
     }
-    dispatch(listCourses(school));
-    dispatch(listAreas(municipality));
-    setStudentAddress(`${barangay},${municipality},Marinduque`);
+    dispatch(listCourses(school.trim()));
+    dispatch(listAreas(municipality.trim()));
+    setStudentAddress(`${street},${barangay},${municipality},Marinduque`);
   }, [
     dispatch,
     history,
+    street,
     municipality,
     barangay,
     school,
@@ -196,22 +199,19 @@ const StudentRegister = ({ location, history }) => {
                     <option>School of Agriculture</option>
                     <option> School of Arts and Sciences</option>
                     <option>School of Business and Management </option>
-                    <option>School of Community and Health Care </option>
-                    <option> School of Education </option>
-                    <option> School of Environmental Science </option>
-                    <option> School of Engineering </option>
-                    <option> School of Fisheries </option>
-
-                    <option> School of Industrial Technology </option>
+                    <option>School of Allied Medicine </option>
+                    <option>School of Education </option>
+                    <option>School of Environmental Science </option>
+                    <option>School of Engineering </option>
+                    <option>School of Fisheries </option>
+                    <option>School of Industrial Technology </option>
                     <option>
-                      {' '}
-                      School of Information and Computing Sciences{' '}
+                      School of Information and Computing Sciences
                     </option>
-                    <option> School of Basic Education (SHS Program)</option>
-                    <option> School of Education (Laboratory Program) </option>
+                    <option>School of Basic Education SHS Program</option>
+                    <option>School of Education Laboratory Program</option>
                     <option>
-                      {' '}
-                      School of Graduate Studies and Professional Education{' '}
+                      School of Graduate Studies and Professional Education
                     </option>
                     <option> School of Governance</option>
                   </Form.Control>
@@ -247,6 +247,18 @@ const StudentRegister = ({ location, history }) => {
                   />
                 </Form.Group>
                 <Card.Text as='h5'>Present Address</Card.Text>
+                <Form.Group controlid='student-street'>
+                  <Form.Label>
+                    <span className='text-danger'>*</span>House/Unit/Flr
+                    #,Street/Purok Name
+                  </Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='01 Macapuno Street'
+                    value={street}
+                    onInput={ChangeStreet}
+                  ></Form.Control>
+                </Form.Group>
                 <Form.Group controlid='student-municipality'>
                   <Form.Label>
                     {' '}

@@ -19,6 +19,9 @@ const covidCaseSchema = new Schema(
     gender: {
       type: String,
     },
+    street: {
+      type: String,
+    },
     municipality: {
       type: String,
     },
