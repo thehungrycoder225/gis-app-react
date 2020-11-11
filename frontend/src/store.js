@@ -75,11 +75,24 @@ const reducer = combineReducers({
 const userInfoFromStorage = localStorage.getItem('userInfo')
   ? JSON.parse(localStorage.getItem('userInfo'))
   : null;
+const employeeInfoFromStorage = localStorage.getItem('employeeInfo')
+  ? JSON.parse(localStorage.getItem('employeeInfo'))
+  : null;
+const studentInfoFromStorage = localStorage.getItem('studentInfo')
+  ? JSON.parse(localStorage.getItem('studentInfo'))
+  : null;
 const initialState = {
   userLogin: {
     userInfo: userInfoFromStorage,
   },
+  employeeLogin: {
+    employeeInfo: employeeInfoFromStorage,
+  },
+  studentLogin: {
+    studentInfo: studentInfoFromStorage,
+  },
 };
+
 const middleware = [thunk];
 const store = createStore(
   reducer,

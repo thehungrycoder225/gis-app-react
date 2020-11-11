@@ -20,9 +20,10 @@ const EmployeeEdit = ({ match, history }) => {
   const [phone, setEmployeePhone] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
+  const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
-  const [address, setEmployeeAddress] = useState('');
+  const [address, setAddress] = useState('');
 
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
@@ -39,13 +40,16 @@ const EmployeeEdit = ({ match, history }) => {
 
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
+
+  const ChangeStreet = async (e) => {
+    await setStreet(e.target.value);
+  };
+
   const ChangeMunicipality = async (e) => {
-    e.preventDefault();
     await setMunicipality(e.target.value);
   };
 
   const ChangeBarangay = async (e) => {
-    e.preventDefault();
     await setBarangay(e.target.value);
   };
 
@@ -65,13 +69,14 @@ const EmployeeEdit = ({ match, history }) => {
         setEmployeeAge(employee.age);
         setEmployeePhone(employee.phone);
         setEmployeeGender(employee.gender);
-        if (municipality === '' && barangay === '') {
+        if (barangay === '' && municipality === '' && street === '') {
+          setStreet(employee.street);
           setBarangay(employee.barangay);
           setMunicipality(employee.municipality);
         } else {
-          setBarangay(barangay);
           setMunicipality(municipality);
-          setEmployeeAddress(`${barangay},${municipality},Marinduque`);
+          setBarangay(barangay);
+          setAddress(`${street},${barangay},${municipality},Marinduque`);
         }
         if (department === '') {
           setEmployeeDepartment(employee.department);
@@ -87,6 +92,7 @@ const EmployeeEdit = ({ match, history }) => {
     dispatch,
     history,
     eId,
+    street,
     employee,
     municipality,
     department,
@@ -105,6 +111,7 @@ const EmployeeEdit = ({ match, history }) => {
         phone,
         gender,
         department,
+        street,
         municipality,
         barangay,
         address,
@@ -131,10 +138,10 @@ const EmployeeEdit = ({ match, history }) => {
             <Message variant='danger'>{error}</Message>
           ) : (
             <Card.Body>
-              <Card.Text as='h5'>Basic Information</Card.Text>
               <Form className='p-3 w-100' onSubmit={submitHandler}>
                 <Row>
                   <Col sm={6} md={6} lg={6}>
+                    <Card.Text as='h5'>Basic Information</Card.Text>
                     <Form.Group controlid='EmployeeId'>
                       <Form.Label>Employee Id:</Form.Label>
                       <Form.Control
@@ -172,8 +179,6 @@ const EmployeeEdit = ({ match, history }) => {
                         onChange={(e) => setEmployeePhone(e.target.value)}
                       />
                     </Form.Group>
-                  </Col>
-                  <Col sm={6} md={6} lg={6}>
                     <Form.Group controlid='employee-gender'>
                       <Form.Label>Gender:</Form.Label>
                       <Form.Control
@@ -199,8 +204,21 @@ const EmployeeEdit = ({ match, history }) => {
                         ))}
                       </Form.Control>
                     </Form.Group>
+                  </Col>
+                  <Col sm={6} md={6} lg={6}>
                     <Form.Group controlid='employee-municipality'>
                       <Card.Text as='h5'>Present Address</Card.Text>
+                      <Form.Group controlid='student-street'>
+                        <Form.Label>
+                          House/Unit/Flr #,Street/Purok Name
+                        </Form.Label>
+                        <Form.Control
+                          type='text'
+                          placeholder='01 Macapuno Street'
+                          value={street}
+                          onInput={ChangeStreet}
+                        ></Form.Control>
+                      </Form.Group>
                       <Form.Label>Municipality:</Form.Label>
                       <Form.Control
                         as='select'
@@ -234,7 +252,7 @@ const EmployeeEdit = ({ match, history }) => {
                         type='text'
                         value={address}
                         hidden
-                        onChange={(e) => setEmployeeAddress(e.target.value)}
+                        onChange={(e) => setAddress(e.target.value)}
                       />
                     </Form.Group>
                   </Col>

@@ -46,6 +46,15 @@ const client = (req, res, next) => {
   }
 };
 
+const employee = (req, res, next) => {
+  if (req.employee && req.employee._id) {
+    next();
+  } else {
+    res.status(401);
+    throw new Error('Insufficient privileges to access this page');
+  }
+};
+
 const protectEmployee = asyncHandler(async (req, res, next) => {
   let token;
   if (
@@ -91,4 +100,4 @@ const protectStudent = asyncHandler(async (req, res, next) => {
     throw new AppError('Not Authorized');
   }
 });
-export { protect, admin, client, protectEmployee, protectStudent };
+export { protect, admin, client, employee, protectEmployee, protectStudent };

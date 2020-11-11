@@ -12,6 +12,7 @@ import {
 import {
   protect,
   admin,
+  employee,
   protectEmployee,
 } from '../middleware/authMiddleware.js';
 const router = express.Router();
@@ -24,7 +25,7 @@ router
 router
   .route('/:id')
   .delete(protect, admin, deleteEmployee)
-  .get(protect, admin, getEmployeeById)
-  .put(protect, admin, updateEmployee);
+  .get(protect, protectEmployee, getEmployeeById)
+  .put(protect, protectEmployee, updateEmployee);
 
 export default router;
