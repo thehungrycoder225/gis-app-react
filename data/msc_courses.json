@@ -1,0 +1,379 @@
+[{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ae"
+  },
+  "school": "School of Agriculture",
+  "program": "Bachelor of Agricultural Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0af"
+  },
+  "school": "School of Agriculture",
+  "program": "Bachelor of Science in Agriculture"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b0"
+  },
+  "school": "School of Agriculture",
+  "program": "Bachelor of Science in Entrepreneurship (Major in Agriculture business)"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b1"
+  },
+  "school": "School of Agriculture",
+  "program": "Diploma in Agricultural Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b2"
+  },
+  "school": "School of Arts and Sciences",
+  "program": "Bachelor of Arts  Major in English"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b3"
+  },
+  "school": "School of Arts and Sciences",
+  "program": "Bachelor of Arts in Communication"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b4"
+  },
+  "school": "School of Arts and Sciences",
+  "program": "Bachelor of Science in Social Work"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b5"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Entrepreneurship major in Entrepreneurial Management"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b6"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Entrepreneurship major in Wholesale and Retail"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b7"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Tourism Management"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b8"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Accounting Information System"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0b9"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Accountancy"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ba"
+  },
+  "school": "School of Business and Management",
+  "program": "Bachelor of Science in Accounting Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0bb"
+  },
+  "school": "School of Allied Medicine",
+  "program": "Bachelor of Science in Nursing"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0bc"
+  },
+  "school": "School of Allied Medicine",
+  "program": "Diploma in Midwifery"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0bd"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Biological Sciences"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0be"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Mathematics"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0bf"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Music Arts and Physical Education (MAPHE)"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c0"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Music Education"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c1"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Physical Sciences"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c2"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Secondary Education Major in Social Studies"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c3"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Technology and Livelihood Education"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c4"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Elementary Education Major in General Education"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c5"
+  },
+  "school": "School of Education",
+  "program": "Bachelor of Elementary Education Major in Pre-Elementary"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c6"
+  },
+  "school": "School of Education",
+  "program": "Certificate in Teachers Professional Education"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c7"
+  },
+  "school": "School of Engineering",
+  "program": "Bachelor of Science in Civil Engineering"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c8"
+  },
+  "school": "School of Engineering",
+  "program": "Bachelor of Science in Electrical Engineering"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0c9"
+  },
+  "school": "School of Engineering",
+  "program": "Bachelor of Science in Computer Engineering"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ca"
+  },
+  "school": "School of Engineering",
+  "program": "Bachelor of Science in Electronics Engineering"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0cb"
+  },
+  "school": "School of Engineering",
+  "program": "Bachelor of Science in Mechanical Engineering"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0cc"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Automotive Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0cd"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Drafting Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ce"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Electrical Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0cf"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Food Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d0"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Mechanical Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d1"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Welding and Fabrication"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d2"
+  },
+  "school": "School of Industrial Technology",
+  "program": "Bachelor of Science in Industrial Technology Major in Refrigeration and Air-Conditioning"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d3"
+  },
+  "school": "School of Information and Computing Sciences",
+  "program": "Bachelor of Science in Information Technology"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d4"
+  },
+  "school": "School of Information and Computing Sciences",
+  "program": "Bachelor of Science in Information Systems"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d5"
+  },
+  "school": "School of Information and Computing Sciences",
+  "program": "Bachelor of Science in Information Systems (Santa Cruz)"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d6"
+  },
+  "school": "School of Basic Education SHS Program",
+  "program": "STEM"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d7"
+  },
+  "school": "School of Basic Education SHS Program",
+  "program": "HUMMS"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d8"
+  },
+  "school": "School of Basic Education SHS Program",
+  "program": "ABM"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0d9"
+  },
+  "school": "School of Basic Education SHS Program",
+  "program": "TECH/VOC"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0da"
+  },
+  "school": "School of Basic Education SHS Program",
+  "program": "GAS"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0db"
+  },
+  "school": "School of Education Laboratory Program",
+  "program": "Grade 10"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0dc"
+  },
+  "school": "School of Education Laboratory Program",
+  "program": "Grade 9"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0dd"
+  },
+  "school": "School of Education Laboratory Program",
+  "program": "Grade 8"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0de"
+  },
+  "school": "School of Education Laboratory Program",
+  "program": "Grade 7"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0df"
+  },
+  "school": "School of Environmental Science",
+  "program": "Bachelor of Science in Environmental Science"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e0"
+  },
+  "school": "School of Fisheries",
+  "program": "Bachelor of Science in Fisheries"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e1"
+  },
+  "school": "School of Governance",
+  "program": "Bachelor of Public Administration"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e2"
+  },
+  "school": "School of Governance",
+  "program": "Bachelor of Arts in Political Science"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e3"
+  },
+  "school": "School of Governance",
+  "program": "Bachelor of Science in Law Enforcement Administration"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e4"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Doctor of Education"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e5"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Arts in Education Major in Biology Teaching"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e6"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Arts in Education Major in Educational Management"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e7"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Arts in Education Major in Language Teaching"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e8"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Arts in Education Major in Mathematics Teaching"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0e9"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Arts in Education Major in Physics Teaching"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ea"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master in Public Administration  with Thesis"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0eb"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master in Public Administration  Non-Thesis"
+},{
+  "_id": {
+    "$oid": "5fab3b39899de94ac0bef0ec"
+  },
+  "school": "School of Graduate Studies and Professional Education",
+  "program": "Master of Business Administration"
+}]

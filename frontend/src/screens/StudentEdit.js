@@ -59,7 +59,7 @@ const StudentEdit = ({ match, history }) => {
         setStudentGender(student.gender);
         setStudentPhone(student.phone);
         setStudentYearLevel(student.yearLevel);
-        if (barangay === '' && municipality === '' && street == '') {
+        if (barangay === '' && municipality === '' && street === '') {
           setStreet(student.street);
           setBarangay(student.barangay);
           setMunicipality(student.municipality);

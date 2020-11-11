@@ -22,17 +22,6 @@ import GeoMap from '../components/GeoMap';
 import logo from '../extras/Logo2.svg';
 
 const EmployeeProfile = ({ history }) => {
-  const [empId, setEmployeeId] = useState('');
-  const [name, setEmployeeName] = useState('');
-  const [age, setEmployeeAge] = useState('');
-  const [phone, setEmployeePhone] = useState('');
-  const [gender, setEmployeeGender] = useState('');
-  const [department, setEmployeeDepartment] = useState('');
-  const [address, setEmployeeAddress] = useState('');
-  const [location, setEmployeeLocation] = useState('');
-  const [coordinates, setEmployeeCoordinates] = useState('');
-  const [message] = useState(null);
-
   const dispatch = useDispatch();
 
   const employeeDetails = useSelector((state) => state.employeeDetails);
@@ -50,44 +39,13 @@ const EmployeeProfile = ({ history }) => {
   const { departments } = departmentList;
 
   useEffect(() => {
-    if (!employeeInfo) {
-      history.push('/employee/login');
+    if (employeeInfo) {
+      dispatch(getProfileDetails());
     } else {
-      if (!employee.name) {
-        dispatch(getProfileDetails('profile'));
-      } else {
-        setEmployeeId(employee.empId);
-        setEmployeeName(employee.name);
-        setEmployeeAge(employee.age);
-        setEmployeePhone(employee.phone);
-        setEmployeeGender(employee.gender);
-        setEmployeeDepartment(employee.department);
-        setEmployeeAddress(employee.location.formattedAddress);
-        setEmployeeLocation(employee.location);
-        setEmployeeCoordinates(employee.location.coordinates);
-      }
+      history.push('/employee/login');
     }
     // dispatch(listDepartments(department));
   }, [employeeInfo, employee, dispatch, history]);
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    dispatch(
-      updateEmployeeProfile({
-        id: employee._id,
-        empId,
-        name,
-        age,
-        phone,
-        gender,
-        department,
-        address,
-      })
-    );
-    setTimeout(() => {
-      window.location.reload();
-    }, 3000);
-  };
 
   return (
     <>
@@ -154,7 +112,7 @@ const EmployeeProfile = ({ history }) => {
           </FormContainer>
         </Col>
         <Col sm={6} md={6} lg={6}>
-          <FormContainer>
+          {/* <FormContainer>
             <Card className='w-auto border-0  shadow p-2 mb-5 my-5  rounded'>
               <Card.Title className='text-center mt-3'>
                 <img src={logo} alt='Brand Logo' className='p-3' />
@@ -262,7 +220,7 @@ const EmployeeProfile = ({ history }) => {
                 </Form>
               </Card.Body>
             </Card>
-          </FormContainer>
+          </FormContainer> */}
         </Col>
       </Row>
     </>

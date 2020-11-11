@@ -13,6 +13,7 @@ const addCovidCase = asyncHandler(async (req, res, next) => {
     caseId,
     age,
     gender,
+    street,
     municipality,
     barangay,
     address,
@@ -29,6 +30,7 @@ const addCovidCase = asyncHandler(async (req, res, next) => {
     caseId,
     age,
     gender,
+    street,
     municipality,
     barangay,
     address,
@@ -40,6 +42,7 @@ const addCovidCase = asyncHandler(async (req, res, next) => {
       caseId: covid.caseId,
       age: covid.age,
       gender: covid.gender,
+      street: covid.street,
       municipality: covid.municipality,
       barangay: covid.barangay,
       address: covid.address,
@@ -65,6 +68,7 @@ const getCaseProfile = asyncHandler(async (req, res) => {
       caseId: covid.caseId,
       age: covid.age,
       gender: covid.gender,
+      street: covid.street,
       municipality: covid.municipality,
       barangay: covid.barangay,
       address: covid.address,
@@ -88,6 +92,7 @@ const updateCaseProfile = asyncHandler(async (req, res) => {
     covid.caseId = req.body.caseId || covid.caseId;
     covid.age = req.body.age || covid.age;
     covid.gender = req.body.gender || covid.gender;
+    covid.street = req.body.street || covid.street;
     covid.municipality = req.body.municipality || covid.municipality;
     covid.barangay = req.body.barangay || covid.barangay;
     covid.address = req.body.address || covid.address;
@@ -99,6 +104,7 @@ const updateCaseProfile = asyncHandler(async (req, res) => {
       caseId: updatedCase.caseId,
       age: updatedCase.age,
       gender: updatedCase.gender,
+      street: updatedCase.street,
       municipality: updatedCase.municipality,
       barangay: updatedCase.barangay,
       address: updatedCase.address,
@@ -163,6 +169,7 @@ const updateCase = asyncHandler(async (req, res) => {
     covid.caseId = req.body.caseId || covid.caseId;
     covid.age = req.body.age || covid.age;
     covid.gender = req.body.gender || covid.gender;
+    covid.street = req.body.street || covid.street;
     covid.municipality = req.body.municipality || covid.municipality;
     covid.barangay = req.body.barangay || covid.barangay;
     covid.address = req.body.address || covid.address;
@@ -174,6 +181,7 @@ const updateCase = asyncHandler(async (req, res) => {
       caseId: updatedCase.caseId,
       age: updatedCase.age,
       gender: updatedCase.gender,
+      street: updatedCase.street,
       municipality: updatedCase.municipality,
       barangay: updatedCase.barangay,
       address: updatedCase.address,

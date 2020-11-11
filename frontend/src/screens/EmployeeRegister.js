@@ -26,11 +26,11 @@ const EmployeeRegister = ({ location, history }) => {
   const [phone, setEmployeePhone] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
+  const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
   const [message] = useState(null);
-  const [terms, setTermsShow] = useState(false);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
   const { loading, error, employeeInfo } = employeeRegister;
@@ -41,32 +41,41 @@ const EmployeeRegister = ({ location, history }) => {
 
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
+  const [terms, setTermsShow] = useState(false);
+
+  const ChangeStreet = async (e) => {
+    await setStreet(e.target.value);
+  };
+
+  const ChangeDepartment = async (e) => {
+    await setEmployeeDepartment(e.target.value);
+  };
   const ChangeMunicipality = async (e) => {
-    e.preventDefault();
     await setMunicipality(e.target.value);
   };
 
   const ChangeBarangay = async (e) => {
-    e.preventDefault();
     await setBarangay(e.target.value);
   };
 
   useEffect(() => {
-    if (error) {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
+    // if (error) {
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 2000);
+    // }
     if (employeeInfo) {
       history.push(redirect);
     }
-    dispatch(listAreas(municipality));
     dispatch(listDepartments());
-    setEmployeeAddress(`${barangay},${municipality},Marinduque`);
+    dispatch(listAreas(municipality));
+
+    setEmployeeAddress(`${street},${barangay},${municipality},Marinduque`);
   }, [
     employeeInfo,
     dispatch,
     history,
+    street,
     municipality,
     barangay,
     redirect,
@@ -84,6 +93,7 @@ const EmployeeRegister = ({ location, history }) => {
         phone,
         gender,
         department,
+        street,
         municipality,
         barangay,
         address
@@ -109,11 +119,10 @@ const EmployeeRegister = ({ location, history }) => {
             {loading && <Loader />}
           </Card.Title>
           <Card.Body>
-            <Card.Text as='h5'>Basic Information</Card.Text>
-
             <Form className='p-3' onSubmit={submitHandler}>
               <Row>
                 <Col sm={6} md={6} lg={6}>
+                  <Card.Text as='h5'>Basic Information</Card.Text>
                   <Form.Group controlid='EmployeeId'>
                     <Form.Label>
                       <span className='text-danger'>*</span> Employee Id :
@@ -156,8 +165,6 @@ const EmployeeRegister = ({ location, history }) => {
                       onChange={(e) => setEmployeePhone(e.target.value)}
                     />
                   </Form.Group>
-                </Col>
-                <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='employee-gender'>
                     <span className='text-danger'>*</span>{' '}
                     <Form.Label>Gender:</Form.Label>
@@ -177,7 +184,7 @@ const EmployeeRegister = ({ location, history }) => {
                     <Form.Control
                       as='select'
                       value={department}
-                      onChange={(e) => setEmployeeDepartment(e.target.value)}
+                      onChange={ChangeDepartment}
                     >
                       <option>Select Office</option>
                       {departments.map((el, index) => (
@@ -185,8 +192,22 @@ const EmployeeRegister = ({ location, history }) => {
                       ))}
                     </Form.Control>
                   </Form.Group>
+                </Col>
+                <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='employee-municipality'>
                     <Card.Text as='h5'>Present Address</Card.Text>
+                    <Form.Group controlid='student-street'>
+                      <Form.Label>
+                        <span className='text-danger'>*</span>House/Unit/Flr
+                        #,Street/Purok Name
+                      </Form.Label>
+                      <Form.Control
+                        type='text'
+                        placeholder='01 Macapuno Street'
+                        value={street}
+                        onInput={ChangeStreet}
+                      ></Form.Control>
+                    </Form.Group>
                     <span className='text-danger'>*</span>{' '}
                     <Form.Label>Municipality:</Form.Label>
                     <Form.Control
@@ -221,7 +242,6 @@ const EmployeeRegister = ({ location, history }) => {
                     <Form.Control
                       type='text'
                       value={address}
-                      hidden
                       onChange={(e) => setEmployeeAddress(e.target.value)}
                     />
                   </Form.Group>

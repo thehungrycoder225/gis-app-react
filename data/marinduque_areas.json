@@ -1,0 +1,1309 @@
+[{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007499"
+  },
+  "municipality": "Boac",
+  "barangay": "Agot"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749a"
+  },
+  "municipality": "Boac",
+  "barangay": "Agumaymayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749b"
+  },
+  "municipality": "Boac",
+  "barangay": "Amoingon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749c"
+  },
+  "municipality": "Boac",
+  "barangay": "Apitong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749d"
+  },
+  "municipality": "Boac",
+  "barangay": "Balagasan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749e"
+  },
+  "municipality": "Boac",
+  "barangay": "Balaring"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800749f"
+  },
+  "municipality": "Boac",
+  "barangay": "Balimbing"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a0"
+  },
+  "municipality": "Boac",
+  "barangay": "Balogo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a1"
+  },
+  "municipality": "Boac",
+  "barangay": "Bamban"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a2"
+  },
+  "municipality": "Boac",
+  "barangay": "Bangbangalon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a3"
+  },
+  "municipality": "Boac",
+  "barangay": "Bantad"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a4"
+  },
+  "municipality": "Boac",
+  "barangay": "Bantay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a5"
+  },
+  "municipality": "Boac",
+  "barangay": "Bayuti"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a6"
+  },
+  "municipality": "Boac",
+  "barangay": "Binunga"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a7"
+  },
+  "municipality": "Boac",
+  "barangay": "Boi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a8"
+  },
+  "municipality": "Boac",
+  "barangay": "Boton"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074a9"
+  },
+  "municipality": "Boac",
+  "barangay": "Buliasnin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074aa"
+  },
+  "municipality": "Boac",
+  "barangay": "Bunganay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ab"
+  },
+  "municipality": "Boac",
+  "barangay": "Caganhao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ac"
+  },
+  "municipality": "Boac",
+  "barangay": "Canat"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ad"
+  },
+  "municipality": "Boac",
+  "barangay": "Catubugan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ae"
+  },
+  "municipality": "Boac",
+  "barangay": "Cawit"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074af"
+  },
+  "municipality": "Boac",
+  "barangay": "Daig"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b0"
+  },
+  "municipality": "Boac",
+  "barangay": "Daypay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b1"
+  },
+  "municipality": "Boac",
+  "barangay": "Duyay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b2"
+  },
+  "municipality": "Boac",
+  "barangay": "Hinapulan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b3"
+  },
+  "municipality": "Boac",
+  "barangay": "Ihatub"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b4"
+  },
+  "municipality": "Boac",
+  "barangay": "Isok I"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b5"
+  },
+  "municipality": "Boac",
+  "barangay": "Isok II Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b6"
+  },
+  "municipality": "Boac",
+  "barangay": "Laylay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b7"
+  },
+  "municipality": "Boac",
+  "barangay": "Lupac"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b8"
+  },
+  "municipality": "Boac",
+  "barangay": "Mahinhin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074b9"
+  },
+  "municipality": "Boac",
+  "barangay": "Mainit"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ba"
+  },
+  "municipality": "Boac",
+  "barangay": "Malbog"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074bb"
+  },
+  "municipality": "Boac",
+  "barangay": "Maligaya"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074bc"
+  },
+  "municipality": "Boac",
+  "barangay": "Malusak"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074bd"
+  },
+  "municipality": "Boac",
+  "barangay": "Mansiwat"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074be"
+  },
+  "municipality": "Boac",
+  "barangay": "Mataas na Bayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074bf"
+  },
+  "municipality": "Boac",
+  "barangay": "Maybo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c0"
+  },
+  "municipality": "Boac",
+  "barangay": "Mercado"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c1"
+  },
+  "municipality": "Boac",
+  "barangay": "Murallon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c2"
+  },
+  "municipality": "Boac",
+  "barangay": "Ogbac"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c3"
+  },
+  "municipality": "Boac",
+  "barangay": "Pawa"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c4"
+  },
+  "municipality": "Boac",
+  "barangay": "Pili"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c5"
+  },
+  "municipality": "Boac",
+  "barangay": "Poctoy"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c6"
+  },
+  "municipality": "Boac",
+  "barangay": "Poras"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c7"
+  },
+  "municipality": "Boac",
+  "barangay": "Puting Buhangin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c8"
+  },
+  "municipality": "Boac",
+  "barangay": "Puyog"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074c9"
+  },
+  "municipality": "Boac",
+  "barangay": "Sabong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ca"
+  },
+  "municipality": "Boac",
+  "barangay": "San Miguel"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074cb"
+  },
+  "municipality": "Boac",
+  "barangay": "Santol"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074cc"
+  },
+  "municipality": "Boac",
+  "barangay": "Sawi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074cd"
+  },
+  "municipality": "Boac",
+  "barangay": "Tabi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ce"
+  },
+  "municipality": "Boac",
+  "barangay": "Tabigue"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074cf"
+  },
+  "municipality": "Boac",
+  "barangay": "Tagwak"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d0"
+  },
+  "municipality": "Boac",
+  "barangay": "Tambunan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d1"
+  },
+  "municipality": "Boac",
+  "barangay": "Tampus"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d2"
+  },
+  "municipality": "Boac",
+  "barangay": "Tanza"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d3"
+  },
+  "municipality": "Boac",
+  "barangay": "Tugos"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d4"
+  },
+  "municipality": "Boac",
+  "barangay": "Tumagabok"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d5"
+  },
+  "municipality": "Boac",
+  "barangay": "Tumapon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d6"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Bagacay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d7"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Bagtingon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d8"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Barangay Uno"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074d9"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Barangay Dos"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074da"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Barangay Tres"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074db"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Barangay Quatro"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074dc"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Bicas‑bicas"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074dd"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Caigangan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074de"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Daykitin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074df"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Libas"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e0"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Malbog"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e1"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Sihi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e2"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Timbo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e3"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Tungib‑Lipata"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e4"
+  },
+  "municipality": "Buenavista",
+  "barangay": "Yook"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e5"
+  },
+  "municipality": "Gasan",
+  "barangay": "Antipolo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e6"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bachao Ibaba"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e7"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bachao Ilaya"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e8"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bacongbacong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074e9"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bahi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ea"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bangbang"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074eb"
+  },
+  "municipality": "Gasan",
+  "barangay": "Banot"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ec"
+  },
+  "municipality": "Gasan",
+  "barangay": "Banuyo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ed"
+  },
+  "municipality": "Gasan",
+  "barangay": "Barangay I"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ee"
+  },
+  "municipality": "Gasan",
+  "barangay": "Barangay II"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ef"
+  },
+  "municipality": "Gasan",
+  "barangay": "Barangay III"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f0"
+  },
+  "municipality": "Gasan",
+  "barangay": "Bognuyan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f1"
+  },
+  "municipality": "Gasan",
+  "barangay": "Cabugao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f2"
+  },
+  "municipality": "Gasan",
+  "barangay": "Dawis"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f3"
+  },
+  "municipality": "Gasan",
+  "barangay": "Dili"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f4"
+  },
+  "municipality": "Gasan",
+  "barangay": "Libtangin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f5"
+  },
+  "municipality": "Gasan",
+  "barangay": "Mahunig"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f6"
+  },
+  "municipality": "Gasan",
+  "barangay": "Mangiliol"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f7"
+  },
+  "municipality": "Gasan",
+  "barangay": "Masiga"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f8"
+  },
+  "municipality": "Gasan",
+  "barangay": "Matandang Gasan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074f9"
+  },
+  "municipality": "Gasan",
+  "barangay": "Pangi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074fa"
+  },
+  "municipality": "Gasan",
+  "barangay": "Pingan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074fb"
+  },
+  "municipality": "Gasan",
+  "barangay": "Tabionan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074fc"
+  },
+  "municipality": "Gasan",
+  "barangay": "Tapuyan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074fd"
+  },
+  "municipality": "Gasan",
+  "barangay": "Tiguion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074fe"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Anapog Sibucao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e80074ff"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Argao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007500"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Balanacan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007501"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Banto"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007502"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Bintakay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007503"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Bocboc"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007504"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Butansapa"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007505"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Candahon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007506"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Capayang"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007507"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Danao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007508"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Dulong Bayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007509"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Gitnang Bayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750a"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Guisian"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750b"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Hinadharan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750c"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Hinanggayon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750d"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Ino"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750e"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Janagdong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800750f"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Lamesa"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007510"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Laon"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007511"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Magapua"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007512"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Malayak"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007513"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Malusak"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007514"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Mampaitan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007515"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Mangyan‑Mababad"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007516"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Market Site"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007517"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Mataas na Bayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007518"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Mendez"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007519"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Nangka I"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751a"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Nangka II"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751b"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Paye"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751c"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Pili"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751d"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Puting Buhangin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751e"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Sayao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800751f"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Silangan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007520"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Sumangga"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007521"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Tarug"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007522"
+  },
+  "municipality": "Mogpog",
+  "barangay": "Villa Mendez"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007523"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Alobo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007524"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Angas"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007525"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Aturan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007526"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Bagong Silang Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007527"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Baguidbirin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007528"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Baliis"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007529"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Balogo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752a"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Banahaw Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752b"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Bangcuangan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752c"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Banogbog"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752d"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Biga"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752e"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Botilao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800752f"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Buyabod"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007530"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Dating Bayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007531"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Devilla"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007532"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Dolores"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007533"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Haguimit"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007534"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Hupi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007535"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Ipil"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007536"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Jolo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007537"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kaganhao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007538"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kalangkang"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007539"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kamandugan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753a"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kasily"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753b"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kilo‑kilo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753c"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Kiñaman"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753d"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Labo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753e"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Lamesa"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800753f"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Landy"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007540"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Lapu‑lapu Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007541"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Libjo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007542"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Lipa"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007543"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Lusok"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007544"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Maharlika Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007545"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Makulapnit"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007546"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Maniwaya"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007547"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Manlibunan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007548"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Masaguisi"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007549"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Masalukot"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754a"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Matalaba"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754b"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Mongpong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754c"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Morales"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754d"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Napo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754e"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800754f"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Pantayin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007550"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Polo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007551"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Pulong‑Parang"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007552"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Punong"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007553"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "San Antonio"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007554"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "San Isidro"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007555"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Tagum"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007556"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Tamayo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007557"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Tambangan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007558"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Tawiran"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007559"
+  },
+  "municipality": "Santa Cruz",
+  "barangay": "Taytay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755a"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Bangwayin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755b"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Bayakbakin"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755c"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Bolo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755d"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Bonliw"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755e"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Buangan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800755f"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Cabuyo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007560"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Cagpo"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007561"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Dampulan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007562"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Kay Duke"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007563"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Mabuhay"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007564"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Makawayan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007565"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Malibago"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007566"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Malinao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007567"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Maranlig"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007568"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Marlangga"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007569"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Matuyatuya"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756a"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Nangka"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756b"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Pakaskasan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756c"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Payanas"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756d"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Poblacion"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756e"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Poctoy"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e800756f"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Sibuyao"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007570"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Suha"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007571"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Talawan"
+},{
+  "_id": {
+    "$oid": "5f8d0c2292e43037e8007572"
+  },
+  "municipality": "Torrijos",
+  "barangay": "Tigwi"
+}]

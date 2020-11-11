@@ -1,0 +1,246 @@
+[{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef03e"
+  },
+  "department": "Office of The President"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef03f"
+  },
+  "department": "Office of  The Vice President for Academic Affairs"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef040"
+  },
+  "department": "Office of  The Vice President for Administration and Finance"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef041"
+  },
+  "department": "Office of  The Vice President for Research, Development, Extension and Training"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef042"
+  },
+  "department": "Office of  The College & Board Secretary"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef043"
+  },
+  "department": "Planning and Development Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef044"
+  },
+  "department": "Media and International Affairs"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef045"
+  },
+  "department": "Special Projects and Environmental Concerns"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef046"
+  },
+  "department": "Internal Audit Services Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef047"
+  },
+  "department": "Gender and Development "
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef048"
+  },
+  "department": "School of Agriculture"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef049"
+  },
+  "department": "School of Allied medicine"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04a"
+  },
+  "department": "School of Arts an Sciences"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04b"
+  },
+  "department": "School of Business and Management"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04c"
+  },
+  "department": "School of Education"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04d"
+  },
+  "department": "School of Engineering"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04e"
+  },
+  "department": "School of Environmental Science"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef04f"
+  },
+  "department": "School of Fisheries"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef050"
+  },
+  "department": "School of Governance"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef051"
+  },
+  "department": "School of Graduate Studies and Professional Education"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef052"
+  },
+  "department": "School of Industrial Technology"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef053"
+  },
+  "department": "School of Information and Computing Sciences"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef054"
+  },
+  "department": "School of Basic Education (SHS Program)"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef055"
+  },
+  "department": "School of Education (Laboratory Program)"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef056"
+  },
+  "department": "Guidance and Counseling Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef057"
+  },
+  "department": "Center for Alumni Relations and Employment Services (CARES)"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef058"
+  },
+  "department": "Student Affairs and Services Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef059"
+  },
+  "department": "National Service and Training Program Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05a"
+  },
+  "department": "Office of Quality Assurance Accreditation and Evaluation"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05b"
+  },
+  "department": "Learning Resource Center Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05c"
+  },
+  "department": "Sports"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05d"
+  },
+  "department": "Culture and Arts"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05e"
+  },
+  "department": "Office of the Registrar"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef05f"
+  },
+  "department": "Sentro ng Wika at Kultura"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef060"
+  },
+  "department": "Chief Administrative Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef061"
+  },
+  "department": "Security Services"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef062"
+  },
+  "department": "Finanacial Management Services Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef063"
+  },
+  "department": "ICTSC Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef064"
+  },
+  "department": "Human Resource Management Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef065"
+  },
+  "department": "Human Resource Development Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef066"
+  },
+  "department": "General Services Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef067"
+  },
+  "department": "Project and Pysical Plant Management office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef068"
+  },
+  "department": "Business Affairs Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef069"
+  },
+  "department": "Health Services Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef06a"
+  },
+  "department": "Cashier's Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef06b"
+  },
+  "department": "Disaster  Risk Reduction and Management Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef06c"
+  },
+  "department": "Research Development and Publication Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef06d"
+  },
+  "department": "Extension and Training Office"
+},{
+  "_id": {
+    "$oid": "5fab2e35899de94ac0bef06e"
+  },
+  "department": "Knowledge and Tech Transfer Office"
+}]

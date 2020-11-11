@@ -67,6 +67,9 @@ export const register = (
   age,
   phone,
   gender,
+  street,
+  municipality,
+  barangay,
   department,
   address
 ) => async (dispatch) => {
@@ -88,6 +91,9 @@ export const register = (
         age,
         phone,
         gender,
+        street,
+        municipality,
+        barangay,
         department,
         address,
       },
