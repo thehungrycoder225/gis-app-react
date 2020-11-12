@@ -13,6 +13,7 @@ const CovidRegister = ({ location, history }) => {
   const [caseId, setCaseId] = useState('');
   const [age, setAge] = useState('');
   const [gender, setGender] = useState('');
+  const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setAddress] = useState('');
@@ -24,6 +25,9 @@ const CovidRegister = ({ location, history }) => {
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
 
+  const ChangeStreet = async (e) => {
+    await setStreet(e.target.value);
+  };
   const ChangeMunicipality = async (e) => {
     e.preventDefault();
     await setMunicipality(e.target.value);
@@ -37,7 +41,16 @@ const CovidRegister = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(
-      createCase(caseId, age, gender, municipality, barangay, address, status)
+      createCase(
+        caseId,
+        age,
+        gender,
+        street,
+        municipality,
+        barangay,
+        address,
+        status
+      )
     );
   };
   useEffect(() => {
@@ -50,11 +63,12 @@ const CovidRegister = ({ location, history }) => {
     } else {
     }
     dispatch(listAreas(municipality));
-    setAddress(`${barangay},${municipality},Marinduque`);
+    setAddress(`${street},${barangay},${municipality},Marinduque`);
   }, [
     userInfo,
     dispatch,
     history,
+    street,
     municipality,
     barangay,
     success,
@@ -106,6 +120,15 @@ const CovidRegister = ({ location, history }) => {
                   <option>Female</option>
                 </Form.Control>
               </Form.Group>
+              <Form.Group controlid='case-street'>
+                <Form.Label>House/Unit/Flr #,Street/Purok Name</Form.Label>
+                <Form.Control
+                  type='text'
+                  placeholder='01 Macapuno Street'
+                  value={street}
+                  onInput={ChangeStreet}
+                ></Form.Control>
+              </Form.Group>
               <Form.Group controlid='case-municipality'>
                 <Form.Label>Municipality</Form.Label>
                 <Form.Control
@@ -139,7 +162,6 @@ const CovidRegister = ({ location, history }) => {
                 <Form.Control
                   type='text'
                   value={address}
-                  hidden
                   onChange={(e) => setAddress(e.target.value)}
                 />
               </Form.Group>

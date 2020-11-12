@@ -1,12 +1,12 @@
 import React from 'react';
 import { Spinner } from 'react-bootstrap';
-const Loader = ({ variant }) => {
+const Loader = ({ variant, size }) => {
   return (
     <Spinner
       variant={variant}
       animation='border'
       role='status'
-      size='md'
+      size={size}
       as='span'
       style={{
         // width: '100px',

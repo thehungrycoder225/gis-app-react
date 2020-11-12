@@ -21,6 +21,7 @@ export const createCase = (
   caseId,
   age,
   gender,
+  street,
   municipality,
   barangay,
   address,
@@ -41,7 +42,7 @@ export const createCase = (
     };
     const { data } = await axios.post(
       '/api/covid',
-      { caseId, age, gender, municipality, barangay, address, status },
+      { caseId, age, gender, street, municipality, barangay, address, status },
       config
     );
 

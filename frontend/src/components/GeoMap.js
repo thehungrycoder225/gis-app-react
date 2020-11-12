@@ -32,8 +32,8 @@ const GeoMap = ({ children }) => {
               url={`https://api.mapbox.com/styles/v1/thehungrycoder/ckhe90qr9085v19musnx5nxua/tiles/256/{z}/{x}/{y}@2x?access_token=${mapToken}`}
             />
           </LayersControl.BaseLayer>
+          {children}
         </LayersControl>
-        {children}
       </Map>
     </>
   );
