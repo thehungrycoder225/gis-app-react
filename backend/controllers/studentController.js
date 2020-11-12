@@ -26,6 +26,7 @@ const authStudent = asyncHandler(async (req, res, next) => {
       age: student.age,
       gender: student.gender,
       phone: student.phone,
+      landline: student.landline,
       school: student.school,
       course: student.course,
       yearLevel: student.yearLevel,
@@ -48,6 +49,7 @@ const registerStudent = asyncHandler(async (req, res, next) => {
     age,
     gender,
     phone,
+    landline,
     school,
     course,
     yearLevel,
@@ -69,6 +71,7 @@ const registerStudent = asyncHandler(async (req, res, next) => {
     age,
     gender,
     phone,
+    landline,
     school,
     course,
     yearLevel,
@@ -86,6 +89,7 @@ const registerStudent = asyncHandler(async (req, res, next) => {
       age: student.age,
       gender: student.gender,
       phone: student.phone,
+      landline: student.landline,
       school: student.school,
       course: student.course,
       yearLevel: student.yearLevel,
@@ -117,6 +121,7 @@ const getStudentProfile = asyncHandler(async (req, res) => {
       age: student.age,
       gender: student.gender,
       phone: student.phone,
+      landline: student.landline,
       street: student.street,
       school: student.school,
       course: student.course,
@@ -144,6 +149,7 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
     student.age = req.body.age || student.age;
     student.gender = req.body.gender || student.gender;
     student.phone = req.body.phone || student.phone;
+    student.landline = req.body.landline || student.landline;
     student.school = req.body.school || student.school;
     student.course = req.body.course || student.course;
     student.street = req.body.street || student.street;
@@ -159,6 +165,7 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
       age: updatedStudent.age,
       gender: updatedStudent.gender,
       phone: updatedStudent.phone,
+      landline: updatedStudent.landline,
       school: updatedStudent.school,
       course: updatedStudent.course,
       yearLevel: updatedStudent.yearLevel,
@@ -226,6 +233,7 @@ const updateStudent = asyncHandler(async (req, res) => {
     student.age = req.body.age || student.age;
     student.gender = req.body.gender || student.gender;
     student.phone = req.body.phone || student.phone;
+    student.landline = req.body.landline || student.landline;
     student.school = req.body.school || student.school;
     student.course = req.body.course || student.course;
     student.street = req.body.street || student.street;
@@ -241,6 +249,7 @@ const updateStudent = asyncHandler(async (req, res) => {
       age: updatedStudent.age,
       gender: updatedStudent.gender,
       phone: updatedStudent.phone,
+      landline: updatedStudent.landline,
       school: updatedStudent.school,
       course: updatedStudent.course,
       yearLevel: updatedStudent.yearLevel,

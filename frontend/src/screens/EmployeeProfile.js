@@ -57,8 +57,11 @@ const EmployeeProfile = ({ history }) => {
               <GeoMap>
                 <Marker position={[lat, lon]}>
                   <Popup>
-                    <p className='text-danger h4 font-weight-bold my-3 text-center'>
-                      You are here {name.slice(0, name.length - 5)}
+                    <p className='text-info text-uppercase h5 font-weight-bold my-3 text-center'>
+                      You are here{' '}
+                      <span className='h5 font-weight-bold  text-warning'>
+                        {name.slice(0, name.length - 10)}
+                      </span>
                     </p>
                     <Table
                       striped

@@ -18,6 +18,7 @@ const StudentRegister = ({ location, history }) => {
   const [age, setStudentAge] = useState('');
   const [gender, setStudentGender] = useState('');
   const [phone, setStudentPhone] = useState('');
+  const [landline, setLandline] = useState('');
   const [school, setStudentSchool] = useState('');
   const [course, setStudentCourse] = useState('');
   const [street, setStreet] = useState('');
@@ -28,7 +29,6 @@ const StudentRegister = ({ location, history }) => {
 
   const studentRegister = useSelector((state) => state.studentRegister);
   const { loading, error, studentInfo } = studentRegister;
-  const [message] = useState(null);
   const areaList = useSelector((state) => state.areaList);
   const { areas } = areaList;
   const courseList = useSelector((state) => state.courseList);
@@ -36,8 +36,9 @@ const StudentRegister = ({ location, history }) => {
 
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
-  const [show, setTermsShow] = useState(false);
-
+  const [terms, setTermsShow] = useState(false);
+  const [isAccept, setTerms] = useState(false);
+  const [message, setMessage] = useState(null);
   const ChangeStreet = async (e) => {
     await setStreet(e.target.value);
   };
@@ -79,7 +80,11 @@ const StudentRegister = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-
+    if (error) {
+      setMessage(error);
+    } else if (!isAccept) {
+      setMessage('Please read and accept the Terms and Conditions');
+    }
     dispatch(
       register(
         studentId,
@@ -87,6 +92,7 @@ const StudentRegister = ({ location, history }) => {
         age,
         gender,
         phone,
+        landline,
         street,
         municipality,
         barangay,
@@ -106,14 +112,11 @@ const StudentRegister = ({ location, history }) => {
           <h1>
             Student <span className='text-warning h1'>Registration</span>
           </h1>
-          {message
-            ? 'success' && <Message variant='success'>{message}</Message>
-            : error && (
-                <Message variant='outline-warning text-danger border-0 w-50 m-auto text-center '>
-                  {error}
-                </Message>
-              )}
-          {loading && <Loader />}
+          {message ? (
+            <Message variant='outline-warning text-danger'>{message}</Message>
+          ) : (
+            loading && <Loader />
+          )}
         </Card.Title>
         <Card.Body>
           <Form className='p-3' onSubmit={submitHandler}>
@@ -181,6 +184,18 @@ const StudentRegister = ({ location, history }) => {
                     placeholder='09999999'
                     value={phone}
                     onChange={(e) => setStudentPhone(e.target.value)}
+                  />
+                </Form.Group>
+                <Form.Group controlid='student-landline'>
+                  <Form.Label>
+                    {' '}
+                    Landline <span className='text-muted'>( optional )</span>:
+                  </Form.Label>
+                  <Form.Control
+                    type='number'
+                    placeholder=''
+                    value={landline}
+                    onChange={(e) => setLandline(e.target.value)}
                   />
                 </Form.Group>
               </Col>
@@ -331,7 +346,7 @@ const StudentRegister = ({ location, history }) => {
       </Card>
       <Modal
         size='lg'
-        show={show}
+        show={terms}
         onHide={() => setTermsShow(false)}
         aria-labelledby='terms-modal'
       >
@@ -381,6 +396,16 @@ const StudentRegister = ({ location, history }) => {
             consent of the users concerned. Click SUBMIT button if you agree and
             allow MSC to include you in the map. Thank you.
           </p>
+          <Button
+            variant='primary'
+            onClick={() => {
+              setTermsShow(false);
+              setTerms(true);
+            }}
+          >
+            {' '}
+            I Accept
+          </Button>
         </Modal.Body>
       </Modal>
     </FormContainer>

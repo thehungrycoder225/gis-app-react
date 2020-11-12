@@ -25,6 +25,7 @@ const authEmployee = asyncHandler(async (req, res, next) => {
       name: employee.name,
       age: employee.age,
       phone: employee.phone,
+      landline: employee.landline,
       gender: employee.gender,
       department: employee.department,
       street: employee.street,
@@ -48,6 +49,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     name,
     age,
     phone,
+    landline,
     gender,
     department,
     office,
@@ -68,6 +70,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
     name,
     age,
     phone,
+    landline,
     gender,
     department,
     office,
@@ -83,6 +86,7 @@ const registerEmployee = asyncHandler(async (req, res, next) => {
       name: employee.name,
       age: employee.age,
       phone: employee.phone,
+      landline: employee.landline,
       gender: employee.gender,
       department: employee.department,
       office: employee.office,
@@ -114,6 +118,7 @@ const getEmployeeProfile = asyncHandler(async (req, res) => {
       age: employee.age,
       gender: employee.gender,
       phone: employee.phone,
+      landline: employee.landline,
       department: employee.department,
       street: employee.street,
       municipality: employee.municipality,
@@ -139,6 +144,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
     employee.name = req.body.name || employee.name;
     employee.age = req.body.age || employee.age;
     employee.phone = req.body.phone || employee.phone;
+    employee.landline = req.body.landline || employee.landline;
     employee.gender = req.body.gender || employee.gender;
     employee.department = req.body.department || employee.department;
     employee.street = req.body.street || employee.street;
@@ -153,6 +159,7 @@ const updateEmployeeProfile = asyncHandler(async (req, res) => {
       name: updatedEmployee.name,
       age: updatedEmployee.age,
       phone: updatedEmployee.phone,
+      landline: updatedEmployee.landline,
       gender: updatedEmployee.gender,
       department: updatedEmployee.department,
       street: updatedEmployee.street,
@@ -219,6 +226,7 @@ const updateEmployee = asyncHandler(async (req, res) => {
     employee.name = req.body.name || employee.name;
     employee.age = req.body.age || employee.age;
     employee.phone = req.body.phone || employee.phone;
+    employee.landline = req.body.landline || employee.landline;
     employee.gender = req.body.gender || employee.gender;
     employee.department = req.body.department || employee.department;
     employee.street = req.body.street || employee.street;
@@ -233,6 +241,7 @@ const updateEmployee = asyncHandler(async (req, res) => {
       name: updatedEmployee.name,
       age: updatedEmployee.age,
       phone: updatedEmployee.phone,
+      landline: updatedEmployee.landline,
       gender: updatedEmployee.gender,
       department: updatedEmployee.department,
       street: updatedEmployee.street,

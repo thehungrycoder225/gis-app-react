@@ -24,13 +24,13 @@ const EmployeeRegister = ({ location, history }) => {
   const [name, setEmployeeName] = useState('');
   const [age, setEmployeeAge] = useState('');
   const [phone, setEmployeePhone] = useState('');
+  const [landline, setLandline] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
   const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
-  const [message] = useState(null);
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
   const { loading, error, employeeInfo } = employeeRegister;
@@ -42,6 +42,8 @@ const EmployeeRegister = ({ location, history }) => {
   const redirect = location.search ? location.search.split('=')[1] : '/';
 
   const [terms, setTermsShow] = useState(false);
+  const [isAccept, setTerms] = useState(false);
+  const [message, setMessage] = useState(null);
 
   const ChangeStreet = async (e) => {
     await setStreet(e.target.value);
@@ -85,6 +87,11 @@ const EmployeeRegister = ({ location, history }) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    if (error) {
+      setMessage(error);
+    } else if (!isAccept) {
+      setMessage('Please read and accept the Terms and Conditions');
+    }
     dispatch(
       register(
         empId,
@@ -110,13 +117,11 @@ const EmployeeRegister = ({ location, history }) => {
             <h1>
               Employee <span className='text-warning'>Registration</span>{' '}
             </h1>
-            {message && <Message variant='success'>{message}</Message>}
-            {error && (
-              <Message variant='outline-warning text-danger border-0 w-50 m-auto text-center'>
-                {error}
-              </Message>
+            {message ? (
+              <Message variant='outline-warning text-danger'>{message}</Message>
+            ) : (
+              loading && <Loader />
             )}
-            {loading && <Loader />}
           </Card.Title>
           <Card.Body>
             <Form className='p-3' onSubmit={submitHandler}>
@@ -155,16 +160,7 @@ const EmployeeRegister = ({ location, history }) => {
                       onChange={(e) => setEmployeeAge(e.target.value)}
                     />
                   </Form.Group>
-                  <Form.Group controlid='employee-phone'>
-                    <span className='text-danger'>*</span>{' '}
-                    <Form.Label>Phone:</Form.Label>
-                    <Form.Control
-                      type='number'
-                      placeholder='09999999'
-                      value={phone}
-                      onChange={(e) => setEmployeePhone(e.target.value)}
-                    />
-                  </Form.Group>
+
                   <Form.Group controlid='employee-gender'>
                     <span className='text-danger'>*</span>{' '}
                     <Form.Label>Gender:</Form.Label>
@@ -195,7 +191,9 @@ const EmployeeRegister = ({ location, history }) => {
                 </Col>
                 <Col sm={6} md={6} lg={6}>
                   <Form.Group controlid='employee-municipality'>
-                    <Card.Text as='h5'>Present Address</Card.Text>
+                    <Card.Text as='h5'>
+                      Present Address / Contact Information
+                    </Card.Text>
                     <Form.Group controlid='student-street'>
                       <Form.Label>
                         <span className='text-danger'>*</span>House/Unit/Flr
@@ -246,11 +244,34 @@ const EmployeeRegister = ({ location, history }) => {
                       onChange={(e) => setEmployeeAddress(e.target.value)}
                     />
                   </Form.Group>
+                  <Form.Group controlid='employee-phone'>
+                    <span className='text-danger'>*</span>{' '}
+                    <Form.Label>Mobile Phone:</Form.Label>
+                    <Form.Control
+                      type='number'
+                      placeholder='+63919123456'
+                      value={phone}
+                      onChange={(e) => setEmployeePhone(e.target.value)}
+                    />
+                  </Form.Group>
+                  <Form.Group controlid='employee-phone'>
+                    {' '}
+                    <Form.Label>
+                      Landline Number:{' '}
+                      <span className='text-muted'>( optional )</span>
+                    </Form.Label>
+                    <Form.Control
+                      type='number'
+                      placeholder=''
+                      value={landline}
+                      onChange={(e) => setLandline(e.target.value)}
+                    />
+                  </Form.Group>
                 </Col>
                 <p className='text-muted'>
                   Please ensure that you're currently located in or within the
                   vicinity of the address stated above before submitting, By
-                  clicking Sign Up, you agree to our{' '}
+                  clicking I accept, you agree to our{' '}
                   <span
                     role='button'
                     className='text-warning  pointer-event'
@@ -325,6 +346,16 @@ const EmployeeRegister = ({ location, history }) => {
               consent of the users concerned. Click SUBMIT button if you agree
               and allow MSC to include you in the map. Thank you.
             </p>
+            <Button
+              variant='primary'
+              onClick={() => {
+                setTermsShow(false);
+                setTerms(true);
+              }}
+            >
+              {' '}
+              I Accept
+            </Button>
           </Modal.Body>
         </Modal>
       </FormContainer>

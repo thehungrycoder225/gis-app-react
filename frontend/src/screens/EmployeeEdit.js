@@ -18,6 +18,7 @@ const EmployeeEdit = ({ match, history }) => {
   const [name, setEmployeeName] = useState('');
   const [age, setEmployeeAge] = useState('');
   const [phone, setEmployeePhone] = useState('');
+  const [landline, setLandline] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
   const [street, setStreet] = useState('');
@@ -170,15 +171,7 @@ const EmployeeEdit = ({ match, history }) => {
                         onChange={(e) => setEmployeeAge(e.target.value)}
                       />
                     </Form.Group>
-                    <Form.Group controlid='employee-phone'>
-                      <Form.Label>Phone:</Form.Label>
-                      <Form.Control
-                        type='number'
-                        placeholder='09999999'
-                        value={phone}
-                        onChange={(e) => setEmployeePhone(e.target.value)}
-                      />
-                    </Form.Group>
+
                     <Form.Group controlid='employee-gender'>
                       <Form.Label>Gender:</Form.Label>
                       <Form.Control
@@ -207,7 +200,9 @@ const EmployeeEdit = ({ match, history }) => {
                   </Col>
                   <Col sm={6} md={6} lg={6}>
                     <Form.Group controlid='employee-municipality'>
-                      <Card.Text as='h5'>Present Address</Card.Text>
+                      <Card.Text as='h5'>
+                        Present Address / Contact Information
+                      </Card.Text>
                       <Form.Group controlid='student-street'>
                         <Form.Label>
                           House/Unit/Flr #,Street/Purok Name
@@ -253,6 +248,24 @@ const EmployeeEdit = ({ match, history }) => {
                         value={address}
                         hidden
                         onChange={(e) => setAddress(e.target.value)}
+                      />
+                    </Form.Group>
+                    <Form.Group controlid='employee-phone'>
+                      <Form.Label>Mobile Phone:</Form.Label>
+                      <Form.Control
+                        type='number'
+                        placeholder='09999999'
+                        value={phone}
+                        onChange={(e) => setEmployeePhone(e.target.value)}
+                      />
+                    </Form.Group>{' '}
+                    <Form.Group controlid='employee-phone'>
+                      <Form.Label>Landline:</Form.Label>
+                      <Form.Control
+                        type='number'
+                        placeholder=''
+                        value={landline}
+                        onChange={(e) => setLandline(e.target.value)}
                       />
                     </Form.Group>
                   </Col>

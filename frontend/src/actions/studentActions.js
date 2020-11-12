@@ -2,6 +2,7 @@ import {
   STUDENT_DETAILS_FAIL,
   STUDENT_DETAILS_REQUEST,
   STUDENT_DETAILS_SUCCESS,
+  STUDENT_DETAILS_RESET,
   STUDENT_DELETE_FAIL,
   STUDENT_DELETE_REQUEST,
   STUDENT_DELETE_SUCCESS,
@@ -69,6 +70,7 @@ export const register = (
   age,
   gender,
   phone,
+  landline,
   street,
   municipality,
   barangay,
@@ -95,6 +97,7 @@ export const register = (
         age,
         gender,
         phone,
+        landline,
         street,
         municipality,
         barangay,
@@ -115,7 +118,7 @@ export const register = (
       type: STUDENT_LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem('studentInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: STUDENT_REGISTER_FAIL,

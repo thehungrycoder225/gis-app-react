@@ -9,6 +9,7 @@ import {
   STUDENT_DETAILS_REQUEST,
   STUDENT_DETAILS_SUCCESS,
   STUDENT_DETAILS_FAIL,
+  STUDENT_DETAILS_RESET,
   STUDENT_UPDATE_PROFILE_SUCCESS,
   STUDENT_UPDATE_PROFILE_REQUEST,
   STUDENT_UPDATE_PROFILE_FAIL,
@@ -61,6 +62,8 @@ export const studentDetailsReducer = (state = { student: {} }, action) => {
       return { loading: false, student: action.payload };
     case STUDENT_DETAILS_FAIL:
       return { loading: false, error: action.payload };
+    case STUDENT_DETAILS_RESET:
+      return {};
     default:
       return state;
   }

@@ -9,38 +9,43 @@ const employeeSchema = new Schema(
       type: String,
       unique: true,
       trim: true,
+      required: [true, 'Please input your Employee Id'],
     },
     name: {
       type: String,
       unique: true,
-      required: true,
+      required: [true, 'Please input your Name'],
     },
     age: {
       type: Number,
-      required: true,
+      required: [true, 'Please input your Age'],
     },
     phone: {
       type: Number,
-      required: true,
+      required: [true, 'Please input your Contact Number'],
+    },
+    landline: {
+      type: Number,
     },
     gender: {
       type: String,
-      required: true,
+      required: [true, 'Please select a gender'],
     },
     street: {
       type: String,
+      required: [true, 'Please input your street'],
     },
     municipality: {
       type: String,
-      required: true,
+      required: [true, 'Please select your municipality'],
     },
     barangay: {
       type: String,
-      required: true,
+      required: [true, 'Please select your barangay'],
     },
     department: {
       type: String,
-      required: true,
+      required: [true, 'Please select your office'],
     },
     address: {
       type: String,

@@ -120,7 +120,61 @@ const StudentProfile = ({ history }) => {
             </Col>
             <Col sm={6} md={6} lg={6}>
               <Card>
-                <Button>Edit Profile</Button>
+                <Card className='border-0 shadow p-3'>
+                  <img src={logo} alt='' />
+                  <h1 className='text-center'>
+                    Hello{' '}
+                    <span className='text-warning'>
+                      {' '}
+                      {name.slice(0, name.length - 10)}
+                    </span>
+                  </h1>
+                  <Card.Body>
+                    <Table
+                      striped
+                      bordered
+                      hover
+                      responsive
+                      className='table-sm'
+                    >
+                      <tbody className='text text-center'>
+                        <tr>
+                          <th>ID</th>
+                          <td>{studentId}</td>
+                        </tr>
+                        <tr>
+                          <th>Name</th>
+                          <td>{name}</td>
+                        </tr>
+                        <tr>
+                          <th>Age</th>
+                          <td>{age}</td>
+                        </tr>
+                        <tr>
+                          <th>Gender</th>
+                          <td>{gender}</td>
+                        </tr>
+                        <tr>
+                          <th>Contact #</th>
+                          <td>{phone}</td>
+                        </tr>
+                        <tr>
+                          <th>Office</th>
+                          <td>{school}</td>
+                        </tr>
+
+                        <tr>
+                          <th>Address</th>
+                          <td>{location.formattedAddress}</td>
+                        </tr>
+                      </tbody>
+                    </Table>
+                    <Button variant='primary btn-sm w-25'>
+                      {' '}
+                      <i className='far fa-edit mx-1'></i>Edit Profile
+                    </Button>
+                  </Card.Body>
+                </Card>
               </Card>
             </Col>
           </Row>
