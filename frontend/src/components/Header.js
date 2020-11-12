@@ -36,11 +36,6 @@ const Header = () => {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='ml-auto'>
-              <LinkContainer to='/'>
-                <Nav.Link>
-                  <i className='px-1 fas fa-home'></i> Home
-                </Nav.Link>
-              </LinkContainer>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/user/profile'>
@@ -70,6 +65,11 @@ const Header = () => {
                 </NavDropdown>
               ) : (
                 <>
+                  <LinkContainer to='/'>
+                    <Nav.Link>
+                      <i className='px-1 fas fa-home'></i> Home
+                    </Nav.Link>
+                  </LinkContainer>
                   <LinkContainer to='/covid/map'>
                     <Nav.Link>
                       <i className='px-1 fas fa-map-marker-alt'></i>COVID-19 Map

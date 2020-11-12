@@ -26,7 +26,7 @@ import UserList from './screens/UserList';
 import UserEdit from './screens/UserEdit';
 import Register from './screens/Register';
 import LoginMenu from './screens/Login';
-
+import NotFound from './screens/404';
 class App extends React.Component {
   render() {
     return (
@@ -50,6 +50,7 @@ class App extends React.Component {
             <Route path='/admin/user/:id/edit' component={UserEdit} />
             <Route path='/admin/student/:id/edit' component={StudentEdit} />
             <Route path='/admin/employee/:id/edit' component={EmployeeEdit} />
+            <Route path='/404' component={NotFound} />
           </Container>
           <Route path='/client/covid/list' component={CovidList} />
           <Route path='/admin/student/list' component={StudentList} />

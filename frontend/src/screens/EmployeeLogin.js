@@ -14,7 +14,9 @@ const EmployeeLogin = ({ location, history }) => {
   const [message] = useState(null);
   const employeeLogin = useSelector((state) => state.employeeLogin);
   const { loading, error, employeeInfo } = employeeLogin;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  const redirect = location.search
+    ? location.search.split('=')[1]
+    : '/employee/profile';
   useEffect(() => {
     if (employeeInfo) {
       history.push(redirect);
@@ -45,7 +47,7 @@ const EmployeeLogin = ({ location, history }) => {
             Enter your valid MSC Employee ID to access your profile page
           </Card.Text>
           {loading ? (
-            <Loader />
+            <Loader variant='warning' />
           ) : message ? (
             <Message variant=' outline-info text-info border-0 text-center '>
               {message}

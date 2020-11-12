@@ -52,6 +52,7 @@ const EmployeeProfile = ({ history }) => {
         <Message variant='danger'>{error}</Message>
       ) : (
         <Container className='w-auto p-3' fluid>
+          <h1>Employee Profile</h1>
           <Row>
             <Col sm={6} md={6} lg={6}>
               <GeoMap>

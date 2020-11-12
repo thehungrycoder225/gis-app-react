@@ -43,7 +43,7 @@ const UserLogin = ({ location, history }) => {
             <img src={logo} alt='logo' className='mt-3' />
             <Card.Title className='text-center mt-2'>
               {' '}
-              {loading ? <Loader /> : <h1>User Login</h1>}
+              <h1>User Login</h1>
               {error ? (
                 <Message variant='outline-danger text-danger border-0 text-center'>
                   {error}
@@ -80,7 +80,7 @@ const UserLogin = ({ location, history }) => {
                   {loading ? <Loader /> : <span>Login</span>}
                 </Button>
               </Form>
-              <Link to='/user/forgot-password' className='text-warning'>
+              <Link to='/404' className='text-warning'>
                 Forgot password?
               </Link>
             </Card.Body>
