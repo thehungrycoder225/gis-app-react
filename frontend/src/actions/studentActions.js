@@ -45,7 +45,7 @@ export const sLogin = (studentId) => async (dispatch) => {
       type: STUDENT_LOGIN_SUCCESS,
       payload: data,
     });
-    localStorage.setItem('userInfo', JSON.stringify(data));
+    localStorage.setItem('studentInfo', JSON.stringify(data));
   } catch (error) {
     dispatch({
       type: STUDENT_LOGIN_FAIL,
@@ -139,6 +139,36 @@ export const getStudentDetails = (id) => async (dispatch, getState) => {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
+      },
+    };
+    const { data } = await axios.get(`/api/students/${id}`, config);
+    dispatch({
+      type: STUDENT_DETAILS_SUCCESS,
+      payload: data,
+    });
+  } catch (error) {
+    dispatch({
+      type: STUDENT_DETAILS_FAIL,
+      payload:
+        error.response && error.response.data.message
+          ? error.response.data.message
+          : error.message,
+    });
+  }
+};
+
+export const getProfileDetails = (id) => async (dispatch, getState) => {
+  try {
+    dispatch({
+      type: STUDENT_DETAILS_REQUEST,
+    });
+    const {
+      studentLogin: { studentInfo },
+    } = getState();
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${studentInfo.token}`,
       },
     };
     const { data } = await axios.get(`/api/students/${id}`, config);

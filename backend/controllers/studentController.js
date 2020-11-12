@@ -93,6 +93,7 @@ const registerStudent = asyncHandler(async (req, res, next) => {
       municipality: student.municipality,
       barangay: student.barangay,
       address: student.address,
+      location: student.location,
       formattedAddress: student.formattedAddress,
       token: generateToken(student._id),
     });
@@ -123,6 +124,7 @@ const getStudentProfile = asyncHandler(async (req, res) => {
       municipality: student.municipality,
       barangay: student.barangay,
       address: student.address,
+      location: student.location,
     });
   } else {
     res.status(404);

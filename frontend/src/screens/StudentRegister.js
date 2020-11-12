@@ -57,11 +57,11 @@ const StudentRegister = ({ location, history }) => {
     if (studentInfo) {
       history.push(redirect);
     }
-    if (error) {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
-    }
+    // if (error) {
+    //   setTimeout(() => {
+    //     window.location.reload();
+    //   }, 2000);
+    // }
     dispatch(listCourses(school.trim()));
     dispatch(listAreas(municipality.trim()));
     setStudentAddress(`${street},${barangay},${municipality},Marinduque`);
@@ -87,6 +87,7 @@ const StudentRegister = ({ location, history }) => {
         age,
         gender,
         phone,
+        street,
         municipality,
         barangay,
         school,

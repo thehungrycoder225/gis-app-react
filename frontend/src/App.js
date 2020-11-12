@@ -9,6 +9,7 @@ import StudentRegister from './screens/StudentRegister';
 import StudentList from './screens/StudentList';
 import StudentEdit from './screens/StudentEdit';
 import StudentLogin from './screens/StudentLogin';
+import StudentProfile from './screens/StudentProfile';
 import EmployeeRegister from './screens/EmployeeRegister';
 import EmployeeLogin from './screens/EmployeeLogin';
 import EmployeeProfile from './screens/EmployeeProfile';
@@ -38,7 +39,6 @@ class App extends React.Component {
             <Route path='/login' component={LoginMenu} />
             <Route path='/employee/register' component={EmployeeRegister} />
             <Route path='/employee/login' component={EmployeeLogin} />
-
             <Route path='/student/register' component={StudentRegister} />
             <Route path='/student/login' component={StudentLogin} />
             <Route path='/client/covid/register' component={CovidRegister} />
@@ -55,6 +55,7 @@ class App extends React.Component {
           <Route path='/admin/student/list' component={StudentList} />
           <Route path='/admin/employee/list' component={EmployeeList} />
           <Route path='/employee/profile' component={EmployeeProfile} />
+          <Route path='/student/profile' component={StudentProfile} />
           <Route path='/covid/map' component={CovidMap} />
         </main>
         <Footer />
