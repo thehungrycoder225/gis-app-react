@@ -319,11 +319,11 @@ const StudentRegister = ({ location, history }) => {
               </span>{' '}
             </p>
             <Container className='w-auto text-center'>
-              <Button className=' m-1 w-25' variant='primary' type='submit'>
+              <Button className=' m-1 w-auto' variant='primary' type='submit'>
                 Sign Up
               </Button>{' '}
               <Link to={'/register'}>
-                <Button variant='outline-warning w-25'>Go Back</Button>
+                <Button variant='outline-warning w-auto'>Go Back</Button>
               </Link>
             </Container>
           </Form>

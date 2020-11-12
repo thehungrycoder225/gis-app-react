@@ -12,10 +12,7 @@ const LoginMenu = () => {
         <Row>
           <Col sm={6} md={6} lg={6}>
             <Link to={'/employee/login'} className='text-primary text-center'>
-              <Button
-                variant='outline-dark border-0 shadow  p-2 mb-5 my-5  rounded'
-                style={{ width: '25rem', height: '25rem' }}
-              >
+              <Button variant='outline-dark border-0 shadow  w-100 h-100 p-5  my-2 rounded'>
                 <i
                   className='fas fa-briefcase'
                   style={{ fontSize: '2rem' }}
@@ -26,10 +23,7 @@ const LoginMenu = () => {
           </Col>
           <Col sm={6} md={6} lg={6}>
             <Link to={'/student/login'} className='text-primary text-center'>
-              <Button
-                variant='outline-warning border-0 shadow  p-2 mb-5 my-5  rounded'
-                style={{ width: '25rem', height: '25rem' }}
-              >
+              <Button variant='outline-warning border-0 shadow w-100 h-100 p-5 my-2  rounded'>
                 <i
                   className='fas fa-university'
                   style={{ fontSize: '2rem' }}

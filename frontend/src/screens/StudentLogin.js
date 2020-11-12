@@ -30,48 +30,52 @@ const StudentLogin = ({ location, history }) => {
     dispatch(sLogin(studentId));
   };
   return (
-    <FormContainer>
-      <Card className=' border-0 shadow p-3 mb-5 my-5 w-50 rounded '>
-        <img src={logo} alt='Brand Logo' />
-        <h2 className='text-center m-3'>Student Login</h2>
+    <>
+      <Link to={'/login'}>
+        <Button variant='link  w-auto' className='text-warning'>
+          Go Back
+        </Button>
+      </Link>
+      <FormContainer>
+        <Card className=' border-0 shadow p-3 my-2 text-center  w-auto rounded '>
+          <img src={logo} alt='Brand Logo' />
+          <h2 className='m-3'>Student Login</h2>
+          <Card.Text className='text-muted'>
+            Enter your valid MSC Student ID to access your profile page
+          </Card.Text>
+          {loading ? (
+            <Loader />
+          ) : message ? (
+            <Message variant=' outline-info text-info border-0 text-center '>
+              {message}
+            </Message>
+          ) : error ? (
+            <Message variant=' outline-danger text-danger border-0 text-center '>
+              {error}
+            </Message>
+          ) : null}
 
-        {loading ? (
-          <Loader />
-        ) : message ? (
-          <Message variant=' outline-info text-info border-0 text-center '>
-            {message}
-          </Message>
-        ) : error ? (
-          <Message variant=' outline-danger text-danger border-0 text-center '>
-            {error}
-          </Message>
-        ) : null}
-
-        <Card.Body>
-          <Form onSubmit={submitHandler}>
-            <Form.Group>
-              <Form.Label className='border-0 outline-danger  text-center '>
-                Student Id:
-              </Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Enter Id#'
-                value={studentId}
-                onChange={(e) => setStudentId(e.target.value)}
-              />
-            </Form.Group>
-            <Container className='text-center'>
-              <Button variant='primary  mx-1 w-25' type='submit'>
-                Login
-              </Button>
-              <Link to={'/login'}>
-                <Button variant='outline-warning  w-25 mx-1'>Go Back</Button>
-              </Link>
+          <Card.Body>
+            <Container className='text-center d-flex align-items-center justify-content-center'>
+              <Form onSubmit={submitHandler} inline>
+                <Form.Group>
+                  <Form.Label className='border-0 outline-danger  text-center '></Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter Student ID#'
+                    value={studentId}
+                    onChange={(e) => setStudentId(e.target.value)}
+                  />
+                </Form.Group>
+                <Button variant='primary w-auto mx-1' type='submit'>
+                  Login
+                </Button>
+              </Form>
             </Container>
-          </Form>
-        </Card.Body>
-      </Card>
-    </FormContainer>
+          </Card.Body>
+        </Card>
+      </FormContainer>
+    </>
   );
 };
 

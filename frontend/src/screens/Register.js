@@ -13,11 +13,11 @@ const Register = () => {
           <Col sm={6} md={6} lg={6}>
             <Link
               to={'/employee/register'}
-              className='text-primary text-center'
+              className='text-primary text-center border-0 text-decoration-none '
             >
               <Button
-                variant='outline-dark border-0 shadow  p-2 mb-5 my-5  rounded'
-                style={{ width: '25rem', height: '25rem' }}
+                variant='outline-dark border-0 shadow  w-100 h-100 p-5 rounded'
+                block
               >
                 <i
                   className='fas fa-briefcase'
@@ -28,10 +28,13 @@ const Register = () => {
             </Link>
           </Col>
           <Col sm={6} md={6} lg={6}>
-            <Link to={'/student/register'} className='text-primary text-center'>
+            <Link
+              to={'/student/register'}
+              className='text-primary text-center  border-0 text-decoration-none'
+            >
               <Button
-                variant='outline-warning border-0 shadow  p-2 mb-5 my-5  rounded'
-                style={{ width: '25rem', height: '25rem' }}
+                variant='outline-warning border-0 shadow  w-100 h-100 p-5 rounded'
+                block
               >
                 <i
                   className='fas fa-university'

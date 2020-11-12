@@ -30,48 +30,52 @@ const EmployeeLogin = ({ location, history }) => {
     dispatch(eLogin(empId));
   };
   return (
-    <FormContainer className='d-flex align-items-center justify-content-center vh-100'>
-      <Card className=' border-0 shadow p-3 mb-5 my-5 w-50 rounded '>
-        <img src={logo} alt='Brand Logo' />
-        <h2 className='text-center m-3'>Employee Login</h2>
+    <>
+      {' '}
+      <Link to={'/login'}>
+        <Button variant='link' className='text-warning'>
+          Go Back
+        </Button>
+      </Link>
+      <FormContainer className='d-flex align-items-center justify-content-center vh-100'>
+        <Card className=' border-0 shadow p-3 my-3 w-auto rounded  text-center'>
+          <img src={logo} alt='Brand Logo' />
+          <h2 className='text-center m-2'>Employee Login</h2>
+          <Card.Text className='text-muted'>
+            Enter your valid MSC Employee ID to access your profile page
+          </Card.Text>
+          {loading ? (
+            <Loader />
+          ) : message ? (
+            <Message variant=' outline-info text-info border-0 text-center '>
+              {message}
+            </Message>
+          ) : error ? (
+            <Message variant=' outline-danger text-danger border-0 text-center '>
+              {error}
+            </Message>
+          ) : null}
 
-        {loading ? (
-          <Loader />
-        ) : message ? (
-          <Message variant=' outline-info text-info border-0 text-center '>
-            {message}
-          </Message>
-        ) : error ? (
-          <Message variant=' outline-danger text-danger border-0 text-center '>
-            {error}
-          </Message>
-        ) : null}
-
-        <Card.Body>
-          <Form onSubmit={submitHandler}>
-            <Form.Group>
-              <Form.Label className='border-0 outline-danger  text-center '>
-                Employee Id:
-              </Form.Label>
-              <Form.Control
-                type='text'
-                placeholder='Enter Id#'
-                value={empId}
-                onChange={(e) => setEmpId(e.target.value)}
-              />
-            </Form.Group>
-            <Container className='text-center'>
-              <Button variant='primary  mx-1 w-25' type='submit'>
-                Login
-              </Button>
-              <Link to={'/login'}>
-                <Button variant='outline-warning  w-25 mx-1'>Go Back</Button>
-              </Link>
+          <Card.Body>
+            <Container className='text-center d-flex align-items-center justify-content-center'>
+              <Form onSubmit={submitHandler} inline>
+                <Form.Group>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter Employee ID#'
+                    value={empId}
+                    onChange={(e) => setEmpId(e.target.value)}
+                  />
+                </Form.Group>
+                <Button variant='primary  mx-1 w-auto' type='submit'>
+                  Login
+                </Button>
+              </Form>
             </Container>
-          </Form>
-        </Card.Body>
-      </Card>
-    </FormContainer>
+          </Card.Body>
+        </Card>
+      </FormContainer>
+    </>
   );
 };
 

@@ -58,7 +58,7 @@ export const sLogin = (studentId) => async (dispatch) => {
 };
 
 export const slogout = () => (dispatch) => {
-  localStorage.removeItem('userInfo');
+  localStorage.removeItem('studentInfo');
   dispatch({ type: STUDENT_LOGOUT });
   dispatch({ type: STUDENT_LIST_RESET });
 };
