@@ -8,6 +8,61 @@ import generateToken from '../utils/generateToken.js';
 // @route POST /api/covid
 // @access Public
 
+const createCovidCase = asyncHandler(async (req, res) => {
+  const {
+    caseId,
+    age,
+    gender,
+    street,
+    municipality,
+    barangay,
+    address,
+    status,
+  } = req.body;
+  const covid = new Covid({
+    user: req.user._id,
+    caseId,
+    age,
+    gender,
+    street,
+    municipality,
+    barangay,
+    address,
+    status,
+  });
+  const createdCase = await covid.save();
+  res.status(201).json(createdCase);
+});
+
+const updateCovidCase = asyncHandler(async (req, res) => {
+  const {
+    caseId,
+    age,
+    gender,
+    street,
+    municipality,
+    barangay,
+    address,
+    status,
+  } = req.body;
+  const covid = await Covid.findById(req.params.id);
+  if (covid) {
+    covid.caseId = caseId;
+    covid.age = age;
+    covid.gender = gender;
+    covid.street = street;
+    covid.municipality = municipality;
+    covid.barangay = barangay;
+    covid.address = address;
+    covid.status = status;
+    const updatedCase = await covid.save();
+    res.status(201).json(updatedCase);
+  } else {
+    res.status(404);
+    throw new Error('Covid Case Not Found');
+  }
+});
+
 const addCovidCase = asyncHandler(async (req, res, next) => {
   const {
     caseId,
@@ -27,6 +82,7 @@ const addCovidCase = asyncHandler(async (req, res, next) => {
   }
 
   const covid = await Covid.create({
+    user: req.user._id,
     caseId,
     age,
     gender,
@@ -196,6 +252,8 @@ const updateCase = asyncHandler(async (req, res) => {
 });
 
 export {
+  createCovidCase,
+  updateCovidCase,
   addCovidCase,
   getCaseProfile,
   updateCaseProfile,

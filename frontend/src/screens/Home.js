@@ -6,9 +6,7 @@ const Home = () => {
   return (
     <>
       <Container>
-        <Link to='/user/login'>
-          <Logo />
-        </Link>
+        <Logo />
       </Container>
     </>
   );

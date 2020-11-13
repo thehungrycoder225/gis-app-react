@@ -6,6 +6,7 @@ const covidCaseSchema = new Schema(
   {
     user: {
       type: mongoose.Schema.Types.ObjectId,
+      required: true,
       ref: 'User',
     },
     caseId: {
@@ -34,6 +35,14 @@ const covidCaseSchema = new Schema(
     status: {
       type: String,
       required: [true, 'Please Indicate Status'],
+    },
+    criticalZone: {
+      type: Number,
+      default: 50,
+    },
+    bufferZone: {
+      type: Number,
+      default: 100,
     },
     location: {
       type: {

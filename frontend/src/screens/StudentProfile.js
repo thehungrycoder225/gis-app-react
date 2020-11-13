@@ -148,6 +148,23 @@ const StudentProfile = ({ history }) => {
                                 el.location.coordinates[0],
                               ]}
                               radius={50}
+                              color={'white'}
+                              fillColor={'red'}
+                              fillOpacity={0.5}
+                              weight={0.5}
+                              opacity={0.5}
+                            ></CircleMarker>
+                            <CircleMarker
+                              center={[
+                                el.location.coordinates[1],
+                                el.location.coordinates[0],
+                              ]}
+                              radius={100}
+                              color={'white'}
+                              fillColor={'orange'}
+                              fillOpacity={0.2}
+                              weight={0.5}
+                              opacity={0.3}
                             ></CircleMarker>
                             <Marker
                               key={el._id}
