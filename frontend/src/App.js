@@ -1,9 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
-import './App.css';
+import { Container } from 'react-bootstrap';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { Container } from 'react-bootstrap';
 import Home from './screens/Home';
 import StudentRegister from './screens/StudentRegister';
 import StudentList from './screens/StudentList';
@@ -27,6 +26,7 @@ import UserEdit from './screens/UserEdit';
 import Register from './screens/Register';
 import LoginMenu from './screens/Login';
 import NotFound from './screens/404';
+import './App.css';
 class App extends React.Component {
   render() {
     return (

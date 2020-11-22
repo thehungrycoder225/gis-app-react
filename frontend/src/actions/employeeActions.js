@@ -12,6 +12,7 @@ import {
   EMPLOYEE_REGISTER_FAIL,
   EMPLOYEE_REGISTER_REQUEST,
   EMPLOYEE_REGISTER_SUCCESS,
+  EMPLOYEE_REGISTER_RESET,
   EMPLOYEE_UPDATE_PROFILE_FAIL,
   EMPLOYEE_UPDATE_PROFILE_REQUEST,
   EMPLOYEE_UPDATE_PROFILE_SUCCESS,
@@ -65,14 +66,14 @@ export const register = (
   empId,
   name,
   age,
-  phone,
-  landline,
   gender,
+  department,
   street,
   municipality,
   barangay,
-  department,
-  address
+  address,
+  phone,
+  landline
 ) => async (dispatch) => {
   try {
     dispatch({
@@ -90,14 +91,14 @@ export const register = (
         empId,
         name,
         age,
-        phone,
-        landline,
         gender,
+        department,
         street,
         municipality,
         barangay,
-        department,
         address,
+        phone,
+        landline,
       },
       config
     );

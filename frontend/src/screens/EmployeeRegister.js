@@ -10,6 +10,7 @@ import {
   Container,
   Modal,
 } from 'react-bootstrap';
+import { EMPLOYEE_REGISTER_RESET } from '../constants/employeeConstants';
 import { listAreas } from '../actions/areaActions';
 import { listDepartments } from '../actions/departmentActions';
 import { register } from '../actions/employeeActions';
@@ -23,14 +24,14 @@ const EmployeeRegister = ({ location, history }) => {
   const [empId, setEmployeeId] = useState('');
   const [name, setEmployeeName] = useState('');
   const [age, setEmployeeAge] = useState('');
-  const [phone, setEmployeePhone] = useState('');
-  const [landline, setLandline] = useState('');
   const [gender, setEmployeeGender] = useState('');
   const [department, setEmployeeDepartment] = useState('');
   const [street, setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setEmployeeAddress] = useState('');
+  const [phone, setEmployeePhone] = useState('');
+  const [landline, setLandline] = useState('');
 
   const employeeRegister = useSelector((state) => state.employeeRegister);
   const { loading, error, employeeInfo } = employeeRegister;
@@ -39,7 +40,9 @@ const EmployeeRegister = ({ location, history }) => {
   const departmentList = useSelector((state) => state.departmentList);
   const { departments } = departmentList;
 
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  const redirect = location.search
+    ? location.search.split('=')[1]
+    : '/employee/profile';
 
   const [terms, setTermsShow] = useState(false);
   const [isAccept, setTerms] = useState(false);
@@ -90,22 +93,25 @@ const EmployeeRegister = ({ location, history }) => {
     if (error) {
       setMessage(error);
     } else if (!isAccept) {
-      setMessage('Please read and accept the Terms and Conditions');
+      setMessage('Please read the Terms and Conditions');
+    } else {
+      dispatch(
+        register(
+          empId,
+          name,
+          age,
+          gender,
+          department,
+          street,
+          municipality,
+          barangay,
+          address,
+          phone,
+          landline,
+          EMPLOYEE_REGISTER_RESET
+        )
+      );
     }
-    dispatch(
-      register(
-        empId,
-        name,
-        age,
-        phone,
-        gender,
-        department,
-        street,
-        municipality,
-        barangay,
-        address
-      )
-    );
   };
 
   return (
@@ -270,8 +276,8 @@ const EmployeeRegister = ({ location, history }) => {
                 </Col>
                 <p className='text-muted'>
                   Please ensure that you're currently located in or within the
-                  vicinity of the address stated above before submitting, By
-                  clicking I accept, you agree to our{' '}
+                  vicinity of the address stated above during the registration
+                  process. By clicking I Sign Up, you agree to our{' '}
                   <span
                     role='button'
                     className='text-warning  pointer-event'
@@ -343,8 +349,9 @@ const EmployeeRegister = ({ location, history }) => {
                 Republic Act 10173{' '}
               </a>{' '}
               or the National Privacy Act of 2012 without the expressed written
-              consent of the users concerned. Click SUBMIT button if you agree
-              and allow MSC to include you in the map. Thank you.
+              consent of the users concerned. Click{' '}
+              <span className='text-info font-weight-bold'>I accept</span> if
+              you agree and allow MSC to include you in the map. Thank you.
             </p>
             <Button
               variant='primary'

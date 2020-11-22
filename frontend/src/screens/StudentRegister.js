@@ -34,7 +34,9 @@ const StudentRegister = ({ location, history }) => {
   const courseList = useSelector((state) => state.courseList);
   const { courses } = courseList;
 
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  const redirect = location.search
+    ? location.search.split('=')[1]
+    : '/student/profile';
 
   const [terms, setTermsShow] = useState(false);
   const [isAccept, setTerms] = useState(false);

@@ -31,6 +31,10 @@ const employeeSchema = new Schema(
       type: String,
       required: [true, 'Please select a gender'],
     },
+    department: {
+      type: String,
+      required: [true, 'Please select your office'],
+    },
     street: {
       type: String,
       required: [true, 'Please input your street'],
@@ -42,10 +46,6 @@ const employeeSchema = new Schema(
     barangay: {
       type: String,
       required: [true, 'Please select your barangay'],
-    },
-    department: {
-      type: String,
-      required: [true, 'Please select your office'],
     },
     address: {
       type: String,
