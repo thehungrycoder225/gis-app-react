@@ -171,7 +171,7 @@ const StudentRegister = ({ location, history }) => {
                     value={gender}
                     onChange={(e) => setStudentGender(e.target.value)}
                   >
-                    <option disabled>Select Gender</option>
+                    <option>Select Gender</option>
                     <option>Male</option>
                     <option>Female</option>
                   </Form.Control>
@@ -395,8 +395,9 @@ const StudentRegister = ({ location, history }) => {
               Republic Act 10173{' '}
             </a>{' '}
             or the National Privacy Act of 2012 without the expressed written
-            consent of the users concerned. Click SUBMIT button if you agree and
-            allow MSC to include you in the map. Thank you.
+            consent of the users concerned. Click{' '}
+            <span className='text-info font-weight-bold'>I accept</span> if you
+            agree and allow MSC to include you in the map. Thank you.
           </p>
           <Button
             variant='primary'

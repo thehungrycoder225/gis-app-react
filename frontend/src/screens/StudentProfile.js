@@ -82,7 +82,7 @@ const StudentProfile = ({ history }) => {
                 <Marker position={[lat, lon]}>
                   <Popup>
                     <p className='text-danger h4 font-weight-bold my-3 text-center'>
-                      You are here {name.slice(0, name.length - 5)}
+                      You are here {name}
                     </p>
                     <Table
                       striped
@@ -227,11 +227,7 @@ const StudentProfile = ({ history }) => {
                 <Card className='border-0 shadow p-3'>
                   <img src={logo} alt='' />
                   <h1 className='text-center'>
-                    Hello{' '}
-                    <span className='text-warning'>
-                      {' '}
-                      {name.slice(0, name.length - 10)}
-                    </span>
+                    Hello <span className='text-warning'> {name}</span>
                   </h1>
                   <Card.Body>
                     <Table
@@ -263,8 +259,16 @@ const StudentProfile = ({ history }) => {
                           <td>{phone}</td>
                         </tr>
                         <tr>
-                          <th>Office</th>
+                          <th>School</th>
                           <td>{school}</td>
+                        </tr>
+                        <tr>
+                          <th>Course</th>
+                          <td>{course}</td>
+                        </tr>
+                        <tr>
+                          <th>Year Level</th>
+                          <td>{yearLevel}</td>
                         </tr>
                         <tr>
                           <th>Address</th>
@@ -272,7 +276,7 @@ const StudentProfile = ({ history }) => {
                         </tr>
                       </tbody>
                     </Table>
-                    <Button variant='primary btn-sm w-25'>
+                    <Button variant='primary btn-sm w-25 ' disabled>
                       {' '}
                       <i className='far fa-edit mx-1'></i>Edit Profile
                     </Button>

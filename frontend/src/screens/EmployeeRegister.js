@@ -71,6 +71,7 @@ const EmployeeRegister = ({ location, history }) => {
     // }
     if (employeeInfo) {
       history.push(redirect);
+      dispatch({ type: EMPLOYEE_REGISTER_RESET });
     }
     dispatch(listDepartments());
     dispatch(listAreas(municipality));
@@ -107,8 +108,7 @@ const EmployeeRegister = ({ location, history }) => {
           barangay,
           address,
           phone,
-          landline,
-          EMPLOYEE_REGISTER_RESET
+          landline
         )
       );
     }
