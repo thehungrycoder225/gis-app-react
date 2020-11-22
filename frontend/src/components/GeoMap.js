@@ -1,6 +1,6 @@
 import React from 'react';
 import { Map, LayersControl, TileLayer } from 'react-leaflet';
-const GeoMap = ({ children }) => {
+const GeoMap = ({ children, zoom }) => {
   const mapToken =
     'pk.eyJ1IjoidGhlaHVuZ3J5Y29kZXIiLCJhIjoiY2tmZXg5cXptMDlmcTMxcXYzamhqbm1hOSJ9.X7KQ2n_1P8-zhNVP0ATPZQ';
   return (
@@ -8,7 +8,7 @@ const GeoMap = ({ children }) => {
       <Map
         className='leaflet-map-container'
         center={[13.3954112, 121.9563893]}
-        zoom={11}
+        zoom={zoom}
       >
         <LayersControl postion='top-right'>
           <LayersControl.BaseLayer name='Basic'>

@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { listCases } from '../actions/covidActions';
-import { Marker, Popup, FeatureGroup } from 'react-leaflet';
+import { Marker, Popup, FeatureGroup, CircleMarker } from 'react-leaflet';
 import GeoMap from '../components/GeoMap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
-import HeatmapLayer from 'react-leaflet-heatmap-layer';
 import { Icon } from 'leaflet';
 import '../stylesheets/map.css';
 import { Card, Container, Table } from 'react-bootstrap';
@@ -13,6 +12,7 @@ const CovidMap = () => {
   const dispatch = useDispatch();
   const covidList = useSelector((state) => state.covidList);
   const { loading, error, cases } = covidList;
+  const zoomLevel = 11;
   const active = new Icon({
     iconUrl:
       'https://api.geoapify.com/v1/icon/?type=awesome&color=%23a10303&icon=virus&iconSize=large&strokeColor=%23070707&shadowColor=%23000000&noWhiteCircle&apiKey=f7698d440ea444c68ac3c32fc02e607a',
@@ -26,7 +26,7 @@ const CovidMap = () => {
   return (
     <Container fluid>
       <Card className='border-0 shadow p-4 rounded'>
-        <GeoMap>
+        <GeoMap zoom={zoomLevel}>
           {loading ? (
             <Loader variant='danger' size='lg' />
           ) : error ? (
@@ -37,6 +37,30 @@ const CovidMap = () => {
                 <>
                   {el.status === 'Active' ? (
                     <FeatureGroup color='purple'>
+                      <CircleMarker
+                        center={[
+                          el.location.coordinates[1],
+                          el.location.coordinates[0],
+                        ]}
+                        radius={(50 * 10) / zoomLevel}
+                        color={'white'}
+                        fillColor={'red'}
+                        fillOpacity={0.5}
+                        weight={0.5}
+                        opacity={0.5}
+                      ></CircleMarker>
+                      <CircleMarker
+                        center={[
+                          el.location.coordinates[1],
+                          el.location.coordinates[0],
+                        ]}
+                        radius={(100 * 10) / zoomLevel}
+                        color={'white'}
+                        fillColor={'orange'}
+                        fillOpacity={0.2}
+                        weight={0.5}
+                        opacity={0.3}
+                      ></CircleMarker>
                       <Marker
                         key={el._id}
                         position={[
@@ -79,22 +103,6 @@ const CovidMap = () => {
                           </Table>
                         </Popup>
                       </Marker>
-                      <HeatmapLayer
-                        points={[
-                          [
-                            el.location.coordinates[0],
-                            el.location.coordinates[1],
-                            '500',
-                          ],
-                        ]}
-                        max={5.0}
-                        blur={25}
-                        radius={50}
-                        gradient={{ 0.8: 'orange', 1.0: 'red' }}
-                        longitudeExtractor={(m) => m[0]}
-                        latitudeExtractor={(m) => m[1]}
-                        intensityExtractor={(m) => parseFloat(m[2])}
-                      />
                     </FeatureGroup>
                   ) : null}
                 </>
