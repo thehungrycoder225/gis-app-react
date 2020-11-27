@@ -33,22 +33,19 @@ const StudentProfile = ({ history }) => {
   const { loading, error, student } = studentDetails;
   const covidList = useSelector((state) => state.covidList);
   const { loading: covidLoading, error: covidError, cases } = covidList;
-
+  const zoomLevel = 10;
   const active = new Icon({
     iconUrl:
       'https://api.geoapify.com/v1/icon/?type=awesome&color=%23a10303&icon=virus&iconSize=large&strokeColor=%23070707&shadowColor=%23000000&noWhiteCircle&apiKey=f7698d440ea444c68ac3c32fc02e607a',
     iconSize: [31, 46],
   });
-
-  const redOptions = { color: 'red', fillColor: 'red' };
-
   useEffect(() => {
+    dispatch(listCases());
     if (!studentInfo) {
       history.push('/student/login');
     } else {
       if (!student.name) {
         dispatch(getProfileDetails('profile'));
-        dispatch(listCases());
       } else {
         setStudentId(student.studentId);
         setName(student.name);
@@ -78,7 +75,7 @@ const StudentProfile = ({ history }) => {
         <Container className='w-auto p-3' fluid>
           <Row>
             <Col sm={6} md={6} lg={6}>
-              <GeoMap>
+              <GeoMap zoom={zoomLevel}>
                 <Marker position={[lat, lon]}>
                   <Popup>
                     <p className='text-danger h4 font-weight-bold my-3 text-center'>
