@@ -33,12 +33,12 @@ const EmployeeProfile = ({ history }) => {
     iconSize: [31, 46],
   });
   useEffect(() => {
-    dispatch(listCases());
     if (!employeeInfo) {
       history.push('/employee/login');
     } else {
       if (!employee.name) {
         dispatch(getProfileDetails('profile'));
+        dispatch(listCases());
       } else {
         setEmpId(employee.empId);
         setName(employee.name);
@@ -129,7 +129,7 @@ const EmployeeProfile = ({ history }) => {
                                 el.location.coordinates[1],
                                 el.location.coordinates[0],
                               ]}
-                              radius={50}
+                              radius={(50 * 5) / zoomLevel}
                               color={'white'}
                               fillColor={'red'}
                               fillOpacity={0.5}
@@ -141,7 +141,7 @@ const EmployeeProfile = ({ history }) => {
                                 el.location.coordinates[1],
                                 el.location.coordinates[0],
                               ]}
-                              radius={100}
+                              radius={(100 * 5) / zoomLevel}
                               color={'white'}
                               fillColor={'orange'}
                               fillOpacity={0.2}

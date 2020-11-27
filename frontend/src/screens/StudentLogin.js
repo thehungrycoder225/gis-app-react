@@ -14,7 +14,9 @@ const StudentLogin = ({ location, history }) => {
   const [message] = useState(null);
   const studentLogin = useSelector((state) => state.studentLogin);
   const { loading, error, studentInfo } = studentLogin;
-  const redirect = location.search ? location.search.split('=')[1] : '/';
+  const redirect = location.search
+    ? location.search.split('=')[1]
+    : '/student/profile';
   useEffect(() => {
     if (studentInfo) {
       history.push(redirect);

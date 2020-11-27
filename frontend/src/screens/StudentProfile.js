@@ -22,7 +22,7 @@ const StudentProfile = ({ history }) => {
   const [location, setLocation] = useState('');
   const [lat, setLat] = useState('');
   const [lon, setLong] = useState('');
-  const [street, setStreet] = useState('');
+  const [setStreet] = useState('');
   const [municipality, setMunicipality] = useState('');
   const [barangay, setBarangay] = useState('');
   const [address, setAddress] = useState('');
@@ -40,12 +40,12 @@ const StudentProfile = ({ history }) => {
     iconSize: [31, 46],
   });
   useEffect(() => {
-    dispatch(listCases());
     if (!studentInfo) {
       history.push('/student/login');
     } else {
       if (!student.name) {
         dispatch(getProfileDetails('profile'));
+        dispatch(listCases());
       } else {
         setStudentId(student.studentId);
         setName(student.name);
@@ -144,7 +144,7 @@ const StudentProfile = ({ history }) => {
                                 el.location.coordinates[1],
                                 el.location.coordinates[0],
                               ]}
-                              radius={50}
+                              radius={(50 * 5) / zoomLevel}
                               color={'white'}
                               fillColor={'red'}
                               fillOpacity={0.5}
@@ -156,7 +156,7 @@ const StudentProfile = ({ history }) => {
                                 el.location.coordinates[1],
                                 el.location.coordinates[0],
                               ]}
-                              radius={100}
+                              radius={(100 * 5) / zoomLevel}
                               color={'white'}
                               fillColor={'orange'}
                               fillOpacity={0.2}
