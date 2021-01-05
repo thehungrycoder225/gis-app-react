@@ -53,7 +53,11 @@ class App extends React.Component {
             <Route path='/404' component={NotFound} />
           </Container>
           <Route path='/client/covid/list' component={CovidList} />
-          <Route path='/admin/student/list' component={StudentList} />
+          <Route path='/admin/student/list' component={StudentList} exact />
+          <Route
+            path='/admin/student/list/page/:pageNumber'
+            component={StudentList}
+          />
           <Route path='/admin/employee/list' component={EmployeeList} />
           <Route path='/employee/profile' component={EmployeeProfile} />
           <Route path='/student/profile' component={StudentProfile} />

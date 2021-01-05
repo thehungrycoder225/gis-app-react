@@ -6,19 +6,22 @@ import { Popup, Marker, CircleMarker, FeatureGroup } from 'react-leaflet';
 import { Icon } from 'leaflet';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
+import Paginate from '../components/Paginate';
 import { listStudents, deleteStudent } from '../actions/studentActions';
 import { listCases } from '../actions/covidActions';
 import GeoMap from '../components/GeoMap';
-const StudentList = ({ history }) => {
+const StudentList = ({ history, match }) => {
   const dispatch = useDispatch();
   const studentList = useSelector((state) => state.studentList);
-  const { loading, error, students } = studentList;
+  const { loading, error, students, page, pages } = studentList;
   const covidList = useSelector((state) => state.covidList);
   const { cases } = covidList;
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
   const studentDelete = useSelector((state) => state.studentDelete);
   const { success: successDelete } = studentDelete;
+  const keyword = match.params.keyword;
+  const pageNumber = match.params.pageNumber || 1;
   const zoomLevel = 10;
   const active = new Icon({
     iconUrl:
@@ -28,11 +31,11 @@ const StudentList = ({ history }) => {
   useEffect(() => {
     dispatch(listCases());
     if (userInfo && userInfo.role === 'admin') {
-      dispatch(listStudents());
+      dispatch(listStudents('', pageNumber));
     } else {
       history.push('/user/login');
     }
-  }, [userInfo, dispatch, history, successDelete]);
+  }, [userInfo, dispatch, pageNumber, history, successDelete]);
   const deleteHandler = (id) => {
     if (window.confirm('Are  you sure you want to  delete this record?')) {
       dispatch(deleteStudent(id));
@@ -200,51 +203,61 @@ const StudentList = ({ history }) => {
           ) : error ? (
             <Message variant='danger'>{error}</Message>
           ) : (
-            <Table striped bordered hover responsive size='sm'>
-              <thead className='bg-primary text-warning'>
-                <tr>
-                  <th>Student Id:</th>
-                  <th>Name</th>
-                  <th>Age</th>
-                  <th>Gender</th>
-                  <th>Phone Number</th>
-                  <th>School</th>
-                  <th>Course</th>
-                  <th>Year Level</th>
-                  <th>Address</th>
-                  <th>Edit</th>
-                </tr>
-              </thead>
-              <tbody>
-                {students.map((student) => (
-                  <tr key={student._id}>
-                    <td>{student.studentId}</td>
-                    <td>{student.name}</td>
-                    <td>{student.age}</td>
-                    <td>{student.gender}</td>
-                    <td>{student.phone}</td>
-                    <td>{student.school}</td>
-                    <td>{student.course}</td>
-                    <td>{student.yearLevel}</td>
-                    <td>{student.location.formattedAddress}</td>
-                    <td>
-                      <LinkContainer to={`/admin/student/${student._id}/edit`}>
-                        <Button variant='light' className='btn-sm'>
-                          <i className='fas fa-edit'></i>
-                        </Button>
-                      </LinkContainer>
-                      <Button
-                        variant='outline-danger'
-                        className='btn-sm'
-                        onClick={() => deleteHandler(student._id)}
-                      >
-                        <i className='fas fa-trash'></i>
-                      </Button>
-                    </td>
+            <>
+              <Table striped bordered hover responsive size='sm'>
+                <thead className='bg-primary text-warning'>
+                  <tr>
+                    <th>Student Id:</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gender</th>
+                    <th>Phone Number</th>
+                    <th>School</th>
+                    <th>Course</th>
+                    <th>Year Level</th>
+                    <th>Address</th>
+                    <th>Edit</th>
                   </tr>
-                ))}
-              </tbody>
-            </Table>
+                </thead>
+                <tbody>
+                  {students.map((student) => (
+                    <tr key={student._id}>
+                      <td>{student.studentId}</td>
+                      <td>{student.name}</td>
+                      <td>{student.age}</td>
+                      <td>{student.gender}</td>
+                      <td>{student.phone}</td>
+                      <td>{student.school}</td>
+                      <td>{student.course}</td>
+                      <td>{student.yearLevel}</td>
+                      <td>{student.location.formattedAddress}</td>
+                      <td>
+                        <LinkContainer
+                          to={`/admin/student/${student._id}/edit`}
+                        >
+                          <Button variant='light' className='btn-sm'>
+                            <i className='fas fa-edit'></i>
+                          </Button>
+                        </LinkContainer>
+                        <Button
+                          variant='outline-danger'
+                          className='btn-sm'
+                          onClick={() => deleteHandler(student._id)}
+                        >
+                          <i className='fas fa-trash'></i>
+                        </Button>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+              <Paginate
+                page={pageNumber}
+                pages={pages}
+                keyword={keyword ? keyword : ''}
+                isAdmin={true}
+              />
+            </>
           )}
         </Col>
       </Row>
