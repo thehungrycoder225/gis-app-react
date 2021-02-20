@@ -185,7 +185,7 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
 // @access Private
 
 const getStudents = asyncHandler(async (req, res) => {
-  const pageSize = 5;
+  const pageSize = Number(req.query.displaySize) || 10;
   const page = Number(req.query.pageNumber) || 1;
   const features = new ApiFeatures(Student.find(), req.query)
     .filter()
@@ -200,7 +200,7 @@ const getStudents = asyncHandler(async (req, res) => {
         },
       }
     : {};
-  const students = await Student.find()
+  const students = await Student.find({ ...keyword })
     .limit(pageSize)
     .skip(pageSize * (page - 1));
   const count = await Student.countDocuments({ ...keyword });
