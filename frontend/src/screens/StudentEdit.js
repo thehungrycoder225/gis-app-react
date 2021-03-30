@@ -290,8 +290,8 @@ const StudentEdit = ({ match, history }) => {
                   </Form.Group>
                   <Form.Group controlid='student-address'>
                     <Form.Control
-                      type='text'
                       hidden
+                      type='text'
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
                     />

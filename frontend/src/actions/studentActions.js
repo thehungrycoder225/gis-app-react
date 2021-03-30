@@ -219,7 +219,10 @@ export const updateStudentProfile = (student) => async (dispatch, getState) => {
   }
 };
 
-export const listStudents = () => async (dispatch, getState) => {
+export const listStudents = (keyword = '', pageNumber = '') => async (
+  dispatch,
+  getState
+) => {
   try {
     dispatch({
       type: STUDENT_LIST_REQUEST,
@@ -232,7 +235,10 @@ export const listStudents = () => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     };
-    const { data } = await axios.get(`/api/students`, config);
+    const { data } = await axios.get(
+      `/api/students?keyword=${keyword}&pageNumber=${pageNumber}`,
+      config
+    );
     dispatch({
       type: STUDENT_LIST_SUCCESS,
       payload: data,

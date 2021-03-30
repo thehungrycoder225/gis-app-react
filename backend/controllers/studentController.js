@@ -185,16 +185,32 @@ const updateStudentProfile = asyncHandler(async (req, res) => {
 // @access Private
 
 const getStudents = asyncHandler(async (req, res) => {
+  const pageSize = Number(req.query.displaySize) || 10;
+  const page = Number(req.query.pageNumber) || 1;
   const features = new ApiFeatures(Student.find(), req.query)
     .filter()
     .sort()
     .limitFields()
     .paginate();
-  const student = await features.query;
-  if (!student) {
+  const keyword = req.query.keyword
+    ? {
+        name: {
+          $regex: req.query.keyword,
+          $options: 'i',
+        },
+      }
+    : {};
+  const students = await Student.find({ ...keyword })
+    .limit(pageSize)
+    .skip(pageSize * (page - 1));
+  const count = await Student.countDocuments({ ...keyword });
+  const studentSearch = await Student.find({ ...keyword });
+  if (!students) {
     return next(new AppError('Student Does Not Exist', 404));
   }
-  return res.status(200).json(student);
+  return res
+    .status(200)
+    .json({ students, page, pages: Math.ceil(count / pageSize) });
 });
 
 // @desc Delete Student

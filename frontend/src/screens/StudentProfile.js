@@ -58,7 +58,7 @@ const StudentProfile = ({ history }) => {
         setLocation(student.location);
         setLat(student.location.coordinates[1]);
         setLong(student.location.coordinates[0]);
-        setStreet(student.street);
+        // setStreet(student.street);
         setMunicipality(student.municipality);
         setBarangay(student.barangay);
         setAddress(student.location.formattedAddress);

@@ -5,7 +5,7 @@ import {
   DEPARTMENT_LIST_FAIL,
 } from '../constants/departmentConstants';
 
-export const listDepartments = () => async (dispatch) => {
+export const listDepartments = (keyword = '') => async (dispatch) => {
   try {
     dispatch({ type: DEPARTMENT_LIST_REQUEST });
     const config = {
@@ -13,7 +13,7 @@ export const listDepartments = () => async (dispatch) => {
         'Content-Type': 'application/json',
       },
     };
-    const { data } = await axios.get(`/api/departments/`, config);
+    const { data } = await axios.get(`/api/departments`, config);
     dispatch({
       type: DEPARTMENT_LIST_SUCCESS,
       payload: data,

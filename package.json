@@ -36,6 +36,7 @@
     "mdbreact": "^4.27.0",
     "mongoose": "^5.10.11",
     "node-geocoder": "^3.27.0",
+    "nodemon": "^2.0.7",
     "validator": "^13.1.17"
   },
   "devDependencies": {}
