@@ -28,10 +28,7 @@ const Header = () => {
       <Navbar bg='dark' variant='dark' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand>
-              {' '}
-              <img src={logo} alt='' />{' '}
-            </Navbar.Brand>
+            <Navbar.Brand> {/* <img src={logo} alt='' />{' '} */}</Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -72,7 +69,7 @@ const Header = () => {
                   </LinkContainer>
                   <LinkContainer to='/covid/map'>
                     <Nav.Link>
-                      <i className='px-1 fas fa-map-marker-alt'></i>COVID-19 Map
+                      <i className='px-1 fas fa-map-marker-alt'></i>Covid Zone
                     </Nav.Link>
                   </LinkContainer>
                   <LinkContainer to='/register'>
