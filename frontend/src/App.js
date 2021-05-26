@@ -32,9 +32,9 @@ class App extends React.Component {
     return (
       <Router>
         <Header />
-        <main className='py-3'>
+        <main>
+          <Route path='/' component={Home} exact />
           <Container>
-            <Route path='/' component={Home} exact />
             <Route path='/register' component={Register} />
             <Route path='/login' component={LoginMenu} />
             <Route path='/employee/register' component={EmployeeRegister} />

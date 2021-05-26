@@ -1,0 +1,11 @@
+Model Information:
+* title:	French Press Coffee Maker
+* source:	https://sketchfab.com/3d-models/french-press-coffee-maker-16e7f191436c4079af3f6910acadc4c1
+* author:	tom_andy_stripe (https://sketchfab.com/tom_andy_stripe)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "French Press Coffee Maker" (https://sketchfab.com/3d-models/french-press-coffee-maker-16e7f191436c4079af3f6910acadc4c1) by tom_andy_stripe (https://sketchfab.com/tom_andy_stripe) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

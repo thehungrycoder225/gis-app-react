@@ -18,9 +18,8 @@ const UserLogin = ({ location, history }) => {
 
   useEffect(() => {
     if (error) {
-      setTimeout(() => {
-        window.location.reload();
-      }, 2000);
+      setUsername('')
+      setPassword('')
     }
     if (userInfo) {
       history.push(redirect);
