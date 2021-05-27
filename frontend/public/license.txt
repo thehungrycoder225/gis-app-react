@@ -1,11 +1,11 @@
 Model Information:
-* title:	French Press Coffee Maker
-* source:	https://sketchfab.com/3d-models/french-press-coffee-maker-16e7f191436c4079af3f6910acadc4c1
-* author:	tom_andy_stripe (https://sketchfab.com/tom_andy_stripe)
+* title:	Corona Virus 3D Model
+* source:	https://sketchfab.com/3d-models/corona-virus-3d-model-0848e9c142984bef90145e0e04d03be5
+* author:	Akshat (https://sketchfab.com/shooter24994)
 
 Model License:
 * license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
 * requirements:	Author must be credited. Commercial use is allowed.
 
 If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
-This work is based on "French Press Coffee Maker" (https://sketchfab.com/3d-models/french-press-coffee-maker-16e7f191436c4079af3f6910acadc4c1) by tom_andy_stripe (https://sketchfab.com/tom_andy_stripe) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+This work is based on "Corona Virus 3D Model" (https://sketchfab.com/3d-models/corona-virus-3d-model-0848e9c142984bef90145e0e04d03be5) by Akshat (https://sketchfab.com/shooter24994) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

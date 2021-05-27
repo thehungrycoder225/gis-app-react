@@ -25,15 +25,13 @@ const Header = () => {
   };
   return (
     <header>
-      <Navbar
-        bg="dark"
-        variant='dark'
-        expand='lg'
-        collapseOnSelect
-      >
+      <Navbar variant='dark' bg='primary' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
-            <Navbar.Brand> {/* <img src={logo} alt='' />{' '} */}</Navbar.Brand>
+            <Navbar.Brand>
+              {' '}
+              <img src={logo} alt='' />{' '}
+            </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
