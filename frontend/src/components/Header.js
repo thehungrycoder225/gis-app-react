@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Navbar, Nav, Container, NavDropdown } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -6,7 +6,9 @@ import { logout } from '../actions/userActions';
 import { elogout } from '../actions/employeeActions';
 import { slogout } from '../actions/studentActions';
 import logo from '../extras/Logo.svg';
+import '../stylesheets/navbar-styles.css';
 const Header = () => {
+  const [navbar, setNavbar] = useState(false);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -25,7 +27,7 @@ const Header = () => {
   };
   return (
     <header>
-      <Navbar variant='dark' bg='primary' expand='lg' collapseOnSelect>
+      <Navbar className='bg-transparent' expand='lg' collapseOnSelect>
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
