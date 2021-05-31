@@ -3,19 +3,19 @@
     url(../extras/bg-header.jpg);
   background-size: cover;
   background-position: center;
+  position: relative;
+  top: 0;
+  min-height: 100vh;
 }
 
 .header-title {
   color: orangered;
   font-size: 96px;
+  opacity: 0;
 }
 
-.header-background {
-  background-color: #1a1c20;
-}
-
-.canvas-height {
-  min-height: 50vh;
+.header-subtitle {
+  opacity: 0;
 }
 
 .content-height {

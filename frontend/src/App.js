@@ -31,8 +31,8 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <Header />
         <main>
+          <Header />
           <Route path='/' component={Home} exact />
           <Container>
             <Route path='/register' component={Register} />

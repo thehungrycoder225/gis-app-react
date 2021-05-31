@@ -8,7 +8,6 @@ import { slogout } from '../actions/studentActions';
 import logo from '../extras/Logo.svg';
 import '../stylesheets/navbar-styles.css';
 const Header = () => {
-  const [navbar, setNavbar] = useState(false);
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);
   const { userInfo } = userLogin;
@@ -16,6 +15,7 @@ const Header = () => {
   const { employeeInfo } = employeeLogin;
   const studentLogin = useSelector((state) => state.studentLogin);
   const { studentInfo } = studentLogin;
+  const [navbar, setNavbar] = useState('');
   const logoutHandler = () => {
     dispatch(logout());
   };
@@ -25,19 +25,33 @@ const Header = () => {
   const sLogoutHandler = () => {
     dispatch(slogout());
   };
+
+  const navBackgroundHandler = () => {
+    window.scrollY >= 50 ? setNavbar(true) : setNavbar(false);
+  };
+
+  window.addEventListener('scroll', navBackgroundHandler);
   return (
     <header>
-      <Navbar className='bg-transparent' expand='lg' collapseOnSelect>
+      <Navbar
+        className={`navbar-dark navbar-transparent py-0 ${
+          navbar ? 'navbar active' : 'navbar'
+        }`}
+        expand='lg'
+        collapseOnSelect
+        fixed='top'
+      >
         <Container>
           <LinkContainer to='/'>
             <Navbar.Brand>
-              {' '}
-              <img src={logo} alt='' />{' '}
+              {/* {' '}
+              <img src={logo} alt='' />{' '} */}
+              <i className='fab fa-typo3'></i>
             </Navbar.Brand>
           </LinkContainer>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='ml-auto'>
+            <Nav className='m-auto'>
               {userInfo ? (
                 <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/user/profile'>

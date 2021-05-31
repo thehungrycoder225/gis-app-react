@@ -12,19 +12,9 @@ import '../stylesheets/landing-styles.css';
 const Home = () => {
   return (
     <>
-      <Canvas
-        className='canvas-height landing-background'
-        colorManagement
-        camera={{ position: [0, 0, 120], fov: 100 }}
-      >
-        <ambientLight intensity={1} />
-        <directionalLight position={[10, 25, 5]} intensity={1} />
-        <Suspense fallback={null}>
-          <Model />
-          <OrbitControls autoRotate />
-        </Suspense>
+      <div className=' landing-background'>
         <Title />
-      </Canvas>
+      </div>
       <Content />
       <Team />
     </>

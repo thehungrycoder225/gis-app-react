@@ -10,24 +10,24 @@ const Team = () => {
           <Col>
             <Members
               name='Dr. Julieta Q. Nabos'
-              title='Placeholder Title'
-              description=' Place Holder Description'
+              title='Project Leader'
+              description=''
               img='https://i.pravatar.cc/300?img=1'
             />
           </Col>
           <Col>
             <Members
               name='Dr. Ronjie Mar L. Malinao'
-              title='Placeholder Title'
-              description=' Place Holder Description'
+              title='Study Leader 1'
+              description=' '
               img='https://i.pravatar.cc/300?img=8'
             />
           </Col>
           <Col>
             <Members
               name='Villi Dane M. Go '
-              title='Placeholder Title'
-              description=' Place Holder Description'
+              title='Study Leader 2'
+              description=''
               img='https://i.pravatar.cc/300?img=6'
             />
           </Col>
