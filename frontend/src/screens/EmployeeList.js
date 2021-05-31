@@ -113,7 +113,7 @@ const EmployeeList = ({ history }) => {
                             el.location.coordinates[1],
                             el.location.coordinates[0],
                           ]}
-                          radius={(50 * 10) / zoomLevel}
+                          radius={(50 * 5) / zoomLevel}
                           color={'white'}
                           fillColor={'red'}
                           fillOpacity={0.5}
@@ -125,7 +125,7 @@ const EmployeeList = ({ history }) => {
                             el.location.coordinates[1],
                             el.location.coordinates[0],
                           ]}
-                          radius={(100 * 10) / zoomLevel}
+                          radius={(100 * 5) / zoomLevel}
                           color={'white'}
                           fillColor={'orange'}
                           fillOpacity={0.2}

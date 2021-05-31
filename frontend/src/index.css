@@ -10,7 +10,7 @@
   src: local('Noir'), local('NoirStd-Regular'), url('fonts/NoirStd-Regular.ttf');
 }
 main {
-  min-height: 80vh;
+  min-height: 100vh;
 }
 
 body {

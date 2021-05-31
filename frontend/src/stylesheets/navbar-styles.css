@@ -1,3 +1,19 @@
 .navbar.active {
   background-color: black;
 }
+
+.nav-link {
+  color: #f64b00 !important;
+}
+
+.nav-link.active {
+  color: #e6ecf2 !important;
+}
+
+i {
+  color: #f64b00 !important;
+}
+
+i.active {
+  color: #3284d6 !important;
+}

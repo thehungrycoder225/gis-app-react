@@ -1,6 +1,6 @@
 import React from 'react';
 import { Transition } from 'react-transition-group';
-import { TweenMax } from 'gsap/all';
+import { TweenMax } from 'gsap';
 
 const Animate = ({ children }) => {
   const startState = { autoAlpha: 0, y: -50 };

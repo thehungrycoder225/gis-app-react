@@ -22,7 +22,7 @@ const StudentList = ({ history, match }) => {
   const { success: successDelete } = studentDelete;
   const keyword = match.params.keyword;
   const pageNumber = match.params.pageNumber || 1;
-  const zoomLevel = 10;
+  const zoomLevel = 11;
   const active = new Icon({
     iconUrl:
       'https://api.geoapify.com/v1/icon/?type=awesome&color=%23a10303&icon=virus&iconSize=large&strokeColor=%23070707&shadowColor=%23000000&noWhiteCircle&apiKey=f7698d440ea444c68ac3c32fc02e607a',
@@ -121,7 +121,7 @@ const StudentList = ({ history, match }) => {
                             el.location.coordinates[1],
                             el.location.coordinates[0],
                           ]}
-                          radius={(50 * 10) / zoomLevel}
+                          radius={(50 * 5) / zoomLevel}
                           color={'white'}
                           fillColor={'red'}
                           fillOpacity={0.5}
@@ -133,7 +133,7 @@ const StudentList = ({ history, match }) => {
                             el.location.coordinates[1],
                             el.location.coordinates[0],
                           ]}
-                          radius={(100 * 10) / zoomLevel}
+                          radius={(100 * 5) / zoomLevel}
                           color={'white'}
                           fillColor={'orange'}
                           fillOpacity={0.2}

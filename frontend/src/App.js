@@ -34,7 +34,7 @@ class App extends React.Component {
         <main>
           <Header />
           <Route path='/' component={Home} exact />
-          <Container>
+          <Container className='mt-5'>
             <Route path='/register' component={Register} />
             <Route path='/login' component={LoginMenu} />
             <Route path='/employee/register' component={EmployeeRegister} />
