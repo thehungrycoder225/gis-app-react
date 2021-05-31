@@ -5,7 +5,7 @@
   background-position: center;
   position: relative;
   top: 0;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
 .header-title {
@@ -20,4 +20,8 @@
 
 .content-height {
   min-height: 50vh;
+}
+
+.mt-10 {
+  margin-top: 10rem;
 }
