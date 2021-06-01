@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { TweenLite, Power3 } from 'gsap';
-import '../../stylesheets/landing-styles.css';
+// import '../../stylesheets/landing-styles.css';
+import '../../sass/main.scss';
 
 function Title() {
   let title = useRef(null);
@@ -16,7 +17,7 @@ function Title() {
   }, []);
 
   return (
-    <Container>
+    <div className='header-box'>
       <Row className=' justify-content-center text-center mb-5 mb-md-5 '>
         <Col className='col-md-12 col-lg-7 spacer-y-3  mt-10'>
           <h1 ref={(el) => (title = el)} className='header-title d-1  my-5'>
@@ -31,7 +32,7 @@ function Title() {
           </h2>
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 

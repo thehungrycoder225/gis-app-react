@@ -26,6 +26,7 @@ import UserEdit from './screens/UserEdit';
 import Register from './screens/Register';
 import LoginMenu from './screens/Login';
 import NotFound from './screens/404';
+import './sass/main.scss';
 import './App.css';
 class App extends React.Component {
   render() {
