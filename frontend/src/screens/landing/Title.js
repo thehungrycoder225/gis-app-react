@@ -1,8 +1,6 @@
 import React, { useEffect, useRef } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import { TweenLite, Power3 } from 'gsap';
-// import '../../stylesheets/landing-styles.css';
-import '../../sass/main.scss';
 
 function Title() {
   let title = useRef(null);

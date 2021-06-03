@@ -6,16 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 const sections = [
   {
-    title: 'Rationale',
-    content: `The COVID-19 pandemic situation in the country is getting better based on daily reports of number of positive cases that shows decreasing pattern. Cities, municipalities and provinces are gradually starting to restore economic activities. Our province is again open to locally stranded individuals (LSI) and returning OFWs. Authorized persons outside residence (APOR) traveling to and from the province are increasing. This situation puts the province to higher possibility of spreading the COVID-19 virus just like what happened recently where confirmed positive cases increased.`,
-  },
-  {
     title: 'Objectives',
     content: `The main objective of this project is to provide the institution a
     tool that will provide relevant information for decision making
     towards prevention of COVID-19 transmission within the MSC
     community`,
   },
+  {
+    title: 'Rationale',
+    content: `The COVID-19 pandemic situation in the country is getting better based on daily reports of number of positive cases that shows decreasing pattern. Cities, municipalities and provinces are gradually starting to restore economic activities. Our province is again open to locally stranded individuals (LSI) and returning OFWs. Authorized persons outside residence (APOR) traveling to and from the province are increasing. This situation puts the province to higher possibility of spreading the COVID-19 virus just like what happened recently where confirmed positive cases increased.`,
+  },
+
   {
     title: 'Research',
     content: `The School of Information and Computing Sciences started to
@@ -67,11 +68,7 @@ const Content = () => {
       <Container className='content-height'>
         <Row className='justify-content-center text-justify '>
           {sections.map(({ title, content }) => (
-            <Col
-              className='col-md-6 col-lg-7 py-5 spacer-y-3'
-              key={title}
-              ref={addToRefs}
-            >
+            <Col className='col-md-6 col-lg-7 py-5' key={title} ref={addToRefs}>
               <h1>{title}</h1>
               <p>{content}</p>
             </Col>

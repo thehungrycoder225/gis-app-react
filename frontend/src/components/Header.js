@@ -6,7 +6,6 @@ import { logout } from '../actions/userActions';
 import { elogout } from '../actions/employeeActions';
 import { slogout } from '../actions/studentActions';
 import logo from '../extras/Logo.svg';
-import '../stylesheets/navbar-styles.css';
 const Header = () => {
   const dispatch = useDispatch();
   const userLogin = useSelector((state) => state.userLogin);

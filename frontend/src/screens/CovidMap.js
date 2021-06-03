@@ -6,7 +6,6 @@ import GeoMap from '../components/GeoMap';
 import Message from '../components/Message';
 import Loader from '../components/Loader';
 import { Icon } from 'leaflet';
-import '../stylesheets/map.css';
 import { Card, Container, Table } from 'react-bootstrap';
 const CovidMap = () => {
   const dispatch = useDispatch();
