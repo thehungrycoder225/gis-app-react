@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-import { gsap, Power3 } from 'gsap';
+import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 gsap.registerPlugin(ScrollTrigger);
 
@@ -27,9 +27,16 @@ const sections = [
   },
 ];
 const Content = () => {
+  const headerRef = useRef(null);
   const revealRefs = useRef([]);
   revealRefs.current = [];
   useEffect(() => {
+    gsap.from(headerRef.current, {
+      autoAlpha: 0,
+      ease: 'none',
+      delay: 1,
+    });
+
     revealRefs.current.forEach((el, index) => {
       gsap.fromTo(
         el,
@@ -39,17 +46,17 @@ const Content = () => {
         {
           duration: 1,
           autoAlpha: 1,
-          ease: Power3.easeIn,
+          ease: 'none',
           scrollTrigger: {
             id: `section-${index + 1}`,
             trigger: el,
             start: 'top center+=100',
-            toggleActions: 'paly none none reverse',
+            toggleActions: 'play none none reverse',
           },
         }
       );
-    }, []);
-  });
+    });
+  }, []);
   const addToRefs = (el) => {
     if (el && !revealRefs.current.includes(el)) {
       revealRefs.current.push(el);
@@ -61,7 +68,7 @@ const Content = () => {
         <Row className='justify-content-center text-justify '>
           {sections.map(({ title, content }) => (
             <Col
-              className='col-md-12 col-lg-7 py-5 spacer-y-3 '
+              className='col-md-6 col-lg-7 py-5 spacer-y-3'
               key={title}
               ref={addToRefs}
             >
