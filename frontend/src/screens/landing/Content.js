@@ -64,7 +64,7 @@ const Content = () => {
     }
   };
   return (
-    <div>
+    <div className='content-section'>
       <Container className='content-height'>
         <Row className='justify-content-center text-justify '>
           {sections.map(({ title, content }) => (
