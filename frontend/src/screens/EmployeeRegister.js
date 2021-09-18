@@ -64,11 +64,6 @@ const EmployeeRegister = ({ location, history }) => {
   };
 
   useEffect(() => {
-    // if (error) {
-    //   setTimeout(() => {
-    //     window.location.reload();
-    //   }, 2000);
-    // }
     if (employeeInfo) {
       history.push(redirect);
       dispatch({ type: EMPLOYEE_REGISTER_RESET });
