@@ -62,67 +62,69 @@ export const elogout = () => (dispatch) => {
   dispatch({ type: EMPLOYEE_LOGOUT });
 };
 
-export const register = (
-  empId,
-  name,
-  age,
-  gender,
-  department,
-  street,
-  municipality,
-  barangay,
-  address,
-  phone,
-  landline
-) => async (dispatch) => {
-  try {
-    dispatch({
-      type: EMPLOYEE_REGISTER_REQUEST,
-    });
+export const register =
+  (
+    empId,
+    name,
+    age,
+    gender,
+    department,
+    street,
+    municipality,
+    barangay,
+    address,
+    phone,
+    landline
+  ) =>
+  async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: EMPLOYEE_REGISTER_REQUEST,
+      });
 
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-    const { data } = await axios.post(
-      '/api/employees',
-      {
-        empId,
-        name,
-        age,
-        gender,
-        department,
-        street,
-        municipality,
-        barangay,
-        address,
-        phone,
-        landline,
-      },
-      config
-    );
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      };
+      const { data } = await axios.post(
+        '/api/employees',
+        {
+          empId,
+          name,
+          age,
+          gender,
+          department,
+          street,
+          municipality,
+          barangay,
+          address,
+          phone,
+          landline,
+        },
+        config
+      );
 
-    dispatch({
-      type: EMPLOYEE_REGISTER_SUCCESS,
-      payload: data,
-    });
+      dispatch({
+        type: EMPLOYEE_REGISTER_SUCCESS,
+        payload: data,
+      });
 
-    dispatch({
-      type: EMPLOYEE_LOGIN_SUCCESS,
-      payload: data,
-    });
-    localStorage.setItem('employeeInfo', JSON.stringify(data));
-  } catch (error) {
-    dispatch({
-      type: EMPLOYEE_REGISTER_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+      dispatch({
+        type: EMPLOYEE_LOGIN_SUCCESS,
+        payload: data,
+      });
+      localStorage.setItem('employeeInfo', JSON.stringify(data));
+    } catch (error) {
+      dispatch({
+        type: EMPLOYEE_REGISTER_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const getEmployeeDetails = (id) => async (dispatch, getState) => {
   try {
@@ -184,42 +186,40 @@ export const getProfileDetails = (id) => async (dispatch, getState) => {
   }
 };
 
-export const updateEmployeeProfile = (employee) => async (
-  dispatch,
-  getState
-) => {
-  try {
-    dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_REQUEST,
-    });
-    const {
-      employeeLogin: { employeeInfo },
-    } = getState();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${employeeInfo.token}`,
-      },
-    };
-    const { data } = await axios.put(
-      `/api/employees/profile`,
-      employee,
-      config
-    );
-    dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_SUCCESS,
-      payload: data,
-    });
-  } catch (error) {
-    dispatch({
-      type: EMPLOYEE_UPDATE_PROFILE_FAIL,
-      payload:
-        error.response && error.response.data.message
-          ? error.response.data.message
-          : error.message,
-    });
-  }
-};
+export const updateEmployeeProfile =
+  (employee) => async (dispatch, getState) => {
+    try {
+      dispatch({
+        type: EMPLOYEE_UPDATE_PROFILE_REQUEST,
+      });
+      const {
+        employeeLogin: { employeeInfo },
+      } = getState();
+      const config = {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${employeeInfo.token}`,
+        },
+      };
+      const { data } = await axios.put(
+        `/api/employees/profile`,
+        employee,
+        config
+      );
+      dispatch({
+        type: EMPLOYEE_UPDATE_PROFILE_SUCCESS,
+        payload: data,
+      });
+    } catch (error) {
+      dispatch({
+        type: EMPLOYEE_UPDATE_PROFILE_FAIL,
+        payload:
+          error.response && error.response.data.message
+            ? error.response.data.message
+            : error.message,
+      });
+    }
+  };
 
 export const listEmployees = () => async (dispatch, getState) => {
   try {
