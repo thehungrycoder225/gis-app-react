@@ -1,7 +1,7 @@
 {
   "name": "gis-mapping-project",
   "version": "1.0.0",
-  "description": "Marinduque State College Covid-19 and Peronnel Mapping Project",
+  "description": "Marinduque State College Covid-19 and Personnel Mapping Project",
   "main": "server.js",
   "type": "module",
   "scripts": {
